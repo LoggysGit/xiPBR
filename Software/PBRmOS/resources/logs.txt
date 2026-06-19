@@ -1,0 +1,1381 @@
+[08.06.2026-00:23:36:143] | [SERIAL] Connection error on : could not open port '': FileNotFoundError(2, 'The system cannot find the path specified.', None, 3)
+[08.06.2026-00:23:58:651] | [SERIAL] Connection error on : could not open port '': FileNotFoundError(2, 'The system cannot find the path specified.', None, 3)
+[08.06.2026-00:23:59:815] | [UI] Switched to tab: Home
+[08.06.2026-00:23:59:816] | [UI] Tabbed interface initialized.
+[08.06.2026-00:24:01:113] | [UI] Switched to tab: Console
+[08.06.2026-00:24:07:977] | [UI] Switched to tab: Assistant
+[08.06.2026-00:24:08:925] | [UI] Switched to tab: Console
+[08.06.2026-00:24:18:578] | [UI] Switched to tab: Harvest
+[08.06.2026-00:24:19:334] | [UI] Switched to tab: Console
+[08.06.2026-00:24:47:814] | [SERIAL] Connection error on : could not open port '': FileNotFoundError(2, 'The system cannot find the path specified.', None, 3)
+[08.06.2026-00:24:49:129] | [UI] Switched to tab: Home
+[08.06.2026-00:24:49:130] | [UI] Tabbed interface initialized.
+[08.06.2026-00:24:49:884] | [UI] Switched to tab: Console
+[08.06.2026-00:24:51:732] | [UI] Switched to tab: State
+[08.06.2026-00:25:25:305] | [SERIAL] Connection error on : could not open port '': FileNotFoundError(2, 'The system cannot find the path specified.', None, 3)
+[08.06.2026-00:25:26:626] | [UI] Switched to tab: Home
+[08.06.2026-00:25:26:627] | [UI] Tabbed interface initialized.
+[08.06.2026-00:25:27:540] | [UI] Switched to tab: Console
+[08.06.2026-00:25:28:863] | [UI] Switched to tab: Trends
+[08.06.2026-00:25:30:657] | [UI] Switched to tab: Console
+[08.06.2026-00:25:31:878] | [UI] Switched to tab: State
+[08.06.2026-00:25:32:529] | [UI] Switched to tab: Trends
+[08.06.2026-00:25:33:495] | [UI] Switched to tab: Home
+[08.06.2026-00:25:34:618] | [UI] Switched to tab: State
+[08.06.2026-00:25:35:636] | [UI] Switched to tab: Home
+[08.06.2026-00:25:36:011] | [UI] Switched to tab: State
+[08.06.2026-00:25:36:335] | [UI] Switched to tab: Trends
+[08.06.2026-00:25:37:398] | [UI] Switched to tab: Harvest
+[08.06.2026-00:25:38:534] | [UI] Switched to tab: Assistant
+[08.06.2026-00:25:39:561] | [UI] Switched to tab: Console
+[08.06.2026-15:01:17:400] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:01:38:766] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:01:40:156] | [UI] Switched to tab: Home
+[08.06.2026-15:01:40:157] | [UI] Tabbed interface initialized.
+[08.06.2026-15:01:44:191] | [UI] Switched to tab: Assistant
+[08.06.2026-15:03:03:301] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:03:04:568] | [UI] Switched to tab: Home
+[08.06.2026-15:03:04:569] | [UI] Tabbed interface initialized.
+[08.06.2026-15:03:07:703] | [UI] Switched to tab: Assistant
+[08.06.2026-15:03:14:958] | [UI] Switched to tab: Trends
+[08.06.2026-15:03:25:313] | [UI] Switched to tab: State
+[08.06.2026-15:05:43:509] | [UI] Switched to tab: Home
+[08.06.2026-15:05:45:597] | [UI] Switched to tab: Console
+[08.06.2026-15:06:07:465] | > ASSISTANT.ASK("Hello?")
+[08.06.2026-15:06:15:758] | [UI] Switched to tab: Assistant
+[08.06.2026-15:13:12:097] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:13:13:432] | [UI] Switched to tab: Home
+[08.06.2026-15:13:13:433] | [UI] Tabbed interface initialized.
+[08.06.2026-15:13:14:648] | [UI] Switched to tab: Assistant
+[08.06.2026-15:13:35:323] | [UI] Virtual keyboard enter.
+[08.06.2026-15:15:22:810] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:15:24:315] | [UI] Switched to tab: Home
+[08.06.2026-15:15:24:316] | [UI] Tabbed interface initialized.
+[08.06.2026-15:15:26:863] | [UI] Switched to tab: Assistant
+[08.06.2026-15:15:35:679] | [UI] Virtual keyboard enter.
+[08.06.2026-15:15:38:585] | [AI] Assistant triggered.
+[08.06.2026-15:15:38:586] | [AI] AI Assistant started to think...
+[08.06.2026-15:15:56:819] | [UI] Switched to tab: Console
+[08.06.2026-15:15:59:778] | [UI] Switched to tab: Assistant
+[08.06.2026-15:16:03:647] | [UI] Switched to tab: Console
+[08.06.2026-15:16:05:515] | [AI] AI Assistant returned an answer.
+[08.06.2026-15:16:05:516] | [AI] Assistant answered.
+[08.06.2026-15:16:08:027] | [UI] Switched to tab: Assistant
+[08.06.2026-15:19:25:388] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:19:26:685] | [UI] AI History failed: 'list' object has no attribute 'get'
+[08.06.2026-15:19:26:902] | [UI] Switched to tab: Home
+[08.06.2026-15:19:26:902] | [UI] Tabbed interface initialized.
+[08.06.2026-15:19:28:615] | [UI] Switched to tab: Assistant
+[08.06.2026-15:21:17:063] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:21:18:283] | [UI] AI History failed: 'list' object has no attribute 'get'
+[08.06.2026-15:21:18:485] | [UI] Switched to tab: Home
+[08.06.2026-15:21:18:486] | [UI] Tabbed interface initialized.
+[08.06.2026-15:21:19:510] | [UI] Switched to tab: Assistant
+[08.06.2026-15:21:23:287] | [UI] AI History failed: 'list' object has no attribute 'get'
+[08.06.2026-15:21:28:313] | [UI] AI History failed: 'list' object has no attribute 'get'
+[08.06.2026-15:21:33:328] | [UI] AI History failed: 'list' object has no attribute 'get'
+[08.06.2026-15:21:38:329] | [UI] AI History failed: 'list' object has no attribute 'get'
+[08.06.2026-15:21:41:983] | [AI] Assistant triggered.
+[08.06.2026-15:21:41:984] | [AI] AI Assistant started to think...
+[08.06.2026-15:21:42:870] | [UI] Virtual keyboard enter.
+[08.06.2026-15:21:43:348] | [UI] AI History failed: 'list' object has no attribute 'get'
+[08.06.2026-15:24:01:381] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:24:02:603] | [UI] AI History failed: '_tkinter.tkapp' object has no attribute 'create_chat_bubble'
+[08.06.2026-15:24:02:768] | [UI] Switched to tab: Home
+[08.06.2026-15:24:02:768] | [UI] Tabbed interface initialized.
+[08.06.2026-15:24:05:089] | [UI] Switched to tab: Assistant
+[08.06.2026-15:24:07:603] | [UI] AI History failed: '_tkinter.tkapp' object has no attribute 'create_chat_bubble'
+[08.06.2026-15:24:28:145] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:24:29:591] | [UI] Switched to tab: Home
+[08.06.2026-15:24:29:592] | [UI] Tabbed interface initialized.
+[08.06.2026-15:24:30:803] | [UI] Switched to tab: Assistant
+[08.06.2026-15:24:44:799] | [UI] Virtual keyboard closed.
+[08.06.2026-15:24:48:867] | [AI] Assistant triggered.
+[08.06.2026-15:24:48:868] | [AI] AI Assistant started to think...
+[08.06.2026-15:25:02:684] | [UI] Switched to tab: Console
+[08.06.2026-15:25:18:465] | [AI] AI Assistant returned an answer.
+[08.06.2026-15:25:18:466] | [AI] Assistant answered.
+[08.06.2026-15:25:29:418] | [UI] Switched to tab: Assistant
+[08.06.2026-15:44:36:112] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:44:37:566] | [UI] Switched to tab: Home
+[08.06.2026-15:44:37:567] | [UI] Tabbed interface initialized.
+[08.06.2026-15:44:42:761] | [UI] Switched to tab: Trends
+[08.06.2026-15:44:58:643] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:45:37:026] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:45:38:624] | [UI] Switched to tab: Home
+[08.06.2026-15:45:38:625] | [UI] Tabbed interface initialized.
+[08.06.2026-15:45:41:015] | [UI] Switched to tab: Trends
+[08.06.2026-15:46:59:819] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:47:01:576] | [UI] Switched to tab: Home
+[08.06.2026-15:47:01:577] | [UI] Tabbed interface initialized.
+[08.06.2026-15:47:05:224] | [UI] Switched to tab: Assistant
+[08.06.2026-15:47:09:648] | [UI] Switched to tab: Trends
+[08.06.2026-15:49:24:923] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:49:26:490] | [UI] Switched to tab: Home
+[08.06.2026-15:49:26:491] | [UI] Tabbed interface initialized.
+[08.06.2026-15:49:28:148] | [UI] Switched to tab: Trends
+[08.06.2026-15:51:49:571] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:51:51:473] | [UI] Switched to tab: Home
+[08.06.2026-15:51:51:474] | [UI] Tabbed interface initialized.
+[08.06.2026-15:51:52:952] | [UI] Switched to tab: Trends
+[08.06.2026-15:54:31:087] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:54:32:714] | [UI] Switched to tab: Home
+[08.06.2026-15:54:32:715] | [UI] Tabbed interface initialized.
+[08.06.2026-15:54:33:522] | [UI] Switched to tab: Trends
+[08.06.2026-15:58:01:277] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:58:02:814] | [UI] Switched to tab: Home
+[08.06.2026-15:58:02:815] | [UI] Tabbed interface initialized.
+[08.06.2026-15:58:04:630] | [UI] Switched to tab: Trends
+[08.06.2026-15:58:21:463] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:58:22:982] | [UI] Switched to tab: Home
+[08.06.2026-15:58:22:983] | [UI] Tabbed interface initialized.
+[08.06.2026-15:58:25:465] | [UI] Switched to tab: Trends
+[08.06.2026-15:58:50:774] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:58:52:332] | [UI] Switched to tab: Home
+[08.06.2026-15:58:52:333] | [UI] Tabbed interface initialized.
+[08.06.2026-15:58:55:645] | [UI] Switched to tab: Trends
+[08.06.2026-15:59:45:266] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-15:59:46:089] | [UI] Avg telemetry calculation error:time data '01.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:090] | [UI] Avg telemetry calculation error:time data '01.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:090] | [UI] Avg telemetry calculation error:time data '02.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:091] | [UI] Avg telemetry calculation error:time data '02.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:091] | [UI] Avg telemetry calculation error:time data '03.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:093] | [UI] Avg telemetry calculation error:time data '03.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:093] | [UI] Avg telemetry calculation error:time data '04.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:094] | [UI] Avg telemetry calculation error:time data '04.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:094] | [UI] Avg telemetry calculation error:time data '05.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:095] | [UI] Avg telemetry calculation error:time data '05.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:096] | [UI] Avg telemetry calculation error:time data '06.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:096] | [UI] Avg telemetry calculation error:time data '06.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:097] | [UI] Avg telemetry calculation error:time data '07.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:098] | [UI] Avg telemetry calculation error:time data '07.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:098] | [UI] Avg telemetry calculation error:time data '08.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:099] | [UI] Avg telemetry calculation error:time data '08.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:100] | [UI] Avg telemetry calculation error:time data '09.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:100] | [UI] Avg telemetry calculation error:time data '09.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:101] | [UI] Avg telemetry calculation error:time data '10.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:102] | [UI] Avg telemetry calculation error:time data '10.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:102] | [UI] Avg telemetry calculation error:time data '11.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:103] | [UI] Avg telemetry calculation error:time data '11.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:103] | [UI] Avg telemetry calculation error:time data '12.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:104] | [UI] Avg telemetry calculation error:time data '12.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:105] | [UI] Avg telemetry calculation error:time data '13.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:105] | [UI] Avg telemetry calculation error:time data '13.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:106] | [UI] Avg telemetry calculation error:time data '14.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:107] | [UI] Avg telemetry calculation error:time data '14.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:108] | [UI] Avg telemetry calculation error:time data '15.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:109] | [UI] Avg telemetry calculation error:time data '15.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:110] | [UI] Avg telemetry calculation error:time data '16.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:110] | [UI] Avg telemetry calculation error:time data '16.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:111] | [UI] Avg telemetry calculation error:time data '17.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:112] | [UI] Avg telemetry calculation error:time data '17.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:112] | [UI] Avg telemetry calculation error:time data '18.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:112] | [UI] Avg telemetry calculation error:time data '18.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:114] | [UI] Avg telemetry calculation error:time data '19.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:115] | [UI] Avg telemetry calculation error:time data '19.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:116] | [UI] Avg telemetry calculation error:time data '20.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:116] | [UI] Avg telemetry calculation error:time data '20.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:117] | [UI] Avg telemetry calculation error:time data '21.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:118] | [UI] Avg telemetry calculation error:time data '21.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:119] | [UI] Avg telemetry calculation error:time data '22.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:120] | [UI] Avg telemetry calculation error:time data '22.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:120] | [UI] Avg telemetry calculation error:time data '23.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:121] | [UI] Avg telemetry calculation error:time data '23.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:122] | [UI] Avg telemetry calculation error:time data '24.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:123] | [UI] Avg telemetry calculation error:time data '24.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:123] | [UI] Avg telemetry calculation error:time data '25.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:124] | [UI] Avg telemetry calculation error:time data '25.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:125] | [UI] Avg telemetry calculation error:time data '26.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:125] | [UI] Avg telemetry calculation error:time data '26.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:125] | [UI] Avg telemetry calculation error:time data '27.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:126] | [UI] Avg telemetry calculation error:time data '27.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:127] | [UI] Avg telemetry calculation error:time data '28.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:127] | [UI] Avg telemetry calculation error:time data '28.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:128] | [UI] Avg telemetry calculation error:time data '29.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:129] | [UI] Avg telemetry calculation error:time data '29.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:130] | [UI] Avg telemetry calculation error:time data '30.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:131] | [UI] Avg telemetry calculation error:time data '30.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:132] | [UI] Avg telemetry calculation error:time data '31.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:133] | [UI] Avg telemetry calculation error:time data '31.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:133] | [UI] Avg telemetry calculation error:time data '01.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:134] | [UI] Avg telemetry calculation error:time data '01.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:135] | [UI] Avg telemetry calculation error:time data '02.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:136] | [UI] Avg telemetry calculation error:time data '02.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:138] | [UI] Avg telemetry calculation error:time data '03.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:138] | [UI] Avg telemetry calculation error:time data '03.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:139] | [UI] Avg telemetry calculation error:time data '04.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:140] | [UI] Avg telemetry calculation error:time data '04.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:140] | [UI] Avg telemetry calculation error:time data '05.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:141] | [UI] Avg telemetry calculation error:time data '05.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:143] | [UI] Avg telemetry calculation error:time data '06.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:143] | [UI] Avg telemetry calculation error:time data '06.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:144] | [UI] Avg telemetry calculation error:time data '07.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:145] | [UI] Avg telemetry calculation error:time data '07.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:145] | [UI] Avg telemetry calculation error:time data '08.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:146] | [UI] Avg telemetry calculation error:time data '08.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:147] | [UI] Avg telemetry calculation error:time data '09.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:148] | [UI] Avg telemetry calculation error:time data '09.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:148] | [UI] Avg telemetry calculation error:time data '10.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:149] | [UI] Avg telemetry calculation error:time data '10.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:150] | [UI] Avg telemetry calculation error:time data '11.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:151] | [UI] Avg telemetry calculation error:time data '11.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:152] | [UI] Avg telemetry calculation error:time data '12.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:152] | [UI] Avg telemetry calculation error:time data '12.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:153] | [UI] Avg telemetry calculation error:time data '13.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:154] | [UI] Avg telemetry calculation error:time data '13.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:155] | [UI] Avg telemetry calculation error:time data '14.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:155] | [UI] Avg telemetry calculation error:time data '14.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:156] | [UI] Avg telemetry calculation error:time data '15.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:157] | [UI] Avg telemetry calculation error:time data '15.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:158] | [UI] Avg telemetry calculation error:time data '16.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:158] | [UI] Avg telemetry calculation error:time data '16.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:159] | [UI] Avg telemetry calculation error:time data '17.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:160] | [UI] Avg telemetry calculation error:time data '17.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:160] | [UI] Avg telemetry calculation error:time data '18.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:161] | [UI] Avg telemetry calculation error:time data '18.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:162] | [UI] Avg telemetry calculation error:time data '19.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:163] | [UI] Avg telemetry calculation error:time data '19.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:164] | [UI] Avg telemetry calculation error:time data '01.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:165] | [UI] Avg telemetry calculation error:time data '01.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:166] | [UI] Avg telemetry calculation error:time data '02.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:166] | [UI] Avg telemetry calculation error:time data '02.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:168] | [UI] Avg telemetry calculation error:time data '03.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:169] | [UI] Avg telemetry calculation error:time data '03.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:169] | [UI] Avg telemetry calculation error:time data '04.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:170] | [UI] Avg telemetry calculation error:time data '04.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:171] | [UI] Avg telemetry calculation error:time data '05.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:172] | [UI] Avg telemetry calculation error:time data '05.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:173] | [UI] Avg telemetry calculation error:time data '06.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:174] | [UI] Avg telemetry calculation error:time data '06.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:174] | [UI] Avg telemetry calculation error:time data '07.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:175] | [UI] Avg telemetry calculation error:time data '07.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:176] | [UI] Avg telemetry calculation error:time data '08.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:177] | [UI] Avg telemetry calculation error:time data '08.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:178] | [UI] Avg telemetry calculation error:time data '09.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:178] | [UI] Avg telemetry calculation error:time data '09.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:179] | [UI] Avg telemetry calculation error:time data '10.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:180] | [UI] Avg telemetry calculation error:time data '10.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:180] | [UI] Avg telemetry calculation error:time data '11.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:181] | [UI] Avg telemetry calculation error:time data '11.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:182] | [UI] Avg telemetry calculation error:time data '12.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:183] | [UI] Avg telemetry calculation error:time data '12.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:183] | [UI] Avg telemetry calculation error:time data '13.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:184] | [UI] Avg telemetry calculation error:time data '13.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:185] | [UI] Avg telemetry calculation error:time data '14.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:186] | [UI] Avg telemetry calculation error:time data '14.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:187] | [UI] Avg telemetry calculation error:time data '15.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:187] | [UI] Avg telemetry calculation error:time data '15.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:189] | [UI] Avg telemetry calculation error:time data '16.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:189] | [UI] Avg telemetry calculation error:time data '16.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:190] | [UI] Avg telemetry calculation error:time data '17.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:191] | [UI] Avg telemetry calculation error:time data '17.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:192] | [UI] Avg telemetry calculation error:time data '18.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:193] | [UI] Avg telemetry calculation error:time data '18.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:194] | [UI] Avg telemetry calculation error:time data '19.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:195] | [UI] Avg telemetry calculation error:time data '19.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:195] | [UI] Avg telemetry calculation error:time data '20.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:196] | [UI] Avg telemetry calculation error:time data '20.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:197] | [UI] Avg telemetry calculation error:time data '21.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:197] | [UI] Avg telemetry calculation error:time data '21.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:198] | [UI] Avg telemetry calculation error:time data '22.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:199] | [UI] Avg telemetry calculation error:time data '22.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:200] | [UI] Avg telemetry calculation error:time data '23.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:201] | [UI] Avg telemetry calculation error:time data '23.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:201] | [UI] Avg telemetry calculation error:time data '24.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:202] | [UI] Avg telemetry calculation error:time data '24.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:203] | [UI] Avg telemetry calculation error:time data '25.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:203] | [UI] Avg telemetry calculation error:time data '25.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:204] | [UI] Avg telemetry calculation error:time data '26.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:205] | [UI] Avg telemetry calculation error:time data '26.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:206] | [UI] Avg telemetry calculation error:time data '27.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:207] | [UI] Avg telemetry calculation error:time data '27.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:208] | [UI] Avg telemetry calculation error:time data '28.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:209] | [UI] Avg telemetry calculation error:time data '28.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:209] | [UI] Avg telemetry calculation error:time data '29.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:210] | [UI] Avg telemetry calculation error:time data '29.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:212] | [UI] Avg telemetry calculation error:time data '30.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:213] | [UI] Avg telemetry calculation error:time data '30.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:214] | [UI] Avg telemetry calculation error:time data '31.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:215] | [UI] Avg telemetry calculation error:time data '31.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:215] | [UI] Avg telemetry calculation error:time data '01.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:216] | [UI] Avg telemetry calculation error:time data '01.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:217] | [UI] Avg telemetry calculation error:time data '02.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:217] | [UI] Avg telemetry calculation error:time data '02.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:218] | [UI] Avg telemetry calculation error:time data '03.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:219] | [UI] Avg telemetry calculation error:time data '03.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:220] | [UI] Avg telemetry calculation error:time data '04.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:220] | [UI] Avg telemetry calculation error:time data '04.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:221] | [UI] Avg telemetry calculation error:time data '05.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:222] | [UI] Avg telemetry calculation error:time data '05.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:223] | [UI] Avg telemetry calculation error:time data '06.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:224] | [UI] Avg telemetry calculation error:time data '06.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:225] | [UI] Avg telemetry calculation error:time data '07.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:226] | [UI] Avg telemetry calculation error:time data '07.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:227] | [UI] Avg telemetry calculation error:time data '08.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:228] | [UI] Avg telemetry calculation error:time data '08.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:229] | [UI] Avg telemetry calculation error:time data '09.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:230] | [UI] Avg telemetry calculation error:time data '09.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:230] | [UI] Avg telemetry calculation error:time data '10.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:232] | [UI] Avg telemetry calculation error:time data '10.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:233] | [UI] Avg telemetry calculation error:time data '11.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:234] | [UI] Avg telemetry calculation error:time data '11.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:235] | [UI] Avg telemetry calculation error:time data '12.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:236] | [UI] Avg telemetry calculation error:time data '12.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:237] | [UI] Avg telemetry calculation error:time data '13.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:237] | [UI] Avg telemetry calculation error:time data '13.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:238] | [UI] Avg telemetry calculation error:time data '14.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:239] | [UI] Avg telemetry calculation error:time data '14.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:240] | [UI] Avg telemetry calculation error:time data '15.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:241] | [UI] Avg telemetry calculation error:time data '15.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:241] | [UI] Avg telemetry calculation error:time data '16.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:242] | [UI] Avg telemetry calculation error:time data '16.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:243] | [UI] Avg telemetry calculation error:time data '17.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:244] | [UI] Avg telemetry calculation error:time data '17.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:244] | [UI] Avg telemetry calculation error:time data '18.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:245] | [UI] Avg telemetry calculation error:time data '18.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:246] | [UI] Avg telemetry calculation error:time data '19.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:247] | [UI] Avg telemetry calculation error:time data '19.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:247] | [UI] Avg telemetry calculation error:time data '01.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:248] | [UI] Avg telemetry calculation error:time data '01.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:249] | [UI] Avg telemetry calculation error:time data '02.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:250] | [UI] Avg telemetry calculation error:time data '02.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:250] | [UI] Avg telemetry calculation error:time data '03.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:251] | [UI] Avg telemetry calculation error:time data '03.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:251] | [UI] Avg telemetry calculation error:time data '04.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:253] | [UI] Avg telemetry calculation error:time data '04.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:254] | [UI] Avg telemetry calculation error:time data '05.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:255] | [UI] Avg telemetry calculation error:time data '05.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:256] | [UI] Avg telemetry calculation error:time data '06.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:257] | [UI] Avg telemetry calculation error:time data '06.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:258] | [UI] Avg telemetry calculation error:time data '07.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:258] | [UI] Avg telemetry calculation error:time data '07.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:259] | [UI] Avg telemetry calculation error:time data '08.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:260] | [UI] Avg telemetry calculation error:time data '08.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:261] | [UI] Avg telemetry calculation error:time data '09.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:261] | [UI] Avg telemetry calculation error:time data '09.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:263] | [UI] Avg telemetry calculation error:time data '10.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:263] | [UI] Avg telemetry calculation error:time data '10.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:264] | [UI] Avg telemetry calculation error:time data '11.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:265] | [UI] Avg telemetry calculation error:time data '11.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:266] | [UI] Avg telemetry calculation error:time data '12.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:266] | [UI] Avg telemetry calculation error:time data '12.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:267] | [UI] Avg telemetry calculation error:time data '13.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:268] | [UI] Avg telemetry calculation error:time data '13.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:269] | [UI] Avg telemetry calculation error:time data '14.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:270] | [UI] Avg telemetry calculation error:time data '14.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:270] | [UI] Avg telemetry calculation error:time data '15.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:271] | [UI] Avg telemetry calculation error:time data '15.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:272] | [UI] Avg telemetry calculation error:time data '16.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:273] | [UI] Avg telemetry calculation error:time data '16.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:273] | [UI] Avg telemetry calculation error:time data '17.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:274] | [UI] Avg telemetry calculation error:time data '17.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:275] | [UI] Avg telemetry calculation error:time data '18.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:276] | [UI] Avg telemetry calculation error:time data '18.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:276] | [UI] Avg telemetry calculation error:time data '19.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:278] | [UI] Avg telemetry calculation error:time data '19.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:279] | [UI] Avg telemetry calculation error:time data '20.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:280] | [UI] Avg telemetry calculation error:time data '20.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:280] | [UI] Avg telemetry calculation error:time data '21.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:281] | [UI] Avg telemetry calculation error:time data '21.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:282] | [UI] Avg telemetry calculation error:time data '22.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:283] | [UI] Avg telemetry calculation error:time data '22.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:283] | [UI] Avg telemetry calculation error:time data '23.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:284] | [UI] Avg telemetry calculation error:time data '23.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:285] | [UI] Avg telemetry calculation error:time data '24.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:286] | [UI] Avg telemetry calculation error:time data '24.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:286] | [UI] Avg telemetry calculation error:time data '25.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:287] | [UI] Avg telemetry calculation error:time data '25.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:288] | [UI] Avg telemetry calculation error:time data '26.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:289] | [UI] Avg telemetry calculation error:time data '26.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:290] | [UI] Avg telemetry calculation error:time data '27.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:290] | [UI] Avg telemetry calculation error:time data '27.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:291] | [UI] Avg telemetry calculation error:time data '28.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:292] | [UI] Avg telemetry calculation error:time data '28.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:292] | [UI] Avg telemetry calculation error:time data '29.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:293] | [UI] Avg telemetry calculation error:time data '29.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:294] | [UI] Avg telemetry calculation error:time data '30.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:294] | [UI] Avg telemetry calculation error:time data '30.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:295] | [UI] Avg telemetry calculation error:time data '31.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:296] | [UI] Avg telemetry calculation error:time data '31.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:297] | [UI] Avg telemetry calculation error:time data '01.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:298] | [UI] Avg telemetry calculation error:time data '01.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:299] | [UI] Avg telemetry calculation error:time data '02.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:299] | [UI] Avg telemetry calculation error:time data '02.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:300] | [UI] Avg telemetry calculation error:time data '03.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:301] | [UI] Avg telemetry calculation error:time data '03.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:302] | [UI] Avg telemetry calculation error:time data '04.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:303] | [UI] Avg telemetry calculation error:time data '04.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:304] | [UI] Avg telemetry calculation error:time data '05.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:306] | [UI] Avg telemetry calculation error:time data '05.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:307] | [UI] Avg telemetry calculation error:time data '06.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:308] | [UI] Avg telemetry calculation error:time data '06.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:308] | [UI] Avg telemetry calculation error:time data '07.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:309] | [UI] Avg telemetry calculation error:time data '07.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:310] | [UI] Avg telemetry calculation error:time data '08.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:311] | [UI] Avg telemetry calculation error:time data '08.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:312] | [UI] Avg telemetry calculation error:time data '09.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:313] | [UI] Avg telemetry calculation error:time data '09.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:314] | [UI] Avg telemetry calculation error:time data '10.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:314] | [UI] Avg telemetry calculation error:time data '10.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:315] | [UI] Avg telemetry calculation error:time data '11.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:316] | [UI] Avg telemetry calculation error:time data '11.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:317] | [UI] Avg telemetry calculation error:time data '12.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:318] | [UI] Avg telemetry calculation error:time data '12.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:319] | [UI] Avg telemetry calculation error:time data '13.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:319] | [UI] Avg telemetry calculation error:time data '13.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:320] | [UI] Avg telemetry calculation error:time data '14.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:321] | [UI] Avg telemetry calculation error:time data '14.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:321] | [UI] Avg telemetry calculation error:time data '15.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:322] | [UI] Avg telemetry calculation error:time data '15.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:323] | [UI] Avg telemetry calculation error:time data '16.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:324] | [UI] Avg telemetry calculation error:time data '16.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:325] | [UI] Avg telemetry calculation error:time data '17.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:325] | [UI] Avg telemetry calculation error:time data '17.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:326] | [UI] Avg telemetry calculation error:time data '18.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:326] | [UI] Avg telemetry calculation error:time data '18.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:328] | [UI] Avg telemetry calculation error:time data '19.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:329] | [UI] Avg telemetry calculation error:time data '19.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:329] | [UI] Avg telemetry calculation error:time data '01.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:330] | [UI] Avg telemetry calculation error:time data '01.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:331] | [UI] Avg telemetry calculation error:time data '02.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:333] | [UI] Avg telemetry calculation error:time data '02.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:334] | [UI] Avg telemetry calculation error:time data '03.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:335] | [UI] Avg telemetry calculation error:time data '03.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:335] | [UI] Avg telemetry calculation error:time data '04.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:336] | [UI] Avg telemetry calculation error:time data '04.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:337] | [UI] Avg telemetry calculation error:time data '05.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:337] | [UI] Avg telemetry calculation error:time data '05.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:338] | [UI] Avg telemetry calculation error:time data '06.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:339] | [UI] Avg telemetry calculation error:time data '06.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:340] | [UI] Avg telemetry calculation error:time data '07.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:341] | [UI] Avg telemetry calculation error:time data '07.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:341] | [UI] Avg telemetry calculation error:time data '08.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:342] | [UI] Avg telemetry calculation error:time data '08.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:343] | [UI] Avg telemetry calculation error:time data '09.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:344] | [UI] Avg telemetry calculation error:time data '09.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:345] | [UI] Avg telemetry calculation error:time data '10.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:346] | [UI] Avg telemetry calculation error:time data '10.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:347] | [UI] Avg telemetry calculation error:time data '11.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:347] | [UI] Avg telemetry calculation error:time data '11.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:349] | [UI] Avg telemetry calculation error:time data '12.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:350] | [UI] Avg telemetry calculation error:time data '12.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:351] | [UI] Avg telemetry calculation error:time data '13.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:351] | [UI] Avg telemetry calculation error:time data '13.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:352] | [UI] Avg telemetry calculation error:time data '14.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:353] | [UI] Avg telemetry calculation error:time data '14.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:354] | [UI] Avg telemetry calculation error:time data '15.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:355] | [UI] Avg telemetry calculation error:time data '15.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:355] | [UI] Avg telemetry calculation error:time data '16.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:356] | [UI] Avg telemetry calculation error:time data '16.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:357] | [UI] Avg telemetry calculation error:time data '17.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:358] | [UI] Avg telemetry calculation error:time data '17.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:359] | [UI] Avg telemetry calculation error:time data '18.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:360] | [UI] Avg telemetry calculation error:time data '18.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:361] | [UI] Avg telemetry calculation error:time data '19.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:362] | [UI] Avg telemetry calculation error:time data '19.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:362] | [UI] Avg telemetry calculation error:time data '20.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:363] | [UI] Avg telemetry calculation error:time data '20.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:364] | [UI] Avg telemetry calculation error:time data '21.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:366] | [UI] Avg telemetry calculation error:time data '21.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:367] | [UI] Avg telemetry calculation error:time data '22.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:368] | [UI] Avg telemetry calculation error:time data '22.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:369] | [UI] Avg telemetry calculation error:time data '23.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:369] | [UI] Avg telemetry calculation error:time data '23.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:370] | [UI] Avg telemetry calculation error:time data '24.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:371] | [UI] Avg telemetry calculation error:time data '24.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:372] | [UI] Avg telemetry calculation error:time data '25.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:373] | [UI] Avg telemetry calculation error:time data '25.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:374] | [UI] Avg telemetry calculation error:time data '26.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:374] | [UI] Avg telemetry calculation error:time data '26.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:375] | [UI] Avg telemetry calculation error:time data '27.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:376] | [UI] Avg telemetry calculation error:time data '27.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:378] | [UI] Avg telemetry calculation error:time data '28.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:378] | [UI] Avg telemetry calculation error:time data '28.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:380] | [UI] Avg telemetry calculation error:time data '29.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:381] | [UI] Avg telemetry calculation error:time data '29.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:381] | [UI] Avg telemetry calculation error:time data '30.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:382] | [UI] Avg telemetry calculation error:time data '30.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:383] | [UI] Avg telemetry calculation error:time data '31.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:384] | [UI] Avg telemetry calculation error:time data '31.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:385] | [UI] Avg telemetry calculation error:time data '01.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:385] | [UI] Avg telemetry calculation error:time data '01.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:386] | [UI] Avg telemetry calculation error:time data '02.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:387] | [UI] Avg telemetry calculation error:time data '02.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:388] | [UI] Avg telemetry calculation error:time data '03.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:389] | [UI] Avg telemetry calculation error:time data '03.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:390] | [UI] Avg telemetry calculation error:time data '04.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:390] | [UI] Avg telemetry calculation error:time data '04.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:392] | [UI] Avg telemetry calculation error:time data '05.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:393] | [UI] Avg telemetry calculation error:time data '05.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:394] | [UI] Avg telemetry calculation error:time data '06.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:395] | [UI] Avg telemetry calculation error:time data '06.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:396] | [UI] Avg telemetry calculation error:time data '07.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:397] | [UI] Avg telemetry calculation error:time data '07.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:397] | [UI] Avg telemetry calculation error:time data '08.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:398] | [UI] Avg telemetry calculation error:time data '08.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:399] | [UI] Avg telemetry calculation error:time data '09.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:400] | [UI] Avg telemetry calculation error:time data '09.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:401] | [UI] Avg telemetry calculation error:time data '10.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:401] | [UI] Avg telemetry calculation error:time data '10.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:402] | [UI] Avg telemetry calculation error:time data '11.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:403] | [UI] Avg telemetry calculation error:time data '11.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:404] | [UI] Avg telemetry calculation error:time data '12.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:404] | [UI] Avg telemetry calculation error:time data '12.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:405] | [UI] Avg telemetry calculation error:time data '13.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:406] | [UI] Avg telemetry calculation error:time data '13.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:407] | [UI] Avg telemetry calculation error:time data '14.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:407] | [UI] Avg telemetry calculation error:time data '14.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:408] | [UI] Avg telemetry calculation error:time data '15.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:409] | [UI] Avg telemetry calculation error:time data '15.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:410] | [UI] Avg telemetry calculation error:time data '16.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:411] | [UI] Avg telemetry calculation error:time data '16.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:412] | [UI] Avg telemetry calculation error:time data '17.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:412] | [UI] Avg telemetry calculation error:time data '17.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:414] | [UI] Avg telemetry calculation error:time data '18.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:415] | [UI] Avg telemetry calculation error:time data '18.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:416] | [UI] Avg telemetry calculation error:time data '19.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:417] | [UI] Avg telemetry calculation error:time data '19.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:418] | [UI] Avg telemetry calculation error:time data '01.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:418] | [UI] Avg telemetry calculation error:time data '01.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:419] | [UI] Avg telemetry calculation error:time data '02.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:420] | [UI] Avg telemetry calculation error:time data '02.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:421] | [UI] Avg telemetry calculation error:time data '03.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:422] | [UI] Avg telemetry calculation error:time data '03.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:423] | [UI] Avg telemetry calculation error:time data '04.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:424] | [UI] Avg telemetry calculation error:time data '04.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:424] | [UI] Avg telemetry calculation error:time data '05.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:425] | [UI] Avg telemetry calculation error:time data '05.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:426] | [UI] Avg telemetry calculation error:time data '06.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:426] | [UI] Avg telemetry calculation error:time data '06.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:427] | [UI] Avg telemetry calculation error:time data '07.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:428] | [UI] Avg telemetry calculation error:time data '07.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:430] | [UI] Avg telemetry calculation error:time data '08.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:430] | [UI] Avg telemetry calculation error:time data '08.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:431] | [UI] Avg telemetry calculation error:time data '09.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:432] | [UI] Avg telemetry calculation error:time data '09.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:433] | [UI] Avg telemetry calculation error:time data '10.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:433] | [UI] Avg telemetry calculation error:time data '10.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:434] | [UI] Avg telemetry calculation error:time data '11.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:435] | [UI] Avg telemetry calculation error:time data '11.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:436] | [UI] Avg telemetry calculation error:time data '12.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:437] | [UI] Avg telemetry calculation error:time data '12.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:437] | [UI] Avg telemetry calculation error:time data '13.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:438] | [UI] Avg telemetry calculation error:time data '13.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:439] | [UI] Avg telemetry calculation error:time data '14.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:440] | [UI] Avg telemetry calculation error:time data '14.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:441] | [UI] Avg telemetry calculation error:time data '15.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:442] | [UI] Avg telemetry calculation error:time data '15.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:443] | [UI] Avg telemetry calculation error:time data '16.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:443] | [UI] Avg telemetry calculation error:time data '16.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:445] | [UI] Avg telemetry calculation error:time data '17.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:446] | [UI] Avg telemetry calculation error:time data '17.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:447] | [UI] Avg telemetry calculation error:time data '18.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:447] | [UI] Avg telemetry calculation error:time data '18.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:448] | [UI] Avg telemetry calculation error:time data '19.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:449] | [UI] Avg telemetry calculation error:time data '19.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:450] | [UI] Avg telemetry calculation error:time data '20.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:451] | [UI] Avg telemetry calculation error:time data '20.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:452] | [UI] Avg telemetry calculation error:time data '21.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:452] | [UI] Avg telemetry calculation error:time data '21.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:453] | [UI] Avg telemetry calculation error:time data '22.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:454] | [UI] Avg telemetry calculation error:time data '22.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:454] | [UI] Avg telemetry calculation error:time data '23.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:455] | [UI] Avg telemetry calculation error:time data '23.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:456] | [UI] Avg telemetry calculation error:time data '24.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:457] | [UI] Avg telemetry calculation error:time data '24.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:458] | [UI] Avg telemetry calculation error:time data '25.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:458] | [UI] Avg telemetry calculation error:time data '25.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:459] | [UI] Avg telemetry calculation error:time data '26.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:460] | [UI] Avg telemetry calculation error:time data '26.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:460] | [UI] Avg telemetry calculation error:time data '27.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:461] | [UI] Avg telemetry calculation error:time data '27.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:462] | [UI] Avg telemetry calculation error:time data '28.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:463] | [UI] Avg telemetry calculation error:time data '28.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:464] | [UI] Avg telemetry calculation error:time data '29.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:465] | [UI] Avg telemetry calculation error:time data '29.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:466] | [UI] Avg telemetry calculation error:time data '30.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:466] | [UI] Avg telemetry calculation error:time data '30.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:467] | [UI] Avg telemetry calculation error:time data '31.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:468] | [UI] Avg telemetry calculation error:time data '31.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:469] | [UI] Avg telemetry calculation error:time data '01.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:470] | [UI] Avg telemetry calculation error:time data '01.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:471] | [UI] Avg telemetry calculation error:time data '02.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:471] | [UI] Avg telemetry calculation error:time data '02.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:472] | [UI] Avg telemetry calculation error:time data '03.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:473] | [UI] Avg telemetry calculation error:time data '03.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:474] | [UI] Avg telemetry calculation error:time data '04.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:475] | [UI] Avg telemetry calculation error:time data '04.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:477] | [UI] Avg telemetry calculation error:time data '05.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:478] | [UI] Avg telemetry calculation error:time data '05.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:478] | [UI] Avg telemetry calculation error:time data '06.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:479] | [UI] Avg telemetry calculation error:time data '06.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:480] | [UI] Avg telemetry calculation error:time data '07.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:481] | [UI] Avg telemetry calculation error:time data '07.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:481] | [UI] Avg telemetry calculation error:time data '08.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:482] | [UI] Avg telemetry calculation error:time data '08.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:483] | [UI] Avg telemetry calculation error:time data '09.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:484] | [UI] Avg telemetry calculation error:time data '09.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:485] | [UI] Avg telemetry calculation error:time data '10.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:486] | [UI] Avg telemetry calculation error:time data '10.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:486] | [UI] Avg telemetry calculation error:time data '11.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:488] | [UI] Avg telemetry calculation error:time data '11.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:488] | [UI] Avg telemetry calculation error:time data '12.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:489] | [UI] Avg telemetry calculation error:time data '12.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:490] | [UI] Avg telemetry calculation error:time data '13.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:491] | [UI] Avg telemetry calculation error:time data '13.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:492] | [UI] Avg telemetry calculation error:time data '14.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:493] | [UI] Avg telemetry calculation error:time data '14.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:494] | [UI] Avg telemetry calculation error:time data '15.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:494] | [UI] Avg telemetry calculation error:time data '15.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:495] | [UI] Avg telemetry calculation error:time data '16.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:496] | [UI] Avg telemetry calculation error:time data '16.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:497] | [UI] Avg telemetry calculation error:time data '17.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:497] | [UI] Avg telemetry calculation error:time data '17.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:498] | [UI] Avg telemetry calculation error:time data '18.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:499] | [UI] Avg telemetry calculation error:time data '18.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:500] | [UI] Avg telemetry calculation error:time data '19.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:501] | [UI] Avg telemetry calculation error:time data '19.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:502] | [UI] Avg telemetry calculation error:time data '01.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:502] | [UI] Avg telemetry calculation error:time data '01.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:503] | [UI] Avg telemetry calculation error:time data '02.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:504] | [UI] Avg telemetry calculation error:time data '02.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:505] | [UI] Avg telemetry calculation error:time data '03.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:506] | [UI] Avg telemetry calculation error:time data '03.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:507] | [UI] Avg telemetry calculation error:time data '04.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:507] | [UI] Avg telemetry calculation error:time data '04.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:509] | [UI] Avg telemetry calculation error:time data '05.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:510] | [UI] Avg telemetry calculation error:time data '05.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:510] | [UI] Avg telemetry calculation error:time data '06.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:511] | [UI] Avg telemetry calculation error:time data '06.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:512] | [UI] Avg telemetry calculation error:time data '07.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:513] | [UI] Avg telemetry calculation error:time data '07.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:514] | [UI] Avg telemetry calculation error:time data '08.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:515] | [UI] Avg telemetry calculation error:time data '08.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:516] | [UI] Avg telemetry calculation error:time data '09.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:516] | [UI] Avg telemetry calculation error:time data '09.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:517] | [UI] Avg telemetry calculation error:time data '10.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:518] | [UI] Avg telemetry calculation error:time data '10.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:518] | [UI] Avg telemetry calculation error:time data '11.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:519] | [UI] Avg telemetry calculation error:time data '11.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:521] | [UI] Avg telemetry calculation error:time data '12.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:522] | [UI] Avg telemetry calculation error:time data '12.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:523] | [UI] Avg telemetry calculation error:time data '13.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:523] | [UI] Avg telemetry calculation error:time data '13.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:524] | [UI] Avg telemetry calculation error:time data '14.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:525] | [UI] Avg telemetry calculation error:time data '14.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:526] | [UI] Avg telemetry calculation error:time data '15.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:527] | [UI] Avg telemetry calculation error:time data '15.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:528] | [UI] Avg telemetry calculation error:time data '16.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:528] | [UI] Avg telemetry calculation error:time data '16.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:529] | [UI] Avg telemetry calculation error:time data '17.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:530] | [UI] Avg telemetry calculation error:time data '17.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:531] | [UI] Avg telemetry calculation error:time data '18.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:532] | [UI] Avg telemetry calculation error:time data '18.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:533] | [UI] Avg telemetry calculation error:time data '19.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:533] | [UI] Avg telemetry calculation error:time data '19.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:534] | [UI] Avg telemetry calculation error:time data '20.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:535] | [UI] Avg telemetry calculation error:time data '20.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:536] | [UI] Avg telemetry calculation error:time data '21.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:536] | [UI] Avg telemetry calculation error:time data '21.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:537] | [UI] Avg telemetry calculation error:time data '22.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:538] | [UI] Avg telemetry calculation error:time data '22.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:539] | [UI] Avg telemetry calculation error:time data '23.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:539] | [UI] Avg telemetry calculation error:time data '23.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:541] | [UI] Avg telemetry calculation error:time data '24.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:542] | [UI] Avg telemetry calculation error:time data '24.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:542] | [UI] Avg telemetry calculation error:time data '25.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:543] | [UI] Avg telemetry calculation error:time data '25.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:544] | [UI] Avg telemetry calculation error:time data '26.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:545] | [UI] Avg telemetry calculation error:time data '26.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:545] | [UI] Avg telemetry calculation error:time data '27.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:546] | [UI] Avg telemetry calculation error:time data '27.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:547] | [UI] Avg telemetry calculation error:time data '28.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:548] | [UI] Avg telemetry calculation error:time data '28.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:549] | [UI] Avg telemetry calculation error:time data '29.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:549] | [UI] Avg telemetry calculation error:time data '29.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:550] | [UI] Avg telemetry calculation error:time data '30.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:550] | [UI] Avg telemetry calculation error:time data '30.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:551] | [UI] Avg telemetry calculation error:time data '31.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:552] | [UI] Avg telemetry calculation error:time data '31.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:553] | [UI] Avg telemetry calculation error:time data '01.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:553] | [UI] Avg telemetry calculation error:time data '01.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:554] | [UI] Avg telemetry calculation error:time data '02.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:555] | [UI] Avg telemetry calculation error:time data '02.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:556] | [UI] Avg telemetry calculation error:time data '03.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:556] | [UI] Avg telemetry calculation error:time data '03.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:557] | [UI] Avg telemetry calculation error:time data '04.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:558] | [UI] Avg telemetry calculation error:time data '04.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:558] | [UI] Avg telemetry calculation error:time data '05.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:559] | [UI] Avg telemetry calculation error:time data '05.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:560] | [UI] Avg telemetry calculation error:time data '06.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:560] | [UI] Avg telemetry calculation error:time data '06.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:562] | [UI] Avg telemetry calculation error:time data '07.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:563] | [UI] Avg telemetry calculation error:time data '07.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:563] | [UI] Avg telemetry calculation error:time data '08.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:564] | [UI] Avg telemetry calculation error:time data '08.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:565] | [UI] Avg telemetry calculation error:time data '09.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:566] | [UI] Avg telemetry calculation error:time data '09.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:566] | [UI] Avg telemetry calculation error:time data '10.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:567] | [UI] Avg telemetry calculation error:time data '10.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:568] | [UI] Avg telemetry calculation error:time data '11.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:569] | [UI] Avg telemetry calculation error:time data '11.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:570] | [UI] Avg telemetry calculation error:time data '12.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:570] | [UI] Avg telemetry calculation error:time data '12.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:571] | [UI] Avg telemetry calculation error:time data '13.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:572] | [UI] Avg telemetry calculation error:time data '13.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:572] | [UI] Avg telemetry calculation error:time data '14.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:573] | [UI] Avg telemetry calculation error:time data '14.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:574] | [UI] Avg telemetry calculation error:time data '15.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:575] | [UI] Avg telemetry calculation error:time data '15.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:576] | [UI] Avg telemetry calculation error:time data '16.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:576] | [UI] Avg telemetry calculation error:time data '16.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:577] | [UI] Avg telemetry calculation error:time data '17.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:578] | [UI] Avg telemetry calculation error:time data '17.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:578] | [UI] Avg telemetry calculation error:time data '18.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:579] | [UI] Avg telemetry calculation error:time data '18.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:580] | [UI] Avg telemetry calculation error:time data '19.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:581] | [UI] Avg telemetry calculation error:time data '19.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:582] | [UI] Avg telemetry calculation error:time data '01.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:582] | [UI] Avg telemetry calculation error:time data '01.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:584] | [UI] Avg telemetry calculation error:time data '02.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:584] | [UI] Avg telemetry calculation error:time data '02.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:585] | [UI] Avg telemetry calculation error:time data '03.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:586] | [UI] Avg telemetry calculation error:time data '03.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:586] | [UI] Avg telemetry calculation error:time data '04.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:587] | [UI] Avg telemetry calculation error:time data '04.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:588] | [UI] Avg telemetry calculation error:time data '05.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:589] | [UI] Avg telemetry calculation error:time data '05.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:590] | [UI] Avg telemetry calculation error:time data '06.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:590] | [UI] Avg telemetry calculation error:time data '06.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:591] | [UI] Avg telemetry calculation error:time data '07.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:592] | [UI] Avg telemetry calculation error:time data '07.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:592] | [UI] Avg telemetry calculation error:time data '08.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:593] | [UI] Avg telemetry calculation error:time data '08.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:593] | [UI] Avg telemetry calculation error:time data '09.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:594] | [UI] Avg telemetry calculation error:time data '09.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:595] | [UI] Avg telemetry calculation error:time data '10.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:596] | [UI] Avg telemetry calculation error:time data '10.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:597] | [UI] Avg telemetry calculation error:time data '11.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:598] | [UI] Avg telemetry calculation error:time data '11.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:599] | [UI] Avg telemetry calculation error:time data '12.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:599] | [UI] Avg telemetry calculation error:time data '12.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:600] | [UI] Avg telemetry calculation error:time data '13.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:601] | [UI] Avg telemetry calculation error:time data '13.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:602] | [UI] Avg telemetry calculation error:time data '14.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:602] | [UI] Avg telemetry calculation error:time data '14.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:603] | [UI] Avg telemetry calculation error:time data '15.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:603] | [UI] Avg telemetry calculation error:time data '15.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:605] | [UI] Avg telemetry calculation error:time data '16.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:606] | [UI] Avg telemetry calculation error:time data '16.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:606] | [UI] Avg telemetry calculation error:time data '17.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:607] | [UI] Avg telemetry calculation error:time data '17.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:608] | [UI] Avg telemetry calculation error:time data '18.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:609] | [UI] Avg telemetry calculation error:time data '18.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:609] | [UI] Avg telemetry calculation error:time data '19.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:610] | [UI] Avg telemetry calculation error:time data '19.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:611] | [UI] Avg telemetry calculation error:time data '20.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:612] | [UI] Avg telemetry calculation error:time data '20.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:612] | [UI] Avg telemetry calculation error:time data '21.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:613] | [UI] Avg telemetry calculation error:time data '21.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:614] | [UI] Avg telemetry calculation error:time data '22.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:614] | [UI] Avg telemetry calculation error:time data '22.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:615] | [UI] Avg telemetry calculation error:time data '23.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:616] | [UI] Avg telemetry calculation error:time data '23.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:616] | [UI] Avg telemetry calculation error:time data '24.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:617] | [UI] Avg telemetry calculation error:time data '24.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:618] | [UI] Avg telemetry calculation error:time data '25.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:618] | [UI] Avg telemetry calculation error:time data '25.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:619] | [UI] Avg telemetry calculation error:time data '26.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:620] | [UI] Avg telemetry calculation error:time data '26.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:620] | [UI] Avg telemetry calculation error:time data '27.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:621] | [UI] Avg telemetry calculation error:time data '27.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:622] | [UI] Avg telemetry calculation error:time data '28.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:623] | [UI] Avg telemetry calculation error:time data '28.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:623] | [UI] Avg telemetry calculation error:time data '29.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:624] | [UI] Avg telemetry calculation error:time data '29.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:625] | [UI] Avg telemetry calculation error:time data '30.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:625] | [UI] Avg telemetry calculation error:time data '30.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:626] | [UI] Avg telemetry calculation error:time data '31.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:626] | [UI] Avg telemetry calculation error:time data '31.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:628] | [UI] Avg telemetry calculation error:time data '01.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:629] | [UI] Avg telemetry calculation error:time data '01.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:630] | [UI] Avg telemetry calculation error:time data '02.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:631] | [UI] Avg telemetry calculation error:time data '02.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:632] | [UI] Avg telemetry calculation error:time data '03.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:632] | [UI] Avg telemetry calculation error:time data '03.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:633] | [UI] Avg telemetry calculation error:time data '04.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:634] | [UI] Avg telemetry calculation error:time data '04.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:634] | [UI] Avg telemetry calculation error:time data '05.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:635] | [UI] Avg telemetry calculation error:time data '05.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:636] | [UI] Avg telemetry calculation error:time data '06.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:636] | [UI] Avg telemetry calculation error:time data '06.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:637] | [UI] Avg telemetry calculation error:time data '07.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:638] | [UI] Avg telemetry calculation error:time data '07.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:639] | [UI] Avg telemetry calculation error:time data '08.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:640] | [UI] Avg telemetry calculation error:time data '08.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:640] | [UI] Avg telemetry calculation error:time data '09.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:641] | [UI] Avg telemetry calculation error:time data '09.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:641] | [UI] Avg telemetry calculation error:time data '10.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:643] | [UI] Avg telemetry calculation error:time data '10.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:643] | [UI] Avg telemetry calculation error:time data '11.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:644] | [UI] Avg telemetry calculation error:time data '11.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:645] | [UI] Avg telemetry calculation error:time data '12.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:646] | [UI] Avg telemetry calculation error:time data '12.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:646] | [UI] Avg telemetry calculation error:time data '13.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:647] | [UI] Avg telemetry calculation error:time data '13.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:648] | [UI] Avg telemetry calculation error:time data '14.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:648] | [UI] Avg telemetry calculation error:time data '14.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:649] | [UI] Avg telemetry calculation error:time data '15.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:650] | [UI] Avg telemetry calculation error:time data '15.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:651] | [UI] Avg telemetry calculation error:time data '16.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:652] | [UI] Avg telemetry calculation error:time data '16.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:652] | [UI] Avg telemetry calculation error:time data '17.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:653] | [UI] Avg telemetry calculation error:time data '17.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:654] | [UI] Avg telemetry calculation error:time data '18.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:654] | [UI] Avg telemetry calculation error:time data '18.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:655] | [UI] Avg telemetry calculation error:time data '19.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:656] | [UI] Avg telemetry calculation error:time data '19.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:657] | [UI] Avg telemetry calculation error:time data '01.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:657] | [UI] Avg telemetry calculation error:time data '01.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:658] | [UI] Avg telemetry calculation error:time data '02.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:659] | [UI] Avg telemetry calculation error:time data '02.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:660] | [UI] Avg telemetry calculation error:time data '03.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:660] | [UI] Avg telemetry calculation error:time data '03.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:661] | [UI] Avg telemetry calculation error:time data '04.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:662] | [UI] Avg telemetry calculation error:time data '04.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:663] | [UI] Avg telemetry calculation error:time data '05.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:663] | [UI] Avg telemetry calculation error:time data '05.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:664] | [UI] Avg telemetry calculation error:time data '06.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:665] | [UI] Avg telemetry calculation error:time data '06.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:666] | [UI] Avg telemetry calculation error:time data '07.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:667] | [UI] Avg telemetry calculation error:time data '07.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:667] | [UI] Avg telemetry calculation error:time data '08.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:669] | [UI] Avg telemetry calculation error:time data '08.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:669] | [UI] Avg telemetry calculation error:time data '09.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:670] | [UI] Avg telemetry calculation error:time data '09.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:671] | [UI] Avg telemetry calculation error:time data '10.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:672] | [UI] Avg telemetry calculation error:time data '10.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:673] | [UI] Avg telemetry calculation error:time data '11.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:673] | [UI] Avg telemetry calculation error:time data '11.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:674] | [UI] Avg telemetry calculation error:time data '12.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:675] | [UI] Avg telemetry calculation error:time data '12.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:676] | [UI] Avg telemetry calculation error:time data '13.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:676] | [UI] Avg telemetry calculation error:time data '13.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:677] | [UI] Avg telemetry calculation error:time data '14.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:677] | [UI] Avg telemetry calculation error:time data '14.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:678] | [UI] Avg telemetry calculation error:time data '15.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:679] | [UI] Avg telemetry calculation error:time data '15.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:679] | [UI] Avg telemetry calculation error:time data '16.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:680] | [UI] Avg telemetry calculation error:time data '16.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:681] | [UI] Avg telemetry calculation error:time data '17.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:683] | [UI] Avg telemetry calculation error:time data '17.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:683] | [UI] Avg telemetry calculation error:time data '18.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:683] | [UI] Avg telemetry calculation error:time data '18.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:684] | [UI] Avg telemetry calculation error:time data '19.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:685] | [UI] Avg telemetry calculation error:time data '19.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:686] | [UI] Avg telemetry calculation error:time data '20.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:686] | [UI] Avg telemetry calculation error:time data '20.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:688] | [UI] Avg telemetry calculation error:time data '21.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:688] | [UI] Avg telemetry calculation error:time data '21.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:688] | [UI] Avg telemetry calculation error:time data '22.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:690] | [UI] Avg telemetry calculation error:time data '22.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:691] | [UI] Avg telemetry calculation error:time data '23.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:692] | [UI] Avg telemetry calculation error:time data '23.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:693] | [UI] Avg telemetry calculation error:time data '24.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:694] | [UI] Avg telemetry calculation error:time data '24.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:694] | [UI] Avg telemetry calculation error:time data '25.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:695] | [UI] Avg telemetry calculation error:time data '25.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:696] | [UI] Avg telemetry calculation error:time data '26.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:696] | [UI] Avg telemetry calculation error:time data '26.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:697] | [UI] Avg telemetry calculation error:time data '27.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:698] | [UI] Avg telemetry calculation error:time data '27.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:699] | [UI] Avg telemetry calculation error:time data '28.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:699] | [UI] Avg telemetry calculation error:time data '28.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:700] | [UI] Avg telemetry calculation error:time data '29.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:702] | [UI] Avg telemetry calculation error:time data '29.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:702] | [UI] Avg telemetry calculation error:time data '30.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:703] | [UI] Avg telemetry calculation error:time data '30.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:704] | [UI] Avg telemetry calculation error:time data '31.05.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:704] | [UI] Avg telemetry calculation error:time data '31.05.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:705] | [UI] Avg telemetry calculation error:time data '01.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:706] | [UI] Avg telemetry calculation error:time data '01.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:707] | [UI] Avg telemetry calculation error:time data '02.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:708] | [UI] Avg telemetry calculation error:time data '02.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:709] | [UI] Avg telemetry calculation error:time data '03.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:709] | [UI] Avg telemetry calculation error:time data '03.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:710] | [UI] Avg telemetry calculation error:time data '04.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:711] | [UI] Avg telemetry calculation error:time data '04.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:711] | [UI] Avg telemetry calculation error:time data '05.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:712] | [UI] Avg telemetry calculation error:time data '05.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:712] | [UI] Avg telemetry calculation error:time data '06.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:713] | [UI] Avg telemetry calculation error:time data '06.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:714] | [UI] Avg telemetry calculation error:time data '07.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:714] | [UI] Avg telemetry calculation error:time data '07.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:715] | [UI] Avg telemetry calculation error:time data '08.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:716] | [UI] Avg telemetry calculation error:time data '08.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:716] | [UI] Avg telemetry calculation error:time data '09.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:717] | [UI] Avg telemetry calculation error:time data '09.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:717] | [UI] Avg telemetry calculation error:time data '10.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:718] | [UI] Avg telemetry calculation error:time data '10.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:719] | [UI] Avg telemetry calculation error:time data '11.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:720] | [UI] Avg telemetry calculation error:time data '11.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:720] | [UI] Avg telemetry calculation error:time data '12.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:721] | [UI] Avg telemetry calculation error:time data '12.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:722] | [UI] Avg telemetry calculation error:time data '13.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:722] | [UI] Avg telemetry calculation error:time data '13.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:723] | [UI] Avg telemetry calculation error:time data '14.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:724] | [UI] Avg telemetry calculation error:time data '14.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:724] | [UI] Avg telemetry calculation error:time data '15.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:725] | [UI] Avg telemetry calculation error:time data '15.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:726] | [UI] Avg telemetry calculation error:time data '16.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:727] | [UI] Avg telemetry calculation error:time data '16.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:728] | [UI] Avg telemetry calculation error:time data '17.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:729] | [UI] Avg telemetry calculation error:time data '17.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:729] | [UI] Avg telemetry calculation error:time data '18.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:730] | [UI] Avg telemetry calculation error:time data '18.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:731] | [UI] Avg telemetry calculation error:time data '19.06.2026-00:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:46:731] | [UI] Avg telemetry calculation error:time data '19.06.2026-12:00' does not match format '%d.%m.%Y-%H:%M:%S'
+[08.06.2026-15:59:47:402] | [UI] Switched to tab: Home
+[08.06.2026-15:59:47:403] | [UI] Tabbed interface initialized.
+[08.06.2026-16:01:12:045] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-16:01:13:867] | [UI] Switched to tab: Home
+[08.06.2026-16:01:13:868] | [UI] Tabbed interface initialized.
+[08.06.2026-16:01:16:641] | [UI] Switched to tab: Trends
+[08.06.2026-16:05:45:052] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-16:06:58:220] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-16:07:00:260] | [UI] Switched to tab: Home
+[08.06.2026-16:07:00:260] | [UI] Tabbed interface initialized.
+[08.06.2026-16:07:01:624] | [UI] Switched to tab: Trends
+[08.06.2026-16:08:12:022] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-16:08:13:742] | [UI] Switched to tab: Home
+[08.06.2026-16:08:13:743] | [UI] Tabbed interface initialized.
+[08.06.2026-16:08:14:838] | [UI] Switched to tab: Assistant
+[08.06.2026-16:08:18:394] | [UI] Switched to tab: Trends
+[08.06.2026-16:14:52:814] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-16:14:54:553] | [UI] Switched to tab: Home
+[08.06.2026-16:14:54:554] | [UI] Tabbed interface initialized.
+[08.06.2026-16:14:55:893] | [UI] Switched to tab: Trends
+[08.06.2026-16:15:35:904] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-16:15:37:781] | [UI] Switched to tab: Home
+[08.06.2026-16:15:37:781] | [UI] Tabbed interface initialized.
+[08.06.2026-16:15:38:979] | [UI] Switched to tab: Trends
+[08.06.2026-16:16:03:439] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-16:16:05:311] | [UI] Switched to tab: Home
+[08.06.2026-16:16:05:313] | [UI] Tabbed interface initialized.
+[08.06.2026-16:16:06:741] | [UI] Switched to tab: Trends
+[08.06.2026-16:19:53:868] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-16:19:55:481] | [UI] Switched to tab: Home
+[08.06.2026-16:19:55:482] | [UI] Tabbed interface initialized.
+[08.06.2026-16:19:56:652] | [UI] Switched to tab: Trends
+[08.06.2026-16:25:16:246] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-16:25:17:882] | [UI] Switched to tab: Home
+[08.06.2026-16:25:17:883] | [UI] Tabbed interface initialized.
+[08.06.2026-16:25:19:151] | [UI] Switched to tab: Trends
+[08.06.2026-16:26:37:790] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-16:26:39:492] | [UI] Switched to tab: Home
+[08.06.2026-16:26:39:493] | [UI] Tabbed interface initialized.
+[08.06.2026-16:26:42:890] | [UI] Switched to tab: Trends
+[08.06.2026-16:27:29:902] | [UI] Switched to tab: State
+[08.06.2026-16:29:47:921] | [UI] Switched to tab: Home
+[08.06.2026-16:29:55:101] | [UI] Switched to tab: State
+[08.06.2026-16:30:07:300] | [UI] Switched to tab: Home
+[08.06.2026-16:30:12:086] | [UI] 'Harvest Now' action triggered.
+[08.06.2026-16:30:15:932] | [UI] Add Water clicked
+[08.06.2026-16:30:19:311] | [UI] Switched to tab: Console
+[08.06.2026-16:30:37:294] | [UI] Switched to tab: Settings
+[08.06.2026-16:30:37:867] | [UI] Switched to tab: Assistant
+[08.06.2026-16:30:42:399] | [UI] Virtual keyboard closed.
+[08.06.2026-16:31:03:046] | [AI] Assistant triggered.
+[08.06.2026-16:31:03:047] | [AI] AI Assistant started to think...
+[08.06.2026-16:42:37:917] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-16:42:39:349] | [UI] Switched to tab: Home
+[08.06.2026-16:42:39:349] | [UI] Tabbed interface initialized.
+[08.06.2026-16:42:41:370] | [UI] Switched to tab: Assistant
+[08.06.2026-16:42:45:554] | [UI] Virtual keyboard closed.
+[08.06.2026-16:43:00:557] | [AI] Assistant triggered.
+[08.06.2026-16:43:00:558] | [AI] AI Assistant started to think...
+[08.06.2026-16:46:38:750] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-16:46:40:411] | [UI] Switched to tab: Home
+[08.06.2026-16:46:40:412] | [UI] Tabbed interface initialized.
+[08.06.2026-16:46:41:806] | [UI] Switched to tab: Assistant
+[08.06.2026-16:47:01:350] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-16:47:03:011] | [UI] Switched to tab: Home
+[08.06.2026-16:47:03:012] | [UI] Tabbed interface initialized.
+[08.06.2026-16:47:04:490] | [UI] Switched to tab: Harvest
+[08.06.2026-16:47:05:266] | [UI] Switched to tab: Assistant
+[08.06.2026-16:47:08:001] | [UI] Virtual keyboard closed.
+[08.06.2026-16:47:12:467] | [UI] Virtual keyboard closed.
+[08.06.2026-16:47:14:028] | [AI] Assistant triggered.
+[08.06.2026-16:47:14:029] | [AI] AI Assistant started to think...
+[08.06.2026-16:55:13:232] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-16:55:14:674] | [UI] Switched to tab: Home
+[08.06.2026-16:55:14:675] | [UI] Tabbed interface initialized.
+[08.06.2026-16:55:16:227] | [UI] Switched to tab: Assistant
+[08.06.2026-16:55:20:830] | [UI] Virtual keyboard closed.
+[08.06.2026-16:55:33:569] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-16:55:35:163] | [UI] Switched to tab: Home
+[08.06.2026-16:55:35:164] | [UI] Tabbed interface initialized.
+[08.06.2026-16:55:39:339] | [UI] Switched to tab: Assistant
+[08.06.2026-16:55:54:455] | [UI] Virtual keyboard closed.
+[08.06.2026-16:55:56:367] | [AI] Assistant triggered.
+[08.06.2026-16:55:56:368] | [AI] AI Assistant started to think...
+[08.06.2026-16:56:52:323] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-16:56:53:858] | [UI] Switched to tab: Home
+[08.06.2026-16:56:53:859] | [UI] Tabbed interface initialized.
+[08.06.2026-16:56:55:976] | [UI] Switched to tab: Assistant
+[08.06.2026-16:56:59:851] | [AI] Assistant triggered.
+[08.06.2026-16:56:59:852] | [AI] AI Assistant started to think...
+[08.06.2026-16:57:00:870] | [UI] Virtual keyboard closed.
+[08.06.2026-17:03:15:568] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-17:03:16:902] | [UI] Switched to tab: Home
+[08.06.2026-17:03:16:903] | [UI] Tabbed interface initialized.
+[08.06.2026-17:03:19:395] | [UI] Switched to tab: Assistant
+[08.06.2026-17:03:24:165] | [UI] Virtual keyboard closed.
+[08.06.2026-17:03:32:126] | [UI] Virtual keyboard closed.
+[08.06.2026-17:03:33:169] | [AI] Assistant triggered.
+[08.06.2026-17:03:33:170] | [AI] AI Assistant started to think...
+[08.06.2026-17:04:25:551] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-17:04:27:001] | [UI] Switched to tab: Home
+[08.06.2026-17:04:27:001] | [UI] Tabbed interface initialized.
+[08.06.2026-17:04:28:510] | [UI] Switched to tab: Assistant
+[08.06.2026-17:04:30:942] | [UI] Virtual keyboard closed.
+[08.06.2026-17:04:31:947] | [AI] Assistant triggered.
+[08.06.2026-17:04:31:948] | [AI] AI Assistant started to think...
+[08.06.2026-17:09:24:339] | [AI] AI Assistant returned an answer.
+[08.06.2026-17:09:24:340] | [AI] Assistant answered.
+[08.06.2026-17:10:10:720] | [AI] Assistant triggered.
+[08.06.2026-17:10:10:721] | [AI] AI Assistant started to think...
+[08.06.2026-17:10:15:374] | [AI] AI Assistant returned an answer.
+[08.06.2026-17:10:15:375] | [AI] Assistant answered.
+[08.06.2026-17:15:56:459] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-17:15:57:720] | [UI] Switched to tab: Home
+[08.06.2026-17:15:57:721] | [UI] Tabbed interface initialized.
+[08.06.2026-17:15:59:287] | [UI] Switched to tab: Assistant
+[08.06.2026-17:16:04:418] | [UI] Virtual keyboard closed.
+[08.06.2026-17:16:17:498] | [AI] Assistant triggered.
+[08.06.2026-17:16:17:499] | [AI] AI Assistant started to think...
+[08.06.2026-17:18:48:640] | [UI] Switched to tab: Console
+[08.06.2026-17:18:54:912] | [UI] Switched to tab: Assistant
+[08.06.2026-17:20:56:331] | [AI] AI Assistant returned an answer.
+[08.06.2026-17:20:56:332] | [AI] Assistant answered.
+[08.06.2026-17:21:10:860] | [UI] Virtual keyboard closed.
+[08.06.2026-17:21:23:642] | [AI] Assistant triggered.
+[08.06.2026-17:21:23:643] | [AI] AI Assistant started to think...
+[08.06.2026-17:21:30:810] | [AI] AI Assistant returned an answer.
+[08.06.2026-17:21:30:811] | [AI] Assistant answered.
+[08.06.2026-17:21:53:263] | [AI] Assistant triggered.
+[08.06.2026-17:21:53:264] | [AI] AI Assistant started to think...
+[08.06.2026-17:22:17:954] | [AI] AI Assistant returned an answer.
+[08.06.2026-17:22:17:955] | [AI] Assistant answered.
+[08.06.2026-17:22:40:660] | [UI] Virtual keyboard closed.
+[08.06.2026-17:23:15:759] | [AI] Assistant triggered.
+[08.06.2026-17:23:15:760] | [AI] AI Assistant started to think...
+[08.06.2026-17:23:54:376] | [AI] AI Assistant returned an answer.
+[08.06.2026-17:23:54:377] | [AI] Assistant answered.
+[08.06.2026-17:26:15:134] | [AI] Assistant triggered.
+[08.06.2026-17:26:15:135] | [AI] AI Assistant started to think...
+[08.06.2026-17:27:01:800] | [AI] AI Assistant returned an answer.
+[08.06.2026-17:27:01:801] | [AI] Assistant answered.
+[08.06.2026-17:27:38:638] | [UI] Virtual keyboard closed.
+[08.06.2026-17:27:43:401] | [UI] Virtual keyboard closed.
+[08.06.2026-17:27:45:318] | [AI] Assistant triggered.
+[08.06.2026-17:27:45:319] | [AI] AI Assistant started to think...
+[08.06.2026-17:28:34:139] | [AI] AI Assistant returned an answer.
+[08.06.2026-17:28:34:140] | [AI] Assistant answered.
+[08.06.2026-17:29:13:765] | [AI] Assistant triggered.
+[08.06.2026-17:29:13:766] | [AI] AI Assistant started to think...
+[08.06.2026-17:30:00:718] | [AI] AI Assistant returned an answer.
+[08.06.2026-17:30:00:719] | [AI] Assistant answered.
+[08.06.2026-17:31:24:359] | [AI] Assistant triggered.
+[08.06.2026-17:31:24:360] | [AI] AI Assistant started to think...
+[08.06.2026-17:32:11:453] | [AI] AI Assistant returned an answer.
+[08.06.2026-17:32:11:454] | [AI] Assistant answered.
+[08.06.2026-17:32:31:240] | [UI] Switched to tab: Harvest
+[08.06.2026-17:32:32:166] | [UI] Switched to tab: Console
+[08.06.2026-17:32:35:741] | [UI] Switched to tab: Trends
+[08.06.2026-17:32:55:502] | [UI] Switched to tab: State
+[08.06.2026-17:33:01:175] | [UI] Switched to tab: Home
+[08.06.2026-17:38:32:796] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-17:38:34:497] | [UI] Switched to tab: Home
+[08.06.2026-17:38:34:497] | [UI] Tabbed interface initialized.
+[08.06.2026-17:38:35:742] | [UI] Switched to tab: Assistant
+[08.06.2026-17:38:41:201] | [UI] Virtual keyboard closed.
+[08.06.2026-17:41:18:537] | [AI] Assistant triggered.
+[08.06.2026-17:41:18:538] | [AI] AI Assistant started to think...
+[08.06.2026-17:42:00:996] | [UI] Switched to tab: Harvest
+[08.06.2026-17:42:04:397] | [UI] Switched to tab: Trends
+[08.06.2026-17:43:09:656] | [UI] Switched to tab: Assistant
+[08.06.2026-17:47:39:969] | [AI] AI Assistant returned an answer.
+[08.06.2026-17:47:39:970] | [AI] Assistant answered.
+[08.06.2026-19:28:51:340] | [AI] Assistant triggered.
+[08.06.2026-19:28:51:341] | [AI] AI Assistant started to think...
+[08.06.2026-19:29:30:974] | [AI] AI Assistant returned an answer.
+[08.06.2026-19:29:30:975] | [AI] Assistant answered.
+[08.06.2026-19:40:20:871] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-19:40:22:546] | [UI] Switched to tab: Home
+[08.06.2026-19:40:22:547] | [UI] Tabbed interface initialized.
+[08.06.2026-19:40:31:398] | [UI] Switched to tab: Trends
+[08.06.2026-19:44:38:339] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-19:44:40:120] | [UI] Switched to tab: Home
+[08.06.2026-19:44:40:120] | [UI] Tabbed interface initialized.
+[08.06.2026-19:44:46:569] | [UI] Switched to tab: Trends
+[08.06.2026-19:46:17:409] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-19:46:19:328] | [UI] Switched to tab: Home
+[08.06.2026-19:46:19:329] | [UI] Tabbed interface initialized.
+[08.06.2026-19:46:20:342] | [UI] Switched to tab: Trends
+[08.06.2026-19:48:52:360] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-19:48:54:377] | [UI] Switched to tab: Home
+[08.06.2026-19:48:54:378] | [UI] Tabbed interface initialized.
+[08.06.2026-19:48:56:242] | [UI] Switched to tab: Trends
+[08.06.2026-19:49:28:648] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-19:49:30:530] | [UI] Switched to tab: Home
+[08.06.2026-19:49:30:531] | [UI] Tabbed interface initialized.
+[08.06.2026-19:49:32:653] | [UI] Switched to tab: Trends
+[08.06.2026-19:59:04:264] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-19:59:05:968] | [UI] Switched to tab: Home
+[08.06.2026-19:59:05:969] | [UI] Tabbed interface initialized.
+[08.06.2026-19:59:07:374] | [UI] Switched to tab: Trends
+[08.06.2026-20:05:29:402] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-20:05:31:020] | [UI] Switched to tab: Home
+[08.06.2026-20:05:31:021] | [UI] Tabbed interface initialized.
+[08.06.2026-20:05:38:978] | [UI] Switched to tab: Harvest
+[08.06.2026-20:05:40:137] | [UI] Switched to tab: Trends
+[08.06.2026-20:06:33:437] | [UI] Switched to tab: Harvest
+[08.06.2026-20:06:33:978] | [UI] Switched to tab: Assistant
+[08.06.2026-20:06:39:814] | [UI] Switched to tab: Console
+[08.06.2026-20:08:25:637] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-20:08:27:039] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'see'
+[08.06.2026-20:08:27:296] | [UI] Switched to tab: Home
+[08.06.2026-20:08:27:296] | [UI] Tabbed interface initialized.
+[08.06.2026-20:08:32:067] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'see'
+[08.06.2026-20:08:37:129] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'see'
+[08.06.2026-20:08:41:747] | [UI] Switched to tab: Assistant
+[08.06.2026-20:08:42:193] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'see'
+[08.06.2026-20:08:47:268] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'see'
+[08.06.2026-20:08:52:388] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'see'
+[08.06.2026-20:08:57:466] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'see'
+[08.06.2026-20:09:02:558] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'see'
+[08.06.2026-20:09:07:807] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'see'
+[08.06.2026-20:09:12:894] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'see'
+[08.06.2026-20:09:19:631] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-20:09:20:887] | [UI] AI History failed: '_tkinter.tkapp' object has no attribute 'history_frame'
+[08.06.2026-20:09:21:155] | [UI] Switched to tab: Home
+[08.06.2026-20:09:21:156] | [UI] Tabbed interface initialized.
+[08.06.2026-20:09:23:108] | [UI] Switched to tab: Assistant
+[08.06.2026-20:09:25:924] | [UI] AI History failed: '_tkinter.tkapp' object has no attribute 'history_frame'
+[08.06.2026-20:09:44:020] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-20:09:45:414] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute '_canvas'
+[08.06.2026-20:09:45:708] | [UI] Switched to tab: Home
+[08.06.2026-20:09:45:708] | [UI] Tabbed interface initialized.
+[08.06.2026-20:09:46:728] | [UI] Switched to tab: Assistant
+[08.06.2026-20:09:50:427] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute '_canvas'
+[08.06.2026-20:09:55:490] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute '_canvas'
+[08.06.2026-20:10:00:670] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute '_canvas'
+[08.06.2026-20:10:05:788] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute '_canvas'
+[08.06.2026-20:10:10:894] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute '_canvas'
+[08.06.2026-20:10:20:368] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-20:10:21:664] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview_moveto'
+[08.06.2026-20:10:21:952] | [UI] Switched to tab: Home
+[08.06.2026-20:10:21:953] | [UI] Tabbed interface initialized.
+[08.06.2026-20:10:23:304] | [UI] Switched to tab: Assistant
+[08.06.2026-20:10:26:727] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview_moveto'
+[08.06.2026-20:10:31:805] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview_moveto'
+[08.06.2026-20:10:36:907] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview_moveto'
+[08.06.2026-20:10:41:969] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview_moveto'
+[08.06.2026-20:10:47:038] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview_moveto'
+[08.06.2026-20:10:52:102] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview_moveto'
+[08.06.2026-20:10:57:217] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview_moveto'
+[08.06.2026-20:11:02:284] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview_moveto'
+[08.06.2026-20:11:07:370] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview_moveto'
+[08.06.2026-20:11:12:457] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview_moveto'
+[08.06.2026-20:11:17:591] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview_moveto'
+[08.06.2026-20:11:22:762] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview_moveto'
+[08.06.2026-20:11:51:096] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-20:11:52:186] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview'
+[08.06.2026-20:11:52:421] | [UI] Switched to tab: Home
+[08.06.2026-20:11:52:421] | [UI] Tabbed interface initialized.
+[08.06.2026-20:11:53:944] | [UI] Switched to tab: Assistant
+[08.06.2026-20:11:57:256] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview'
+[08.06.2026-20:12:02:336] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview'
+[08.06.2026-20:12:07:412] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview'
+[08.06.2026-20:12:12:476] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview'
+[08.06.2026-20:12:17:546] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview'
+[08.06.2026-20:12:22:613] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview'
+[08.06.2026-20:12:27:680] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview'
+[08.06.2026-20:12:32:759] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview'
+[08.06.2026-20:12:37:909] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview'
+[08.06.2026-20:12:43:011] | [UI] AI History failed: 'CTkScrollableFrame' object has no attribute 'yview'
+[08.06.2026-20:12:49:628] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-20:12:51:398] | [UI] Switched to tab: Home
+[08.06.2026-20:12:51:399] | [UI] Tabbed interface initialized.
+[08.06.2026-20:12:53:159] | [UI] Switched to tab: Assistant
+[08.06.2026-20:12:57:502] | [UI] Switched to tab: Harvest
+[08.06.2026-20:12:58:154] | [UI] Switched to tab: Assistant
+[08.06.2026-20:13:07:451] | [UI] Virtual keyboard closed.
+[08.06.2026-20:13:12:385] | [AI] Assistant triggered.
+[08.06.2026-20:13:12:385] | [AI] AI Assistant started to think...
+[08.06.2026-20:15:22:229] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-20:15:24:394] | [UI] Switched to tab: Home
+[08.06.2026-20:15:24:395] | [UI] Tabbed interface initialized.
+[08.06.2026-20:15:28:353] | [UI] Switched to tab: Assistant
+[08.06.2026-20:17:56:142] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-20:17:57:913] | [UI] Switched to tab: Home
+[08.06.2026-20:17:57:914] | [UI] Tabbed interface initialized.
+[08.06.2026-20:17:59:398] | [UI] Switched to tab: Assistant
+[08.06.2026-20:18:33:092] | [UI] Switched to tab: Console
+[08.06.2026-20:18:53:294] | [UI] Switched to tab: Trends
+[08.06.2026-20:19:05:591] | [UI] Switched to tab: Home
+[08.06.2026-20:19:43:906] | [UI] Switched to tab: Trends
+[08.06.2026-20:19:49:203] | [UI] Switched to tab: Assistant
+[08.06.2026-20:19:53:775] | [UI] Switched to tab: Console
+[08.06.2026-20:19:57:200] | [UI] Switched to tab: Harvest
+[08.06.2026-20:19:58:580] | [UI] Switched to tab: Settings
+[08.06.2026-23:02:14:926] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[08.06.2026-23:02:17:157] | [UI] Switched to tab: Home
+[08.06.2026-23:02:17:158] | [UI] Tabbed interface initialized.
+[08.06.2026-23:02:20:724] | [UI] Switched to tab: State
+[08.06.2026-23:02:21:201] | [UI] Switched to tab: Trends
+[08.06.2026-23:02:21:845] | [UI] Switched to tab: Harvest
+[08.06.2026-23:02:22:973] | [UI] Switched to tab: Assistant
+[08.06.2026-23:02:23:743] | [UI] Switched to tab: Console
+[08.06.2026-23:02:24:918] | [UI] Switched to tab: Settings
+[08.06.2026-23:02:27:047] | [UI] Switched to tab: Trends
+[08.06.2026-23:02:48:131] | [UI] Switched to tab: Assistant
+[08.06.2026-23:02:56:523] | [UI] Switched to tab: State
+[08.06.2026-23:03:09:054] | [UI] Switched to tab: Settings
+[12.06.2026-21:44:46:615] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[12.06.2026-21:44:48:660] | [UI] Switched to tab: Home
+[12.06.2026-21:44:48:661] | [UI] Tabbed interface initialized.
+[12.06.2026-21:45:04:134] | [UI] Switched to tab: State
+[12.06.2026-21:46:18:001] | [UI] Virtual keyboard enter.
+[12.06.2026-21:46:25:481] | [UI] Switched to tab: Trends
+[12.06.2026-21:47:56:583] | [UI] Switched to tab: Harvest
+[12.06.2026-21:47:57:990] | [UI] Switched to tab: Assistant
+[12.06.2026-21:48:03:621] | [UI] Switched to tab: Console
+[12.06.2026-21:48:12:937] | [UI] Switched to tab: Settings
+[12.06.2026-21:48:13:779] | [UI] Switched to tab: Console
+[12.06.2026-21:48:14:203] | [UI] Switched to tab: Assistant
+[12.06.2026-21:49:55:864] | [UI] Virtual keyboard enter.
+[12.06.2026-21:49:56:699] | [AI] Assistant triggered.
+[12.06.2026-21:49:56:700] | [AI] AI Assistant started to think...
+[12.06.2026-21:50:34:810] | [UI] Switched to tab: Harvest
+[12.06.2026-21:50:36:855] | [UI] Switched to tab: Trends
+[12.06.2026-21:50:50:646] | [UI] Switched to tab: State
+[12.06.2026-21:51:53:514] | [UI] Switched to tab: Assistant
+[12.06.2026-21:56:46:493] | [AI] AI Assistant returned an answer.
+[12.06.2026-21:56:46:494] | [AI] Assistant answered.
+[12.06.2026-22:01:17:259] | [UI] Switched to tab: Home
+[13.06.2026-19:53:57:187] | [UI] Switched to tab: Settings
+[15.06.2026-20:33:13:311] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[15.06.2026-20:33:57:857] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[15.06.2026-20:34:32:969] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[15.06.2026-20:34:44:646] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[15.06.2026-20:34:46:140] | [UI] Switched to tab: Home
+[15.06.2026-20:34:46:141] | [UI] Tabbed interface initialized.
+[15.06.2026-20:34:47:146] | [UI] Switched to tab: Harvest
+[15.06.2026-20:57:59:724] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[15.06.2026-21:00:36:778] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[15.06.2026-21:00:39:172] | [UI] Switched to tab: Home
+[15.06.2026-21:00:39:173] | [UI] Tabbed interface initialized.
+[15.06.2026-21:00:40:029] | [UI] Switched to tab: Harvest
+[15.06.2026-21:04:42:440] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[15.06.2026-21:05:47:449] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[15.06.2026-21:06:03:010] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[15.06.2026-21:06:04:718] | [UI] Switched to tab: Home
+[15.06.2026-21:06:04:719] | [UI] Tabbed interface initialized.
+[15.06.2026-21:06:05:696] | [UI] Switched to tab: Harvest
+[15.06.2026-21:06:19:043] | [UI] Future day clicked: 16.06.2026 -> Planning functionality coming soon.
+[15.06.2026-21:06:20:452] | [UI] Past day clicked: 09.06.2026 -> No harvest logs.
+[15.06.2026-21:08:03:174] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[15.06.2026-21:09:43:923] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[15.06.2026-21:09:45:533] | [UI] Switched to tab: Home
+[15.06.2026-21:09:45:534] | [UI] Tabbed interface initialized.
+[15.06.2026-21:09:46:754] | [UI] Switched to tab: Harvest
+[15.06.2026-21:10:09:366] | [UI] Future day clicked: 02.07.2026 -> Planning functionality coming soon.
+[15.06.2026-21:10:10:151] | [UI] Future day clicked: 09.07.2026 -> Planning functionality coming soon.
+[15.06.2026-21:10:11:027] | [UI] Future day clicked: 14.07.2026 -> Planning functionality coming soon.
+[15.06.2026-21:10:15:021] | [UI] Past day clicked: 02.06.2026 -> No harvest logs.
+[15.06.2026-22:38:53:772] | [UI] Switched to tab: Trends
+[19.06.2026-13:48:28:926] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[19.06.2026-14:50:35:542] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[19.06.2026-14:52:29:705] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[19.06.2026-14:53:01:230] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[19.06.2026-14:53:23:223] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[19.06.2026-14:53:24:560] | [UI] Switched to tab: Home
+[19.06.2026-14:53:24:561] | [UI] Tabbed interface initialized.
+[19.06.2026-14:53:28:931] | [UI] Switched to tab: State
+[19.06.2026-14:53:31:958] | [UI] Switched to tab: Trends
+[19.06.2026-14:53:46:137] | [UI] Switched to tab: Harvest
+[19.06.2026-14:53:51:276] | [UI] Past day clicked: 18.06.2026 -> No harvest logs.
+[19.06.2026-14:53:52:160] | [UI] Future day clicked: 25.06.2026 -> Planning functionality coming soon.
+[19.06.2026-14:54:11:303] | [UI] Switched to tab: Assistant
+[19.06.2026-14:54:14:327] | [UI] Switched to tab: Console
+[19.06.2026-14:54:18:398] | > dadad
+[19.06.2026-14:54:18:488] | [SYS] Command 'dadad' executed successfully.
+[19.06.2026-14:54:24:854] | [UI] Switched to tab: Settings
+[19.06.2026-14:54:26:294] | [UI] Switched to tab: Console
+[19.06.2026-14:54:27:179] | [UI] Switched to tab: Assistant
+[19.06.2026-14:54:31:925] | [UI] Virtual keyboard closed.
+[19.06.2026-14:54:36:733] | [UI] Virtual keyboard enter.
+[19.06.2026-14:54:37:351] | [AI] Assistant triggered.
+[19.06.2026-14:54:37:352] | [AI] AI Assistant started to think...
+[19.06.2026-14:55:17:216] | [UI] Switched to tab: Harvest
+[19.06.2026-14:55:25:336] | [UI] Past day clicked: 12.06.2026 -> No harvest logs.
+[19.06.2026-14:55:28:462] | [UI] Switched to tab: Trends
+[19.06.2026-14:55:45:949] | [UI] Switched to tab: State
+[19.06.2026-14:55:54:492] | [UI] Switched to tab: Console
+[19.06.2026-14:55:55:778] | [UI] Switched to tab: Settings
+[19.06.2026-14:55:56:222] | [UI] Switched to tab: Assistant
+[19.06.2026-14:57:31:392] | [UI] Switched to tab: Harvest
+[19.06.2026-14:57:55:778] | [AI] AI Assistant returned an answer.
+[19.06.2026-14:57:55:778] | [AI] Assistant answered.
+[19.06.2026-14:58:02:063] | [UI] Switched to tab: Assistant
+[19.06.2026-14:58:02:906] | [UI] Switched to tab: Harvest
+[19.06.2026-14:58:05:320] | [UI] Past day clicked: 19.06.2026 -> No harvest logs.
+[19.06.2026-14:58:12:196] | [UI] Switched to tab: Console
+[19.06.2026-14:58:13:496] | [UI] Switched to tab: Home
+[19.06.2026-14:58:20:367] | [UI] Switched to tab: State
+[19.06.2026-15:28:17:345] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[19.06.2026-15:28:38:634] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[19.06.2026-15:28:40:155] | [UI] Switched to tab: Home
+[19.06.2026-15:28:40:156] | [UI] Tabbed interface initialized.
+[19.06.2026-15:28:41:909] | [UI] Switched to tab: State
+[19.06.2026-15:29:51:023] | [UI] Switched to tab: Trends
+[19.06.2026-15:30:00:603] | [UI] Switched to tab: Harvest
+[19.06.2026-15:30:03:686] | [UI] Switched to tab: Assistant
+[19.06.2026-15:30:05:185] | [UI] Switched to tab: Console
+[19.06.2026-15:30:08:863] | [UI] Switched to tab: Assistant
+[19.06.2026-15:30:09:316] | [UI] Switched to tab: Console
+[19.06.2026-15:30:14:710] | [UI] Switched to tab: Assistant
+[19.06.2026-15:30:41:991] | [AI] Assistant triggered.
+[19.06.2026-15:30:41:992] | [AI] AI Assistant started to think...
+[19.06.2026-15:30:43:387] | [UI] Virtual keyboard closed.
+[19.06.2026-15:33:23:020] | [AI] AI Assistant returned an answer.
+[19.06.2026-15:33:23:020] | [AI] Assistant answered.
+[19.06.2026-16:14:01:893] | [UI] Switched to tab: Console
+[19.06.2026-16:18:14:280] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[19.06.2026-16:18:16:128] | [UI] Switched to tab: Home
+[19.06.2026-16:18:16:128] | [UI] Tabbed interface initialized.
+[19.06.2026-16:18:22:704] | [UI] Switched to tab: State
+[19.06.2026-16:18:36:409] | [UI] Switched to tab: Trends
+[19.06.2026-16:18:37:307] | [UI] Switched to tab: Harvest
+[19.06.2026-16:18:38:506] | [UI] Switched to tab: Assistant
+[19.06.2026-16:18:40:023] | [UI] Switched to tab: Console
+[19.06.2026-16:18:42:023] | [UI] Switched to tab: Settings
+[19.06.2026-16:18:42:967] | [UI] Switched to tab: Assistant
+[19.06.2026-16:18:43:551] | [UI] Switched to tab: Harvest
+[19.06.2026-16:18:54:193] | [UI] Switched to tab: Home
+[19.06.2026-16:18:59:840] | [UI] Switched to tab: State
+[19.06.2026-16:19:00:464] | [UI] Switched to tab: Home
+[19.06.2026-16:19:08:677] | [UI] Switched to tab: State
+[19.06.2026-16:20:33:211] | [UI] Switched to tab: Trends
+[19.06.2026-16:21:07:854] | [UI] Switched to tab: Harvest
+[19.06.2026-16:21:54:352] | [UI] Future day clicked: 24.06.2026 -> Planning functionality coming soon.
+[19.06.2026-16:21:55:547] | [UI] Past day clicked: 17.06.2026 -> No harvest logs.
+[19.06.2026-16:22:01:578] | [UI] Past day clicked: 18.06.2026 -> No harvest logs.
+[19.06.2026-16:22:14:413] | [UI] Past day clicked: 01.01.2026 -> Harvested: 0ml, Turbidity: 0
+[19.06.2026-16:22:34:953] | [UI] Future day clicked: 10.07.2026 -> Planning functionality coming soon.
+[19.06.2026-16:24:37:353] | [UI] Past day clicked: 18.06.2026 -> No harvest logs.
+[19.06.2026-16:24:38:837] | [UI] Switched to tab: Assistant
+[19.06.2026-16:24:39:904] | [UI] Switched to tab: Trends
+[19.06.2026-16:24:40:518] | [UI] Switched to tab: State

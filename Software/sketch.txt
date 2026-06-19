@@ -1,0 +1,47 @@
+
+= Communication commands: (DONE MARK: Transmit|Proceed) =
+ - [Pi -> Controller] - 
+CONFIGBRIGHTNESS X V (X - Light num 0-2; V - Value 0-255)   -|+
+CONFIGHARVESTPUMP V (V - Value)                             -|+
+CONFIGTARGETTEMP T1 T2 (T1 - Min Temp, T2 - Max Temp)       -|+
+CONFIGHARVESTAMOUNT V (V - Value g/ml)                      -|+
+SETLIGHTFADEDURATION V (V - Value (s))                      -|+
+SETLIGHTSHEDULE V (V - Value (h) of light period)           -|+
+SETACTIVECOMPRESSORPERIOD V (V - Value min)                 -|+
+SETRESTCOMPRESSORPERIOD V (V - Value min)                   -|+
+SETPHRANGE X Y (X - Min, Y - Max)                           -|+
+REQUESTSTATE                                                +|+
+HARVEST                                                     -|+
+ADDWATER                                                    -|+
+
+CALIBRATESCALEZERO
+CALIBRATEEMPTYFLASKWEIGHTVALUE                              -|+
+CALIBRATE100FLASKWEIGHTVALUE                                -|+
+
+DATAVALIDATED                                               +|-
+DATACORRUPTED                                               +|-
+
+ESTOP                                                       -|+
+
+PING                                                        +|+
+
+ - [Controller -> Pi] -
+CURRENTSTATE B0 B1 B2 C H P (Values either 0-1 or 0-255)    +|+
+TEMP T1 T2 (X - Temp num; T1 - out, T2 - in)                +|+
+TURBIDITY V (V - Value)                                     +|+
+VOLUME X (X - Binary mask 0-3 (0bxy); x - low, y - high)    +|+
+FLASKS X L R (X - Binary mask 0-3 (0bxy); L, R - Gramms)    +|+
+PH V (V - Value)
+
+HARVESTLOG L T (L - ml; T - turbidity at the moment)        -|-
+LOG S (S - Message)                                         +|+
+
+ACK                                                         +|+
+NACK                                                        +|+
+
+COMPLETED                                                   +|+
+
+PONG                                                        +|+
+
+
+Reactor Assistance Intellegent System - RIAS

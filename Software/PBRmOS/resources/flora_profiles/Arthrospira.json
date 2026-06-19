@@ -1,0 +1,6 @@
+{
+    "name": "Arthrospira platensis",
+    "optimal_temp_range": [20, 30],
+    "avg_double_period": 24,
+    "ph_range": [8.5, 11]
+}

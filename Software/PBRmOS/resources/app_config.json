@@ -1,0 +1,10 @@
+{
+    "win":{
+        "spine_port": "COM",
+        "log_file_path": "logs.txt"
+    },
+    "linux":{
+        "spine_port": "/dev/ttyUSB",
+        "log_file_path": "logs.txt"
+    }
+}

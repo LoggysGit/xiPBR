@@ -1,0 +1,1 @@
+Hello! Our AI will generate a notification about machine state and write it here!

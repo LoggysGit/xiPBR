@@ -1,0 +1,13 @@
+.venv/
+venv/
+
+**/`.venv`/
+**/venv/
+
+*.gguf
+**/*.gguf
+
+**/model/
+
+**/__pycache__/
+**/__saved__/
