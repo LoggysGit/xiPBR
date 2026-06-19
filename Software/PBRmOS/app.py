@@ -34,7 +34,7 @@ with open(lib.TELEMETRY_FILE_DIR, "r") as f: database_json = json.load(f)
 selected_culture = "Arthrospira"
 
 # === OBJECTS === #
-stateWatcher = AIManager.XGB(2, 1024, 12, "StateWatcher")
+stateWatcher = AIManager.XGB(1, 1024, 12, "StateWatcher")
 harvester    = AIManager.XGB(1, 1024, 12, "Harvester")
 
 assistant = AIManager.AIAssistant(ASSISTANT_PATH)
@@ -68,7 +68,7 @@ def system_thread():
                     lib.log("[SYS] Harvest request satisfied.")
 
                 case "CMD":
-                    # Execute inner command (Placeholder)
+                    # Execute a command
                     lib.log(f"[SYS] Command '{payload}' executed successfully.")
                 
                 case "": continue
@@ -99,7 +99,7 @@ def system_thread():
             state_data = data_manager.get_statewatcher_input_list()
             statewatcher_res = stateWatcher.predict(state_data)
 
-            gui_cmd_buffer.put(("STATEWATCHER_RESULT", statewatcher_res))
+            gui_cmd_buffer.put(("STATEWATCHER_RESULT", float(statewatcher_res[0])))
 
             last_health_update_time = current_time
 

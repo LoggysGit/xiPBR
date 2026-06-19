@@ -1398,3 +1398,161 @@
 [19.06.2026-20:12:39:791] | [UI] Virtual keyboard closed.
 [19.06.2026-20:15:28:025] | [AI] AI Assistant returned an answer.
 [19.06.2026-20:15:28:025] | [AI] Assistant answered.
+[19.06.2026-23:41:04:276] | [XGB] StateWatcher's training started.
+[19.06.2026-23:41:04:296] | [XGB] > Training data loaded.
+[19.06.2026-23:41:04:296] | [XGB] Output size in (1) dataset is not corresponding with model_count (2)
+[19.06.2026-23:41:13:722] | [XGB] StateWatcher's training started.
+[19.06.2026-23:41:13:735] | [XGB] > Training data loaded.
+[19.06.2026-23:41:13:738] | [XGB] > Training submodel #0
+[19.06.2026-23:41:15:642] | [XGB] StateWatcher trained.
+[19.06.2026-23:41:15:643] | [XGB] Harvester's training started.
+[19.06.2026-23:41:53:664] | [XGB] StateWatcher's training started.
+[19.06.2026-23:41:53:687] | [XGB] > Training data loaded.
+[19.06.2026-23:41:53:689] | [XGB] > Training submodel #0
+[19.06.2026-23:41:55:967] | [XGB] StateWatcher trained.
+[19.06.2026-23:41:55:969] | [XGB] Harvester's training started.
+[19.06.2026-23:41:55:970] | [XGB] > Training data loaded.
+[19.06.2026-23:42:40:626] | [XGB] StateWatcher's training started.
+[19.06.2026-23:42:40:640] | [XGB] > Training data loaded.
+[19.06.2026-23:42:40:641] | [XGB] > Training submodel #0
+[19.06.2026-23:42:42:844] | [XGB] StateWatcher trained.
+[19.06.2026-23:42:42:877] | [XGB] StateWatcher saved.
+[19.06.2026-23:46:23:867] | [XGB] StateWatcher's training started.
+[19.06.2026-23:46:23:899] | [XGB] > Training data loaded.
+[19.06.2026-23:46:23:901] | [XGB] > Training submodel #0
+[19.06.2026-23:46:25:935] | [XGB] StateWatcher trained.
+[19.06.2026-23:46:25:984] | [XGB] StateWatcher saved.
+[19.06.2026-23:46:47:500] | [XGB] StateWatcher's training started.
+[19.06.2026-23:46:47:515] | [XGB] > Training data loaded.
+[19.06.2026-23:46:47:517] | [XGB] > Training submodel #0
+[19.06.2026-23:46:49:401] | [XGB] StateWatcher trained.
+[19.06.2026-23:46:49:448] | [XGB] StateWatcher saved.
+[19.06.2026-23:48:40:421] | [XGB] StateWatcher's training started.
+[19.06.2026-23:48:40:447] | [XGB] > Training data loaded.
+[19.06.2026-23:48:40:449] | [XGB] > Training submodel #0
+[19.06.2026-23:48:42:994] | [XGB] StateWatcher trained.
+[19.06.2026-23:48:43:054] | [XGB] StateWatcher saved.
+[19.06.2026-23:59:17:028] | [XGB] StateWatcher's training started.
+[19.06.2026-23:59:17:054] | [XGB] > Training data loaded.
+[19.06.2026-23:59:17:057] | [XGB] > Training submodel #0
+[19.06.2026-23:59:19:708] | [XGB] StateWatcher trained.
+[19.06.2026-23:59:19:710] | [XGB] Harvester's training started.
+[19.06.2026-23:59:19:737] | [XGB] > Training data loaded.
+[19.06.2026-23:59:19:741] | [XGB] > Training submodel #0
+[19.06.2026-23:59:22:106] | [XGB] Harvester trained.
+[19.06.2026-23:59:22:181] | [XGB] StateWatcher saved.
+[19.06.2026-23:59:22:219] | [XGB] Harvester saved.
+[20.06.2026-00:00:07:678] | [XGB] StateWatcher's training started.
+[20.06.2026-00:00:07:704] | [XGB] > Training data loaded.
+[20.06.2026-00:00:07:708] | [XGB] > Training submodel #0
+[20.06.2026-00:00:09:784] | [XGB] StateWatcher trained.
+[20.06.2026-00:00:09:785] | [XGB] Harvester's training started.
+[20.06.2026-00:00:09:811] | [XGB] > Training data loaded.
+[20.06.2026-00:00:09:814] | [XGB] > Training submodel #0
+[20.06.2026-00:00:12:006] | [XGB] Harvester trained.
+[20.06.2026-00:00:12:086] | [XGB] StateWatcher saved.
+[20.06.2026-00:00:12:122] | [XGB] Harvester saved.
+[20.06.2026-00:01:12:447] | [XGB] StateWatcher loaded.
+[20.06.2026-00:01:12:511] | [XGB] Harvester loaded.
+[20.06.2026-00:01:12:535] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[20.06.2026-00:02:10:400] | [XGB] StateWatcher loaded.
+[20.06.2026-00:02:10:457] | [XGB] Harvester loaded.
+[20.06.2026-00:02:10:470] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[20.06.2026-00:02:12:518] | [UI] Culture health updated.
+[20.06.2026-00:02:13:343] | [UI] AI Chat loaded.
+[20.06.2026-00:02:13:347] | [UI] Switched to tab: Home
+[20.06.2026-00:02:13:347] | [UI] Tabbed interface initialized.
+[20.06.2026-00:02:25:502] | [UI] Switched to tab: State
+[20.06.2026-00:02:32:405] | [UI] Switched to tab: Trends
+[20.06.2026-00:02:34:142] | [UI] Switched to tab: Home
+[20.06.2026-00:03:10:709] | [UI] Culture health updated.
+[20.06.2026-00:03:15:075] | [UI] Switched to tab: State
+[20.06.2026-00:03:15:444] | [UI] Switched to tab: Home
+[20.06.2026-00:04:10:790] | [UI] Culture health updated.
+[20.06.2026-00:05:31:358] | [XGB] StateWatcher loaded.
+[20.06.2026-00:05:31:407] | [XGB] Harvester loaded.
+[20.06.2026-00:05:31:420] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[20.06.2026-00:06:57:267] | [XGB] StateWatcher loaded.
+[20.06.2026-00:06:57:312] | [XGB] Harvester loaded.
+[20.06.2026-00:06:57:322] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[20.06.2026-00:07:23:466] | [XGB] StateWatcher loaded.
+[20.06.2026-00:07:23:503] | [XGB] Harvester loaded.
+[20.06.2026-00:07:23:511] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[20.06.2026-00:07:24:807] | [UI] Culture health updated: [-1023.9159545898438]%.
+[20.06.2026-00:07:25:394] | [UI] AI Chat loaded.
+[20.06.2026-00:07:25:397] | [UI] Switched to tab: Home
+[20.06.2026-00:07:25:397] | [UI] Tabbed interface initialized.
+[20.06.2026-00:07:36:416] | [UI] Switched to tab: State
+[20.06.2026-00:07:42:763] | [UI] Switched to tab: Home
+[20.06.2026-00:07:51:238] | [UI] Switched to tab: State
+[20.06.2026-00:17:48:303] | [XGB] StateWatcher loaded.
+[20.06.2026-00:17:48:342] | [XGB] Harvester loaded.
+[20.06.2026-00:17:48:349] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[20.06.2026-00:17:49:693] | [UI] Culture health updated: [-1023.9159545898438]%.
+[20.06.2026-00:17:50:273] | [UI] AI Chat loaded.
+[20.06.2026-00:17:50:277] | [UI] Switched to tab: Home
+[20.06.2026-00:17:50:277] | [UI] Tabbed interface initialized.
+[20.06.2026-00:17:53:146] | [UI] Switched to tab: State
+[20.06.2026-00:17:58:957] | [UI] Switched to tab: Home
+[20.06.2026-00:18:10:423] | [UI] Switched to tab: State
+[20.06.2026-00:18:13:015] | [UI] Switched to tab: Home
+[20.06.2026-00:19:03:529] | [XGB] StateWatcher loaded.
+[20.06.2026-00:19:03:571] | [XGB] Harvester loaded.
+[20.06.2026-00:19:03:579] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[20.06.2026-00:19:04:952] | [UI] Culture health updated: [-1023.9159545898438]%.
+[20.06.2026-00:19:05:515] | [UI] AI Chat loaded.
+[20.06.2026-00:19:05:518] | [UI] Switched to tab: Home
+[20.06.2026-00:19:05:518] | [UI] Tabbed interface initialized.
+[20.06.2026-00:19:33:013] | [XGB] StateWatcher loaded.
+[20.06.2026-00:19:33:052] | [XGB] Harvester loaded.
+[20.06.2026-00:19:33:060] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[20.06.2026-00:19:34:459] | [UI] Culture health updated: [-1023.9159545898438]%.
+[20.06.2026-00:19:35:029] | [UI] AI Chat loaded.
+[20.06.2026-00:19:35:032] | [UI] Switched to tab: Home
+[20.06.2026-00:19:35:032] | [UI] Tabbed interface initialized.
+[20.06.2026-00:21:13:134] | [XGB] StateWatcher loaded.
+[20.06.2026-00:21:13:171] | [XGB] Harvester loaded.
+[20.06.2026-00:21:13:180] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[20.06.2026-00:21:14:520] | [UI] Culture health update error. Payload is NaN.
+[20.06.2026-00:21:15:108] | [UI] AI Chat loaded.
+[20.06.2026-00:21:15:111] | [UI] Switched to tab: Home
+[20.06.2026-00:21:15:112] | [UI] Tabbed interface initialized.
+[20.06.2026-00:21:28:074] | [XGB] StateWatcher loaded.
+[20.06.2026-00:21:28:113] | [XGB] Harvester loaded.
+[20.06.2026-00:21:28:121] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[20.06.2026-00:21:29:580] | [UI] Culture health update error. Payload is NaN.
+[20.06.2026-00:21:30:115] | [UI] AI Chat loaded.
+[20.06.2026-00:21:30:118] | [UI] Switched to tab: Home
+[20.06.2026-00:21:30:118] | [UI] Tabbed interface initialized.
+[20.06.2026-00:21:31:874] | [UI] Switched to tab: State
+[20.06.2026-00:21:46:993] | [XGB] StateWatcher loaded.
+[20.06.2026-00:21:47:033] | [XGB] Harvester loaded.
+[20.06.2026-00:21:47:042] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[20.06.2026-00:21:48:459] | [UI] Culture health update error. Payload is NaN.
+[20.06.2026-00:21:49:071] | [UI] AI Chat loaded.
+[20.06.2026-00:21:49:073] | [UI] Switched to tab: Home
+[20.06.2026-00:21:49:074] | [UI] Tabbed interface initialized.
+[20.06.2026-00:21:57:230] | [UI] Culture health updated: -1023.9159545898438%.
+[20.06.2026-00:22:00:020] | [UI] Switched to tab: State
+[20.06.2026-00:22:00:342] | [UI] Switched to tab: Home
+[20.06.2026-00:22:07:249] | [UI] Culture health updated: -1023.9159545898438%.
+[20.06.2026-00:27:48:620] | [XGB] StateWatcher loaded.
+[20.06.2026-00:27:48:660] | [XGB] Harvester loaded.
+[20.06.2026-00:27:48:668] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[20.06.2026-00:27:50:007] | [UI] Culture health update error. Payload is NaN.
+[20.06.2026-00:27:50:605] | [UI] AI Chat loaded.
+[20.06.2026-00:27:50:608] | [UI] Switched to tab: Home
+[20.06.2026-00:27:50:609] | [UI] Tabbed interface initialized.
+[20.06.2026-00:27:58:108] | [UI] Switched to tab: State
+[20.06.2026-00:28:00:951] | [UI] Switched to tab: Home
+[20.06.2026-00:28:02:928] | [UI] Switched to tab: State
+[20.06.2026-00:28:06:878] | [UI] Switched to tab: Home
+[20.06.2026-00:29:33:139] | [XGB] StateWatcher loaded.
+[20.06.2026-00:29:33:178] | [XGB] Harvester loaded.
+[20.06.2026-00:29:33:186] | [SERIAL] Connection error on COM: could not open port 'COM': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[20.06.2026-00:29:34:513] | [UI] Culture health update error. Payload is NaN.
+[20.06.2026-00:29:35:154] | [UI] AI Chat loaded.
+[20.06.2026-00:29:35:156] | [UI] Switched to tab: Home
+[20.06.2026-00:29:35:157] | [UI] Tabbed interface initialized.
+[20.06.2026-00:29:36:086] | [UI] Switched to tab: State
+[20.06.2026-00:29:42:886] | [UI] Switched to tab: Home

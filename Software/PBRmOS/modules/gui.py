@@ -489,6 +489,8 @@ class App(ctk.CTk):
         self.current_calendar_view_year = datetime.now().year
         self.current_calendar_view_month = datetime.now().month
 
+        self.culture_health = -1
+
         # Main UI initialization
         self.init_sidebar()
         self.init_pages()
@@ -504,8 +506,6 @@ class App(ctk.CTk):
 
         # Chart window
         self.extended_chart_view = ExtendedChart(self, self.font_text_semibold, self.font_text_reg_small, self.database_json)
-
-        self.culture_health = 100
 
         self.data_manager.read_logs()
         self.data_manager.read_ai_history()
@@ -606,7 +606,6 @@ class App(ctk.CTk):
 
         # O. LOAD DATA
         curr_telemetry = self.data_manager.get_last_telemetry()
-        curr_state = self.data_manager.get_last_state()
         culture_profile = self.data_manager.get_culture_profile()
 
         # A. HEADER ROW
@@ -627,16 +626,17 @@ class App(ctk.CTk):
         flora_frame.grid_rowconfigure(0, weight=1)
 
         # General flora state
-        health_badge = ctk.CTkFrame(flora_frame, corner_radius=14, width=150, height=130, fg_color=("#EAEAEA", "#252525"), border_width=3, border_color="green")
+        health_col = self.data_manager.get_health_color(self.culture_health)
+        
+        health_badge = ctk.CTkFrame(flora_frame, corner_radius=14, width=150, height=130, fg_color=("#EAEAEA", "#252525"), border_width=3, border_color=health_col)
         health_badge.grid(row=0, column=0, padx=25, pady=30, sticky="nsew")
         health_badge.grid_propagate(False)
         health_badge.grid_columnconfigure(0, weight=1)
         health_badge.grid_rowconfigure((0,1), weight=1)
 
-        health_col = "green"
-        lbl_health_num = ctk.CTkLabel(health_badge, text=f"{self.culture_health}%", font=self.font_text_bold_really_big, text_color=health_col)
+        lbl_health_num = ctk.CTkLabel(health_badge, text=self.data_manager.get_health_val(self.culture_health), font=self.font_text_bold_really_big, text_color=health_col)
         lbl_health_num.grid(row=0, column=0, pady=(15,0), sticky="s")
-        lbl_health_status = ctk.CTkLabel(health_badge, text=f"{"Good"}", font=self.font_text_bold, text_color=health_col)
+        lbl_health_status = ctk.CTkLabel(health_badge, text=self.data_manager.get_health_text(self.culture_health), font=self.font_text_bold, text_color=health_col)
         lbl_health_status.grid(row=1, column=0, pady=(0,15), sticky="n")
 
         # Info container
@@ -667,7 +667,7 @@ class App(ctk.CTk):
         mini_flask_1.grid_propagate(False)
         mini_flask_1.grid_columnconfigure(0, weight=1)
         mini_flask_1.grid_rowconfigure(0, weight=1)
-        lbl_mf1_val = ctk.CTkLabel(mini_flask_1, text=f"{curr_telemetry["concentration"]}%", font=self.font_text_bold, justify="center")
+        lbl_mf1_val = ctk.CTkLabel(mini_flask_1, text=f"{curr_telemetry["concentration"]}\n%", font=self.font_text_bold, justify="center")
         lbl_mf1_val.grid(row=0, column=0)
 
         mini_flask_2 = ctk.CTkFrame(right_sensors_container, width=60, height=85, fg_color=("#E0E0E0", "#2A2A2A"), corner_radius=8)
@@ -675,7 +675,7 @@ class App(ctk.CTk):
         mini_flask_2.grid_propagate(False)
         mini_flask_2.grid_columnconfigure(0, weight=1)
         mini_flask_2.grid_rowconfigure(0, weight=1)
-        lbl_mf2_val = ctk.CTkLabel(mini_flask_2, text=f"{curr_telemetry["temp_in"]}°C", font=self.font_text_bold, justify="center")
+        lbl_mf2_val = ctk.CTkLabel(mini_flask_2, text=f"{curr_telemetry["temp_in"]}\n°C", font=self.font_text_bold, justify="center")
         lbl_mf2_val.grid(row=0, column=0)
 
         # C. HARVEST BLOCK
@@ -737,6 +737,7 @@ class App(ctk.CTk):
         # O. LOAD DATA
         curr_telemetry = self.data_manager.get_last_telemetry()
         curr_state = self.data_manager.get_last_state()
+        culture_profile = self.data_manager.get_culture_profile()
 
         # A. HEADER ROW [Header, Verdict]
         header_frame = ctk.CTkFrame(state_page, fg_color="transparent")
@@ -747,11 +748,13 @@ class App(ctk.CTk):
         lbl_header.grid(row=0, column=0, sticky="w")
 
         # State Watcher Verdict Banner
-        verdict_frame = ctk.CTkFrame(state_page, fg_color=("#F5F5F5", "#1E1E1E"), corner_radius=12, border_width=1, border_color=("green", "green"))
+        health_col = self.data_manager.get_health_color(self.culture_health)
+
+        verdict_frame = ctk.CTkFrame(state_page, fg_color=("#F5F5F5", "#1E1E1E"), corner_radius=12, border_width=1, border_color=(health_col, health_col))
         verdict_frame.grid(row=1, column=0, sticky="ew", padx=30, pady=10)
         verdict_frame.grid_columnconfigure(0, weight=1)
 
-        self.lbl_verdict = ctk.CTkLabel(verdict_frame, text=f"State Watcher Verdict: {-1}% - {"Null"}", font=self.font_text_bold_big, text_color="green")
+        self.lbl_verdict = ctk.CTkLabel(verdict_frame, text=f"State Watcher Verdict: {self.data_manager.get_health_val(self.culture_health)} - {self.data_manager.get_health_text(self.culture_health)}", font=self.font_text_bold_big, text_color=health_col)
         self.lbl_verdict.grid(row=0, column=0, padx=20, pady=12, sticky="w")
 
         # B. MIDDLE GRID CONTAINER [Main parameters]
@@ -772,7 +775,7 @@ class App(ctk.CTk):
         self.temp_canvas = ctk.CTkCanvas(thermometer_frame, height=30, bg="#1E1E1E" if ctk.get_appearance_mode() == "Dark" else "#F5F5F5", highlightthickness=0)
         self.temp_canvas.grid(row=0, column=0, sticky="ew")
 
-        self.temp_canvas.bind("<Configure>", lambda e: self.draw_thermometer(18, 50, -1, -1, curr_telemetry["temp_in"]))
+        self.temp_canvas.bind("<Configure>", lambda e: self.draw_thermometer(lib.ABS_MIN_TEMP, lib.ABS_MAX_TEMP, culture_profile["optimal_temp_range"][0], culture_profile["optimal_temp_range"][1], curr_telemetry["temp_in"]))
 
         # Temp info
         temp_info_frame = ctk.CTkFrame(temp_card, fg_color="transparent")
@@ -780,9 +783,9 @@ class App(ctk.CTk):
        
         self.lbl_flora_temp = ctk.CTkLabel(temp_info_frame, text=f"Flora temperature:  {curr_telemetry["temp_in"]} °C", font=self.font_text_semibold)
         self.lbl_flora_temp.grid(row=0, column=0, sticky="w", pady=3)
-        self.lbl_min_temp = ctk.CTkLabel(temp_info_frame, text=f"Minimal temperature:  {-1} °C", font=self.font_text_reg)
+        self.lbl_min_temp = ctk.CTkLabel(temp_info_frame, text=f"Minimal temperature:  {culture_profile["optimal_temp_range"][0]} °C", font=self.font_text_reg)
         self.lbl_min_temp.grid(row=1, column=0, sticky="w", pady=2)
-        self.lbl_max_temp = ctk.CTkLabel(temp_info_frame, text=f"Maximal temperature:  {-1} °C", font=self.font_text_reg)
+        self.lbl_max_temp = ctk.CTkLabel(temp_info_frame, text=f"Maximal temperature:  {culture_profile["optimal_temp_range"][1]} °C", font=self.font_text_reg)
         self.lbl_max_temp.grid(row=2, column=0, sticky="w", pady=2)
 
         # = Concentration & pH =
@@ -1393,8 +1396,10 @@ class App(ctk.CTk):
                         lib.log("[UI] AI Chat loaded.")
 
                     case "STATEWATCHER_RESULT":
-                        self.culture_health = payload
-                        lib.log("[UI] Culture health updated.")
+                        if type(payload) == float:
+                            self.culture_health = payload
+                            lib.log(f"[UI] Culture health updated: {payload}%.")
+                        else: lib.log(f"[UI] Culture health update error. Payload is NaN.")
 
                     case _: lib.log(f"[UI] Unknown GUI command: {command_type}")
 

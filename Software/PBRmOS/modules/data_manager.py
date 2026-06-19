@@ -15,6 +15,7 @@ class DataManager:
         self.database_json = db
         self.selected_culture = culture
 
+    # --- Telemetry functions --- #
     def get_avg_telemetry(self, data_key, period_days):
         # Load telemetry entries
         raw_data = self.database_json.get(data_key, [])
@@ -64,7 +65,27 @@ class DataManager:
             
         except Exception: return 0.0
     def get_value_mark(self, val): return f"+{val}" if val >= 0 else f"-{val}"
+    # --- ------------------- --- #
     
+    # --- Work with UI markdown --- #
+    def get_health_color(self, score):
+        if score < 0: return "grey"
+        if score >= 90: return "green"
+        if score >= 70: return "salad"
+        if score >= 50: return "yellow"
+        if score >= 30: return "orange"
+        if score >= 15: return "red"
+        return "black"
+    def get_health_val(self, score): return f"{round(score, 1)}%" if score >= 0 else "X"
+    def get_health_text(self, score):
+        if score < 0: return "Null"
+        if score >= 90: return "Excellent"
+        if score >= 75: return "Good"
+        if score >= 50: return "Normal"
+        if score >= 25: return "Bad"
+        return "Critical"
+    # --- --------------------- --- #
+
     def get_last_telemetry(self):
         file_path = lib.TELEMETRY_FILE_DIR
         default_data = {"temp_out": 0.0, "temp_in": 0.0, "ph": 7.0, "concentration": 0.0}
@@ -215,6 +236,11 @@ class DataManager:
         return [lib.V_LITERS, -1, telemetry["concentration"], day_concentration, week_concentration, 
                 telemetry["ph"], day_ph, week_ph, days_elapsed, last_harvest_vol, last_harvest_conc, telemetry["temp_in"]]
     
+    def get_machine_configuration(self):
+        m_conf_path = lib.RESOURCES_DIR / "machine_config.json"
+        with open(m_conf_path, 'r', encoding='utf-8') as file: config = json.load(file)
+        return config
+
     def read_logs(self):
         try:
             with open(lib.LOGS_FILE_DIR, "r", encoding="utf-8") as f:
