@@ -4,6 +4,11 @@ import json
 from pathlib import Path
 from datetime import datetime
 
+V_LITERS = 8
+
+ABS_MIN_TEMP = 18
+ABS_MAX_TEMP = 50
+
 ### Paths & Ports ###
 
 if getattr(sys, 'frozen', False): BASE_DIR = Path(sys.executable).parent
@@ -32,6 +37,7 @@ AI_CHAT_HISTORY_DIR = AI_DIR / "LLM" / "history.json"
 LAST_COMMAND_COMPLETED = False
 
 _gui_cmd_buff = None
+
 
 ### Functions ###
 

@@ -14,8 +14,10 @@ class XGB:
     def __init__(self, model_count, estimators, depth, name, lr=0.01):
         self.name = name
         self.folder = lib.AI_DIR / name
+        
         self.model_count = model_count
         self.models = []
+
         for i in range(model_count):
             self.models.append(xgb.XGBRegressor(
                 n_estimators=estimators,
@@ -28,7 +30,7 @@ class XGB:
     def train(self):
         """XGB Training"""
         lib.log(f"[XGB] {self.name}'s training started.")
-        dataset_path = os.path.join(self.folder, "train_data.jsonl")
+        dataset_path = self.folder / "train_data.jsonl"
         
         # Parse JSONL
         X, Y = [], []
@@ -75,14 +77,14 @@ class XGB:
     def save_model(self):
         """Save XGB model"""
         for i in range(self.model_count):
-            path = os.path.join(self.folder, f"model_{i}")
+            path = self.folder / f"model_{i}"
             self.models[i].save_model(path)
         lib.log(f"[XGB] {self.name} saved.")
 
     def load_model(self):
         """Load XGB model"""
         for i in range(self.model_count):
-            path = os.path.join(self.folder, f"model_{i}")
+            path = self.folder / f"model_{i}"
             self.models[i].load_model(path)
         self.is_trained = True
         lib.log(f"[XGB] {self.name} loaded.")

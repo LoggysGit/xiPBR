@@ -9,10 +9,11 @@ from datetime import datetime, timedelta
 import modules.lib as lib
 
 class DataManager:
-    def __init__(self, gui_cmds, sys_cmds, db):
+    def __init__(self, gui_cmds, sys_cmds, db, culture):
         self.gui_cmd_buff = gui_cmds
         self.sys_cmd_buff = sys_cmds
         self.database_json = db
+        self.selected_culture = culture
 
     def get_avg_telemetry(self, data_key, period_days):
         # Load telemetry entries
@@ -130,6 +131,89 @@ class DataManager:
                     logs_dict[date_str] = entry
                 except KeyError: continue
         return logs_dict
+    
+    def add_future_harvest_data(self):
+        # Open harvest_calendar.json ["planned"]
+        # Save current datetime + 24h
+        pass
+
+    def get_culture_profile(self):
+        culture_profile_path = lib.RESOURCES_DIR / "flora_profiles" / f"{self.selected_culture}.json"
+        with open(culture_profile_path, 'r', encoding='utf-8') as file: culture_profile = json.load(file)
+        return culture_profile
+
+    def get_statewatcher_input_list(self):
+        # [current_ph, current_temp_in, current_turbidity, day_delta_ph, day_delta_turbidity, l1_pow_percent, l2_pow_percent, l3_pow_percent, last_harvest_day_elapsed]
+
+        telemetry = self.get_last_telemetry()
+        state = self.get_last_state()
+
+        # Deltas
+        day_ph = self.get_avg_telemetry("ph", 1)
+        day_concentration = self.get_delta_telemetry("concentration", 1)
+
+        # Last harvest data
+        harvest_logs = self.get_harvest_logs_dict()
+
+        last_harvest_date = ""
+        days_elapsed = 0.0
+
+        if harvest_logs:
+            last_date_str = max(harvest_logs.keys(), key=lambda d: datetime.strptime(d, "%d.%m.%Y"))
+
+            last_harvest_date = last_date_str
+
+            current_time = datetime.now()
+            last_harvest_datetime = datetime.strptime(last_harvest_date, "%d.%m.%Y")
+
+            days_elapsed = (current_time - last_harvest_datetime).total_seconds() / 86400.0
+        else: days_elapsed = float('inf')
+
+        # Collect all
+        return [telemetry["ph"], telemetry["temp_in"], telemetry["concentration"], day_ph, day_concentration,
+                state["state"]["L0"], state["state"]["L1"], state["state"]["L2"], days_elapsed]
+    
+    def get_harvester_input_list(self):
+        # input: [maximum_liters, harvest_amount, curr_concentration, day_delta_concentration, week_delta_concentration, curr pH, day avg pH, week avg pH, previous_harvest_days_elapsed, 
+        # previous_harvest_ml, previous_harvest_concentration, current_inner_temp] # (12 arguments)
+
+        telemetry = self.get_last_telemetry()
+
+        # Concentration delta
+        day_concentration = self.get_delta_telemetry("concentration", 1)
+        week_concentration = self.get_delta_telemetry("concentration", 7)
+
+        # pH delta
+        day_ph = self.get_avg_telemetry("ph", 1)
+        week_ph = self.get_avg_telemetry("ph", 7)
+
+        # Last harvest data
+        harvest_logs = self.get_harvest_logs_dict()
+
+        last_harvest_date = ""
+        last_harvest_vol = 0
+        last_harvest_conc = 0
+
+        days_elapsed = 0.0
+
+        if harvest_logs:
+            last_date_str = max(harvest_logs.keys(), key=lambda d: datetime.strptime(d, "%d.%m.%Y"))
+
+            last_entry = harvest_logs[last_date_str]
+
+            last_harvest_date = last_date_str
+            last_harvest_vol = last_entry.get("ml", 0)
+            last_harvest_conc = last_entry.get("turbidity", 0)
+
+            current_time = datetime.now()
+            last_harvest_datetime = datetime.strptime(last_harvest_date, "%d.%m.%Y")
+
+            days_elapsed = (current_time - last_harvest_datetime).total_seconds() / 86400.0
+        else: days_elapsed = float('inf')
+
+        # Collect all
+        return [lib.V_LITERS, -1, telemetry["concentration"], day_concentration, week_concentration, 
+                telemetry["ph"], day_ph, week_ph, days_elapsed, last_harvest_vol, last_harvest_conc, telemetry["temp_in"]]
     
     def read_logs(self):
         try:

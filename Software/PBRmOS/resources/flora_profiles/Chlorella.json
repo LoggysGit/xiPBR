@@ -2,5 +2,6 @@
     "name": "Chlorella vulgaris",
     "optimal_temp_range": [20, 30],
     "avg_double_period": 24,
+    "appropriate_ph": 7.0,
     "ph_range": [6.5, 8.5]
 }
