@@ -5,15 +5,13 @@ from pathlib import Path
 import modules.lib as lib
 import modules.ai_driver as AIManager
 
-stateWatcher = AIManager.XGB(1, 1024, 12, "StateWatcher")
-harvester    = AIManager.XGB(1, 1024, 12, "Harvester")
+stateWatcher = AIManager.XGB(1, 1024, 12, "StateWatcher")   # Output -> Culture health state (%)
+harvester    = AIManager.XGB(1, 1024, 12, "Harvester")      # Output -> Ready for harvest (%)
 
 def apply_noise(val, fluct_val, scale=1.0):
     noise = random.uniform(-fluct_val * scale, fluct_val * scale)
     shifts.append(noise / (fluct_val * scale) if fluct_val != 0 else 0)
     return val + noise
-
-import numpy as np
 
 def run_state_watcher_tests(model, test_cases):    
     print("\n" + "="*85)
@@ -33,7 +31,6 @@ def run_state_watcher_tests(model, test_cases):
         
     print("="*85 + "\n")
 
-# ======== Generate train data for state watcher ========
 sw_train_chunks = [
     [
         {"input": [9.50, 33.0, 0.80, 0.25, 0.05, 80, 80, 80, 3.0], "output": [95]},
@@ -61,7 +58,51 @@ sw_train_chunks = [
     ]
 ]
 
-with open(lib.AI_DIR / "StateWatcher" / "train_data.jsonl", 'w', encoding='utf-8') as sw_train:
+h_train_chunks = [
+    # Class 1: Definite Harvest (85-100) -> High density, stable pH, enough time elapsed
+    [
+        {"input": [10.0, 500, 0.85, 0.05, 0.22, 9.6, 9.5, 9.4, 4.0, 450, 0.80, 33.2], "output": [96]},
+        {"input": [10.0, 400, 0.90, 0.03, 0.25, 9.7, 9.6, 9.5, 5.2, 500, 0.82, 34.0], "output": [98]},
+        {"input": [12.0, 600, 0.82, 0.06, 0.20, 9.5, 9.4, 9.3, 3.5, 550, 0.78, 32.8], "output": [92]},
+        {"input": [8.0,  350, 0.88, 0.04, 0.24, 9.6, 9.5, 9.4, 4.5, 350, 0.81, 33.5], "output": [95]},
+        {"input": [10.0, 500, 0.95, 0.01, 0.28, 9.8, 9.7, 9.5, 6.0, 450, 0.83, 34.5], "output": [99]},
+        {"input": [10.0, 450, 0.80, 0.07, 0.19, 9.4, 9.3, 9.2, 3.1, 400, 0.75, 32.5], "output": [86]},
+        {"input": [15.0, 750, 0.84, 0.05, 0.21, 9.5, 9.5, 9.3, 3.8, 700, 0.79, 33.0], "output": [91]}
+    ],
+    # Class 2: Wait / Conditional Harvest (50-84) -> Medium density, growth slowing down, or early days
+    [
+        {"input": [10.0, 500, 0.65, 0.04, 0.15, 9.3, 9.2, 9.1, 2.5, 450, 0.80, 31.5], "output": [75]},
+        {"input": [10.0, 400, 0.72, 0.02, 0.11, 9.4, 9.4, 9.3, 2.9, 500, 0.82, 32.0], "output": [79]},
+        {"input": [12.0, 600, 0.58, 0.05, 0.18, 9.2, 9.1, 9.0, 2.1, 550, 0.78, 30.8], "output": [62]},
+        {"input": [8.0,  350, 0.70, 0.01, 0.09, 9.5, 9.4, 9.4, 3.0, 350, 0.81, 32.2], "output": [71]},
+        {"input": [10.0, 500, 0.78, -0.01, 0.05, 9.6, 9.7, 9.6, 4.0, 450, 0.83, 33.8], "output": [82]}, # Density is fine but flatlining
+        {"input": [10.0, 450, 0.52, 0.06, 0.22, 9.1, 9.0, 8.9, 1.8, 400, 0.75, 30.2], "output": [55]},
+        {"input": [15.0, 750, 0.68, 0.03, 0.14, 9.3, 9.3, 9.2, 2.7, 700, 0.79, 31.9], "output": [77]}
+    ],
+    # Class 3: Wait / Don't Touch (0-49) -> Low concentration, post-harvest state, or stressed culture
+    [
+        {"input": [10.0, 500, 0.25, 0.08, -0.10, 9.2, 9.0, 9.3, 0.5, 450, 0.80, 32.0], "output": [15]}, # Just harvested yesterday
+        {"input": [10.0, 400, 0.35, 0.05, -0.05, 9.3, 9.1, 9.4, 1.1, 500, 0.82, 32.5], "output": [25]},
+        {"input": [12.0, 600, 0.18, 0.02, -0.20, 8.9, 8.8, 9.1, 0.2, 550, 0.78, 29.5], "output": [5]},
+        {"input": [8.0,  350, 0.42, 0.03, 0.02,  9.4, 9.3, 9.3, 1.5, 350, 0.81, 31.8], "output": [38]},
+        {"input": [10.0, 500, 0.48, -0.05, -0.15, 8.5, 8.8, 9.2, 3.5, 450, 0.83, 26.0], "output": [20]}, # Acid shock / stalling
+        {"input": [10.0, 450, 0.30, 0.04, -0.08, 9.1, 9.0, 9.2, 0.8, 400, 0.75, 30.0], "output": [18]},
+        {"input": [15.0, 750, 0.38, 0.06, -0.02, 9.2, 9.1, 9.3, 1.2, 700, 0.79, 31.0], "output": [30]}
+    ],
+    # Class 4: Sensor Faults (-1024) -> Drop targeted variables into deep freeze
+    [
+        {"input": [10.0, 500, -1.00, 0.00, 0.00, 9.6, 9.5, 9.4, 4.0, 450, 0.80, 33.2], "output": [-1024]}, # Turbidity fail
+        {"input": [10.0, 400, 0.90, 0.03, 0.25, -9.0, 9.6, 9.5, 5.2, 500, 0.82, 34.0], "output": [-1024]}, # pH fail
+        {"input": [12.0, 600, 0.82, 0.06, 0.20, 9.5, 9.4, 9.3, 3.5, 550, 0.78, -99.0], "output": [-1024]}, # Temp fail
+        {"input": [-1.0, 350, -1.00, 0.00, 0.00, -9.0, 9.5, -9.0, 4.5, 350, 0.81, -99.0], "output": [-1024]}, # Multi crash
+        {"input": [10.0, 500, 0.95, 0.01, 0.28, 9.8, -9.0, 9.5, 6.0, 450, 0.83, 34.5], "output": [-1024]}, # Avg pH fail
+        {"input": [10.0, 450, -1.00, 0.00, 0.00, 9.4, 9.3, 9.2, 3.1, 400, -1.00, 32.5], "output": [-1024]}, # Density logs fail
+        {"input": [15.0, 750, 0.84, 0.05, 0.21, -9.0, -9.0, -9.0, 3.8, 700, 0.79, 33.0], "output": [-1024]}  # Entire pH vector dead
+    ]
+]
+
+# ======== Generate train data for state watcher ========
+with open(lib.AI_DIR / stateWatcher.get_name() / "train_data.jsonl", 'w', encoding='utf-8') as sw_train:
     for chunk_idx, chunk in enumerate(sw_train_chunks):
         for _ in range(500):
             base_obj = random.choice(chunk)
@@ -108,7 +149,6 @@ with open(lib.AI_DIR / "StateWatcher" / "train_data.jsonl", 'w', encoding='utf-8
                 "output": [target]
             }
             sw_train.write(json.dumps(generated_line) + "\n")
-
 # Test cases: [features, real_target, log_description]
 sw_test_cases = [
         # 1. Ideal State (85-100)
@@ -133,54 +173,9 @@ sw_test_cases = [
     ]
 
 # ======== Generate train data for harvester ========
-h_train_chunks = [
-    # Class 1: Definite Harvest (85-100) -> High density, stable pH, enough time elapsed
-    [
-        {"input": [10.0, 500, 0.85, 0.05, 0.22, 9.6, 9.5, 9.4, 4.0, 450, 0.80, 33.2], "output": [96]},
-        {"input": [10.0, 400, 0.90, 0.03, 0.25, 9.7, 9.6, 9.5, 5.2, 500, 0.82, 34.0], "output": [98]},
-        {"input": [12.0, 600, 0.82, 0.06, 0.20, 9.5, 9.4, 9.3, 3.5, 550, 0.78, 32.8], "output": [92]},
-        {"input": [8.0,  350, 0.88, 0.04, 0.24, 9.6, 9.5, 9.4, 4.5, 350, 0.81, 33.5], "output": [95]},
-        {"input": [10.0, 500, 0.95, 0.01, 0.28, 9.8, 9.7, 9.5, 6.0, 450, 0.83, 34.5], "output": [99]},
-        {"input": [10.0, 450, 0.80, 0.07, 0.19, 9.4, 9.3, 9.2, 3.1, 400, 0.75, 32.5], "output": [86]},
-        {"input": [15.0, 750, 0.84, 0.05, 0.21, 9.5, 9.5, 9.3, 3.8, 700, 0.79, 33.0], "output": [91]}
-    ],
-    # Class 2: Wait / Conditional Harvest (50-84) -> Medium density, growth slowing down, or early days
-    [
-        {"input": [10.0, 500, 0.65, 0.04, 0.15, 9.3, 9.2, 9.1, 2.5, 450, 0.80, 31.5], "output": [75]},
-        {"input": [10.0, 400, 0.72, 0.02, 0.11, 9.4, 9.4, 9.3, 2.9, 500, 0.82, 32.0], "output": [79]},
-        {"input": [12.0, 600, 0.58, 0.05, 0.18, 9.2, 9.1, 9.0, 2.1, 550, 0.78, 30.8], "output": [62]},
-        {"input": [8.0,  350, 0.70, 0.01, 0.09, 9.5, 9.4, 9.4, 3.0, 350, 0.81, 32.2], "output": [71]},
-        {"input": [10.0, 500, 0.78, -0.01, 0.05, 9.6, 9.7, 9.6, 4.0, 450, 0.83, 33.8], "output": [82]}, # Density is fine but flatlining
-        {"input": [10.0, 450, 0.52, 0.06, 0.22, 9.1, 9.0, 8.9, 1.8, 400, 0.75, 30.2], "output": [55]},
-        {"input": [15.0, 750, 0.68, 0.03, 0.14, 9.3, 9.3, 9.2, 2.7, 700, 0.79, 31.9], "output": [77]}
-    ],
-    # Class 3: Wait / Don't Touch (0-49) -> Low concentration, post-harvest state, or stressed culture
-    [
-        {"input": [10.0, 500, 0.25, 0.08, -0.10, 9.2, 9.0, 9.3, 0.5, 450, 0.80, 32.0], "output": [15]}, # Just harvested yesterday
-        {"input": [10.0, 400, 0.35, 0.05, -0.05, 9.3, 9.1, 9.4, 1.1, 500, 0.82, 32.5], "output": [25]},
-        {"input": [12.0, 600, 0.18, 0.02, -0.20, 8.9, 8.8, 9.1, 0.2, 550, 0.78, 29.5], "output": [5]},
-        {"input": [8.0,  350, 0.42, 0.03, 0.02,  9.4, 9.3, 9.3, 1.5, 350, 0.81, 31.8], "output": [38]},
-        {"input": [10.0, 500, 0.48, -0.05, -0.15, 8.5, 8.8, 9.2, 3.5, 450, 0.83, 26.0], "output": [20]}, # Acid shock / stalling
-        {"input": [10.0, 450, 0.30, 0.04, -0.08, 9.1, 9.0, 9.2, 0.8, 400, 0.75, 30.0], "output": [18]},
-        {"input": [15.0, 750, 0.38, 0.06, -0.02, 9.2, 9.1, 9.3, 1.2, 700, 0.79, 31.0], "output": [30]}
-    ],
-    # Class 4: Sensor Faults (-1024) -> Drop targeted variables into deep freeze
-    [
-        {"input": [10.0, 500, -1.00, 0.00, 0.00, 9.6, 9.5, 9.4, 4.0, 450, 0.80, 33.2], "output": [-1024]}, # Turbidity fail
-        {"input": [10.0, 400, 0.90, 0.03, 0.25, -9.0, 9.6, 9.5, 5.2, 500, 0.82, 34.0], "output": [-1024]}, # pH fail
-        {"input": [12.0, 600, 0.82, 0.06, 0.20, 9.5, 9.4, 9.3, 3.5, 550, 0.78, -99.0], "output": [-1024]}, # Temp fail
-        {"input": [-1.0, 350, -1.00, 0.00, 0.00, -9.0, 9.5, -9.0, 4.5, 350, 0.81, -99.0], "output": [-1024]}, # Multi crash
-        {"input": [10.0, 500, 0.95, 0.01, 0.28, 9.8, -9.0, 9.5, 6.0, 450, 0.83, 34.5], "output": [-1024]}, # Avg pH fail
-        {"input": [10.0, 450, -1.00, 0.00, 0.00, 9.4, 9.3, 9.2, 3.1, 400, -1.00, 32.5], "output": [-1024]}, # Density logs fail
-        {"input": [15.0, 750, 0.84, 0.05, 0.21, -9.0, -9.0, -9.0, 3.8, 700, 0.79, 33.0], "output": [-1024]}  # Entire pH vector dead
-    ]
-]
-
-# Extract all fault-class inputs to build a pool for parameter shuffling
 fault_inputs = [item["input"] for item in h_train_chunks[3]]
-# Transpose the matrix to get independent pools for each of the 12 parameters
 param_pools = [list(p) for p in zip(*fault_inputs)]
-with open(lib.AI_DIR / "Harvester" / "train_data.jsonl", 'w', encoding='utf-8') as h_train:
+with open(lib.AI_DIR / harvester.get_name() / "train_data.jsonl", 'w', encoding='utf-8') as h_train:
     for chunk_idx, chunk in enumerate(h_train_chunks):
         for _ in range(500):
             if chunk_idx == 3:
@@ -264,7 +259,7 @@ with open(lib.AI_DIR / "Harvester" / "train_data.jsonl", 'w', encoding='utf-8') 
                 "output": [target]
             }
             h_train.write(json.dumps(generated_line) + "\n")
-
+# Test cases: [features, real_target, log_description]
 harv_test_cases = [
     # 1. Definite Harvest (85-100)
     ([10.0, 500, 0.88, 0.04, 0.23, 9.65, 9.55, 9.42, 4.2, 450, 0.81, 33.5], 95, "Harvest (Ready Peak)"),

@@ -27,6 +27,8 @@ class XGB:
             ))
         self.is_trained = False
 
+    def get_name(self): return self.name
+
     def train(self):
         """XGB Training"""
         lib.log(f"[XGB] {self.name}'s training started.")

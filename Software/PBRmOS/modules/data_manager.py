@@ -67,7 +67,7 @@ class DataManager:
     def get_value_mark(self, val): return f"+{val}" if val >= 0 else f"-{val}"
     # --- ------------------- --- #
     
-    # --- Work with UI markdown --- #
+    # --- Health UI markdown --- #
     def get_health_color(self, score):
         if score < 0: return "grey"
         if score >= 90: return "green"
@@ -86,6 +86,7 @@ class DataManager:
         return "Critical"
     # --- --------------------- --- #
 
+    # --- Data extractors --- #
     def get_last_telemetry(self):
         file_path = lib.TELEMETRY_FILE_DIR
         default_data = {"temp_out": 0.0, "temp_in": 0.0, "ph": 7.0, "concentration": 0.0}
@@ -128,12 +129,14 @@ class DataManager:
             lib.log(f"[DATA] Failed to get last state: {e}")
             return default_state
 
-    def get_daily_notif(self):
-        # Just read file resources/daily.txt
-        return ""
-
-    def percOrOffFormat(self, integer): return f"{integer}%" if integer > 0 else "Off"
-    def strBooleanFormat(self, b, y, n): return y if b else n
+    def get_culture_profile(self):
+        culture_profile_path = lib.RESOURCES_DIR / "flora_profiles" / f"{self.selected_culture}.json"
+        with open(culture_profile_path, 'r', encoding='utf-8') as file: culture_profile = json.load(file)
+        return culture_profile
+    def get_machine_configuration(self):
+        m_conf_path = lib.RESOURCES_DIR / "machine_config.json"
+        with open(m_conf_path, 'r', encoding='utf-8') as file: config = json.load(file)
+        return config
 
     def get_harvest_logs_dict(self):
         file_path = os.path.join(lib.RESOURCES_DIR, "harvest_calendar.json")
@@ -152,17 +155,18 @@ class DataManager:
                     logs_dict[date_str] = entry
                 except KeyError: continue
         return logs_dict
-    
-    def add_future_harvest_data(self):
-        # Open harvest_calendar.json ["planned"]
-        # Save current datetime + 24h
-        pass
 
-    def get_culture_profile(self):
-        culture_profile_path = lib.RESOURCES_DIR / "flora_profiles" / f"{self.selected_culture}.json"
-        with open(culture_profile_path, 'r', encoding='utf-8') as file: culture_profile = json.load(file)
-        return culture_profile
+    def get_daily_notif(self):
+        # Just read file resources/daily.txt
+        return ""
+    # --- --------------- --- #
 
+    # --- Fromattors --- #
+    def percOrOffFormat(self, integer): return f"{integer}%" if integer > 0 else "Off"
+    def strBooleanFormat(self, b, y, n): return y if b else n
+    # --- ---------- --- #
+
+    # --- XGB data compilers --- #
     def get_statewatcher_input_list(self):
         # [current_ph, current_temp_in, current_turbidity, day_delta_ph, day_delta_turbidity, l1_pow_percent, l2_pow_percent, l3_pow_percent, last_harvest_day_elapsed]
 
@@ -235,11 +239,12 @@ class DataManager:
         # Collect all
         return [lib.V_LITERS, -1, telemetry["concentration"], day_concentration, week_concentration, 
                 telemetry["ph"], day_ph, week_ph, days_elapsed, last_harvest_vol, last_harvest_conc, telemetry["temp_in"]]
-    
-    def get_machine_configuration(self):
-        m_conf_path = lib.RESOURCES_DIR / "machine_config.json"
-        with open(m_conf_path, 'r', encoding='utf-8') as file: config = json.load(file)
-        return config
+    # --- ------------------ --- #
+
+    def add_future_harvest_data(self):
+        # Open harvest_calendar.json ["planned"]
+        # Save current datetime + 24h
+        pass
 
     def read_logs(self):
         try:
@@ -250,6 +255,7 @@ class DataManager:
                  
         except (FileNotFoundError, IOError): lib.log("[UI] No log file found.")
 
+    # --- AI chat handlers --- #
     def read_ai_history(self):
         try:
             with open(lib.AI_CHAT_HISTORY_DIR, "r", encoding="utf-8") as f:
@@ -294,3 +300,4 @@ class DataManager:
                 self.gui_cmd_buff.put(("AI_CHAT", filtered_history))
 
         except (FileNotFoundError, json.JSONDecodeError, IOError) as e: lib.log(f"[SYS] AI history cleanup failed: {e}")
+    # --- ---------------- --- #
