@@ -173,10 +173,33 @@ class PortBridge:
                 case "HARVESTLOG":
                     # HARVESTLOG L T (L - ml; T - turbidity at the moment)
                     ml, t = map(float, parts[1:3])
-                    # 2. Get date
-                    harvest_calendar_path = os.path.join(lib.RESOURCES_DIR, "harvest_calendar.json")
-                    # 3. Save into
-                    pass
+                    
+                    timestamp = datetime.now().strftime("%d.%m.%Y-%H:%M")
+                    
+                    harvested_obj = {
+                        "timestamp": timestamp,
+                        "ml": ml,
+                        "turbidity": t
+                    }
+
+                    file_path = lib.HARVEST_CALENDAR_DATA_DIR
+                    
+                    if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
+                        try:
+                            with open(file_path, "r", encoding="utf-8") as f: calendar_db = json.load(f)
+                        except Exception as e:
+                            lib.log(f"[SERIAL] Error reading harvest calendar, creating new: {e}")
+                            calendar_db = {}
+                    else: calendar_db = {}
+
+                    if "calendar" not in calendar_db or not isinstance(calendar_db["calendar"], list): calendar_db["calendar"] = []
+
+                    calendar_db["calendar"].append(harvested_obj)
+
+                    try:
+                        with open(file_path, "w", encoding="utf-8") as f: json.dump(calendar_db, f, ensure_ascii=False, indent=4)
+                        lib.log(f"[SERIAL] Harvest event logged successfully in {file_path}")
+                    except Exception as e: lib.log(f"[SERIAL] Harvest calendar save error: {e}")
 
                 case "COMPLETED":
                     lib.LAST_COMMAND_COMPLETED = True

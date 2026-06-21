@@ -48,10 +48,10 @@ def init_logger(gui_cmds):
 
 def log(data):
     timestamp = datetime.now().strftime("%d.%m.%Y-%H:%M:%S:%f")[:-3]
-    log_str = f"[{timestamp}] | {data}\n"
+    log_str = f"[{timestamp}] | {data}"
 
     try:
-        with open(LOGS_FILE_DIR, "a", encoding="utf-8") as l: l.write(log_str)
+        with open(LOGS_FILE_DIR, "a", encoding="utf-8") as l: l.write(f"{log_str}\n")
     except Exception as e: print(f"[CRITICAL] Failed to write log file: {e}")
 
     if _gui_cmd_buff is not None: _gui_cmd_buff.put(("LOGS", log_str))

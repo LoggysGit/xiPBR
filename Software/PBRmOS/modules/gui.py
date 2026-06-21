@@ -5,16 +5,14 @@ import math
 import time
 import queue
 
-from datetime import datetime, timedelta
+from datetime import datetime
 import calendar
 
 import customtkinter as ctk
 
 import modules.lib as lib
 
-import customtkinter
-
-class ValidatedNumberEntry(customtkinter.CTkEntry):
+class ValidatedNumberEntry(ctk.CTkEntry):
     def __init__(self, master, min_val=0, max_val=100, allow_float=False, default_val=None, **kwargs):
         # Default placeholder
         if default_val is not None and "placeholder_text" not in kwargs: kwargs["placeholder_text"] = str(default_val)
@@ -507,6 +505,10 @@ class ExtendedChart(ctk.CTkFrame):
                 fill="#1F6AA5" if ctk.get_appearance_mode() == "Dark" else "#111111",
                 anchor=text_anchor
             )
+
+class HarvestDayWindow(ctk.CTkFrame):
+    def __init__():
+        pass
 
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("blue")
@@ -1024,8 +1026,8 @@ class App(ctk.CTk):
         lp_inputs_frame.grid(row=0, column=0, sticky="w")
 
         # Inputfield variables
-        self.light_on_var = customtkinter.StringVar(value=str(machine_cfg["machine_config"]["light_day_period_h"]))
-        self.light_off_var = customtkinter.StringVar(value=str((24 - machine_cfg["machine_config"]["light_day_period_h"])))
+        self.light_on_var = ctk.StringVar(value=str(machine_cfg["machine_config"]["light_day_period_h"]))
+        self.light_off_var = ctk.StringVar(value=str((24 - machine_cfg["machine_config"]["light_day_period_h"])))
        
         # Light ON (Left)
         self.ent_light_on = ValidatedNumberEntry(
@@ -1244,34 +1246,76 @@ class App(ctk.CTk):
 
         self.draw_calendar(cal_card)
 
-        # --- C. STATS ROW ---
+        # === C. STATS ROW ===
         stats_frame = ctk.CTkFrame(harvest_page, fg_color="transparent")
-        stats_frame.grid(row=2, column=0, sticky="ew", padx=30, pady=10)
+        stats_frame.grid(row=2, column=0, sticky="ew", padx=30, pady=15)
         stats_frame.grid_columnconfigure((0, 1), weight=1)
 
-        amount_card = ctk.CTkFrame(stats_frame, corner_radius=15)
-        amount_card.grid(row=0, column=0, sticky="nsew", padx=(0, 10))
+        # HARVEST AMOUNT 
+        # --- 1. ЛЕВАЯ КАРТОЧКА: HARVEST AMOUNT ---
+        amount_card = ctk.CTkFrame(stats_frame, corner_radius=18)
+        amount_card.grid(row=0, column=0, sticky="nsew", padx=(0, 12))
+        amount_card.grid_columnconfigure(0, weight=1)
+        amount_card.grid_rowconfigure(1, weight=1)
         
-        lbl_amount = ctk.CTkLabel(amount_card, text="Harvest Share", font=self.font_text_bold)
-        lbl_amount.pack(pady=(15, 0))
+        # Заголовок ровно по центру
+        lbl_amount = ctk.CTkLabel(amount_card, text="Harvest Amount", font=self.font_text_bold)
+        lbl_amount.grid(row=0, column=0, pady=(15, 5))
         
-        self.harvest_slider = ctk.CTkSlider(amount_card, from_=0, to=100, number_of_steps=20)
-        self.harvest_slider.pack(padx=20, pady=10, fill="x")
-        
-        self.lbl_share_val = ctk.CTkLabel(amount_card, text="25%", font=self.font_text_bold_big, text_color="#1F6AA5")
-        self.lbl_share_val.pack(pady=(0, 15))
+        # Компактный контейнер-сцепка для бака и управления по центру
+        layout_container = ctk.CTkFrame(amount_card, fg_color="transparent")
+        layout_container.grid(row=1, column=0, pady=(0, 20)) 
 
-        total_card = ctk.CTkFrame(stats_frame, corner_radius=15)
-        total_card.grid(row=0, column=1, sticky="nsew", padx=(10, 0))
+        # СЛЕВА: Фиксированная пустая емкость (пропорции строго по скетчу, ярче фона)
+        self.tank_body = ctk.CTkFrame(
+            layout_container, 
+            width=130, height=140, # Высота идеально компенсирует слайдер + текст %
+            corner_radius=16, 
+            border_width=2, border_color=("gray60", "gray50"),
+            fg_color=("#FCFCFC", "#3A3A3A") # Заметно ярче основного фона карточки
+        )
+        self.tank_body.grid(row=0, column=0, padx=(0, 15)) 
+        self.tank_body.grid_propagate(False) 
+
+        # СПРАВА: Элементы управления (с защитой от горизонтального дёрганья)
+        controls_frame = ctk.CTkFrame(layout_container, fg_color="transparent")
+        controls_frame.grid(row=0, column=1, padx=(15, 0))
+        
+        # Фиксируем ширину текстового поля (width=60), чтобы оно не сжимало контейнер
+        self.lbl_share_val = ctk.CTkLabel(
+            controls_frame, 
+            text="25%", 
+            font=self.font_text_bold,
+            text_color="#1F6AA5",
+            width=60
+        )
+        self.lbl_share_val.pack(pady=(0, 5), anchor="c")
+        
+        self.harvest_slider = ctk.CTkSlider(
+            controls_frame, 
+            from_=5, to=25, 
+            number_of_steps=20, 
+            orientation="vertical", 
+            width=22, height=115, 
+            command=self.update_tank_visual
+        )
+        self.harvest_slider.pack(anchor="c")
+        self.harvest_slider.set(25)
+
+        # TOTAL HARVESTED
+        total_card = ctk.CTkFrame(stats_frame, corner_radius=18)
+        total_card.grid(row=0, column=1, sticky="nsew", padx=(12, 0))
+        total_card.grid_columnconfigure(0, weight=1)
+        total_card.grid_rowconfigure((0, 1, 2), weight=1)
         
         lbl_total_title = ctk.CTkLabel(total_card, text="TOTAL HARVESTED", font=self.font_text_bold)
-        lbl_total_title.pack(pady=(15, 5))
+        lbl_total_title.grid(row=0, column=0, pady=(20, 0), sticky="s")
         
-        lbl_total_val = ctk.CTkLabel(total_card, text="12.4 L", font=self.font_text_bold_really_big, text_color="green")
-        lbl_total_val.pack(pady=5)
+        lbl_total_val = ctk.CTkLabel(total_card, text="0.0 L", font=self.font_text_bold_really_big, text_color="#1F6AA5")
+        lbl_total_val.grid(row=1, column=0, pady=10)
         
-        lbl_count = ctk.CTkLabel(total_card, text="Collected 42 times", font=self.font_text_reg_small, text_color="gray")
-        lbl_count.pack(pady=(0, 15))
+        lbl_count = ctk.CTkLabel(total_card, text="Collected 0 times", font=self.font_text_reg_small, text_color="gray")
+        lbl_count.grid(row=2, column=0, pady=(0, 20), sticky="n")
 
         # --- D. SETTINGS SECTION ---
         settings_card = ctk.CTkFrame(harvest_page, corner_radius=15)
@@ -1289,10 +1333,22 @@ class App(ctk.CTk):
         ctk.CTkLabel(water_frame, text="Auto-refill water after harvest:", font=self.font_text_bold).pack(side="left")
         ctk.CTkCheckBox(water_frame, text="").pack(side="right")
 
-        # --- SAVE BTN ---
+        # --- E. FILTER CHECKBOX SECTION ---
+        filter_frame = ctk.CTkFrame(harvest_page, fg_color="transparent")
+        filter_frame.grid(row=4, column=0, sticky="ew", padx=35, pady=(10, 0))
+        
+        self.filter_installed_check = ctk.CTkCheckBox(
+            filter_frame, 
+            text="Filter unit is physically installed", 
+            font=self.font_text_bold,
+            text_color="gray"
+        )
+        self.filter_installed_check.pack(side="left")
+
+        # --- F. START MANUAL HARVEST BTN ---
         btn_save = ctk.CTkButton(harvest_page, text="START MANUAL HARVEST", height=50, 
                                  fg_color="#1F6AA5", font=self.font_text_bold, command=self.on_harvest_now_click)
-        btn_save.grid(row=4, column=0, padx=30, pady=30, sticky="ew")
+        btn_save.grid(row=5, column=0, padx=30, pady=(15, 30), sticky="ew")
 
         self.pages[id] = harvest_page
 
@@ -1511,7 +1567,7 @@ class App(ctk.CTk):
                 
                 match command_type:
                     case "LOGS":
-                        self.draw_log(payload)
+                        self.draw_log(f"{payload}\n")
                         has_log_updates = True
                         
                     case "AI_CHAT":
@@ -1533,50 +1589,6 @@ class App(ctk.CTk):
         if has_log_updates: self.txt_console.see("end")
 
         self.after(100, self.read_buffer)
-
-    def execute_console_command(self):
-        # Extract user input strike (like "COMMAND X1 X2 X3")
-        command_line = self.ent_command.get().strip()
-        if not command_line: return
-
-        # Split into command and arguments string
-        parts = command_line.split(maxsplit=1)
-        command = parts[0].upper()
-        payload = parts[1].strip() if len(parts) > 1 else ""
-
-        # Write into the file
-        lib.log(f"> {command_line}")
-        # Put command into execution list
-        self.sys_cmd_buff.put((command, payload))
-
-        # Clear input field
-        self.ent_command.delete(0, "end")
-
-    def render_ai_history(self, history_list):
-        # Clear current view
-        for child in self.chat_canvas.winfo_children(): child.destroy()
-        # Read list
-        try:
-            for msg in history_list:
-                author = msg.get("author", "").upper()
-                content = msg.get("content", "")
-                timestamp = msg.get("time", "")
-                if content:
-                    if author == "USER": self.draw_chat_bubble("USER", content, timestamp)
-                    elif author == "ASSISTANT": self.draw_chat_bubble("RAIS", content, timestamp)
-        except Exception as e: lib.log(f"[UI] AI History failed: {e}")
-
-    def send_ai_message(self):
-        query = self.ai_entry.get().strip()
-        if not query: return
-        
-        # Update UI locally (immediate feedback)
-        now = time.strftime("%d.%m.%Y-%H:%M")
-        self.draw_chat_bubble("USER", query, now)
-        self.ai_entry.delete(0, "end")
-        
-        # Put command
-        self.ai_cmd_buff.put(("AI_REQUEST", query))
 
     # -----------------------------------------------------------------------
 
@@ -1994,6 +2006,7 @@ class App(ctk.CTk):
 
         # Get data
         logs_dict = self.data_manager.get_harvest_logs_dict()
+        planned_dict = self.data_manager.get_planned_harvests(True)
         today_date = datetime.now().date()
 
         # --- CALENDAR HEADER ---
@@ -2004,18 +2017,18 @@ class App(ctk.CTk):
         # Months
         month_names = ["January", "February", "March", "April", "May", "June", 
                        "July", "August", "September", "October", "November", "December"]
-        month_title = f"{month_names[self.current_calendar_view_month - 1]} {self.current_calendar_view_year}"
+        month_title = f"{month_names[self.current_calendar_view_month - 1]} {self.current_calendar_view_month}.{self.current_calendar_view_year}"
 
         btn_prev = ctk.CTkButton(header_nav, text="◀", width=40, height=35, font=self.font_text_med_small,
                                   command=lambda: self.change_month(container_frame, -1))
-        btn_prev.grid(row=0, column=0, sticky="w")
+        btn_prev.grid(row=0, column=0, sticky="w", padx=(15, 10), pady=10)
 
         lbl_month = ctk.CTkLabel(header_nav, text=month_title, font=self.font_text_bold)
-        lbl_month.grid(row=0, column=1)
+        lbl_month.grid(row=0, column=1, padx=15, pady=10)
 
         btn_next = ctk.CTkButton(header_nav, text="▶", width=40, height=35, font=self.font_text_med_small,
                                   command=lambda: self.change_month(container_frame, 1))
-        btn_next.grid(row=0, column=2, sticky="e")
+        btn_next.grid(row=0, column=2, sticky="e", padx=(10, 15), pady=10)
 
         # --- WEEK DAYS ---
         days_of_week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
@@ -2051,13 +2064,20 @@ class App(ctk.CTk):
             date_key = cell_date.strftime("%d.%m.%Y")
             
             has_harvest = date_key in logs_dict
+            planned_harvest = date_key in planned_dict
             
             if cell_date > today_date:
                 # Future
-                fg_color = ("#E0E0E0", "#2B2B2B")
-                hover_color = ("#D0D0D0", "#383838")
-                text_color = "gray"
-                click_command = lambda d=date_key: self.on_future_calendar_day_click(d)
+                if planned_harvest:
+                    fg_color = ("#A9D6FF", "#314D70") # Planned harvest (Gray-Blue)
+                    hover_color = ("#89C4FF", "#3F628C")
+                    text_color = "gray"
+                    click_command = lambda d=date_key: self.on_future_calendar_day_click(d)
+                else:
+                    fg_color = ("#E0E0E0", "#2B2B2B") # Future (Light gray)
+                    hover_color = ("#D0D0D0", "#383838")
+                    text_color = "gray"
+                    click_command = lambda d=date_key: self.on_future_calendar_day_click(d)
             else:
                 # Past & Present
                 click_command = lambda d=date_key, data=logs_dict.get(date_key): self.on_past_calendar_day_click(d, data)
@@ -2105,6 +2125,18 @@ class App(ctk.CTk):
             if grid_col == 6 and next_day < next_month_days_to_draw:
                 grid_row += 1
 
+    def update_tank_visual(self, value):
+        current_perc = int(value)
+
+        self.lbl_share_val.configure(text=f"{current_perc}%")
+        
+        max_limit = 25
+        fill_ratio = current_perc / max_limit
+        
+        fluid_height = int(fill_ratio * 200) 
+        
+        self.tank_fluid.configure(height=fluid_height)
+
     def draw_chat_bubble(self, sender, text, timestamp):
         # Determine alignment and colors
         is_user = (sender.lower() == "user")
@@ -2136,9 +2168,23 @@ class App(ctk.CTk):
                 
         except Exception as e: lib.log(f"[UI Scroll Error] Ошибка автоскролла перехвачена: {e}")
 
+    def render_ai_history(self, history_list):
+        # Clear current view
+        for child in self.chat_canvas.winfo_children(): child.destroy()
+        # Read list
+        try:
+            for msg in history_list:
+                author = msg.get("author", "").upper()
+                content = msg.get("content", "")
+                timestamp = msg.get("time", "")
+                if content:
+                    if author == "USER": self.draw_chat_bubble("USER", content, timestamp)
+                    elif author == "ASSISTANT": self.draw_chat_bubble("RAIS", content, timestamp)
+        except Exception as e: lib.log(f"[UI] AI History failed: {e}")
+
     def draw_log(self, log):
         self.txt_console.configure(state="normal")
-        self.txt_console.insert("end", str(log) + "\n")
+        self.txt_console.insert("end", log)
         self.txt_console.configure(state="disabled")
 
     # -----------------------------------------------------------------------
@@ -2210,6 +2256,36 @@ class App(ctk.CTk):
 
     def on_future_calendar_day_click(self, date_str):
         lib.log(f"[UI] Future day clicked: {date_str} -> Planning functionality coming soon.")
+    
+    def send_ai_message(self):
+        query = self.ai_entry.get().strip()
+        if not query: return
+        
+        # Update UI locally (immediate feedback)
+        now = time.strftime("%d.%m.%Y-%H:%M")
+        self.draw_chat_bubble("USER", query, now)
+        self.ai_entry.delete(0, "end")
+        
+        # Put command
+        self.ai_cmd_buff.put(("AI_REQUEST", query))
+
+    def execute_console_command(self):
+        # Extract user input strike (like "COMMAND X1 X2 X3")
+        command_line = self.ent_command.get().strip()
+        if not command_line: return
+
+        # Split into command and arguments string
+        parts = command_line.split(maxsplit=1)
+        command = parts[0].upper()
+        payload = parts[1].strip() if len(parts) > 1 else ""
+
+        # Write into the file
+        lib.log(f"> {command_line}")
+        # Put command into execution list
+        self.sys_cmd_buff.put((command, payload))
+
+        # Clear input field
+        self.ent_command.delete(0, "end")
 
     def on_closing(self):
         self.destroy()

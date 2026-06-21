@@ -106,13 +106,15 @@ class DataManager:
 
     # --- Data extractors --- #
     def read_logs(self):
+        if not os.path.exists(lib.LOGS_FILE_DIR) or os.path.getsize(lib.LOGS_FILE_DIR) == 0: return
+
         try:
-            with open(lib.LOGS_FILE_DIR, "r", encoding="utf-8") as f:
-                for line in f:
-                    clean_line = line.strip()
-                    if clean_line: self.gui_cmd_buff.put(("LOGS", clean_line))
+            with open(lib.LOGS_FILE_DIR, "r", encoding="utf-8") as f: content = f.read()
+            for line in content.splitlines():
+                clean_line = line.strip()
+                if clean_line: self.gui_cmd_buff.put(("LOGS", f"{clean_line}"))
                  
-        except (FileNotFoundError, IOError): lib.log("[UI] No log file found.")
+        except (FileNotFoundError, IOError) as e:  lib.log(f"[UI] Log file reading standard exception: {e}")
 
     def get_last_telemetry(self):
         file_path = lib.TELEMETRY_FILE_DIR
@@ -165,12 +167,11 @@ class DataManager:
         return config
 
     def get_harvest_logs_dict(self):
-        file_path = os.path.join(lib.RESOURCES_DIR, "harvest_calendar.json")
         # Read file
         harvest_data = {}
-        if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
+        if os.path.exists(lib.HARVEST_CALENDAR_DATA_DIR) and os.path.getsize(lib.HARVEST_CALENDAR_DATA_DIR) > 0:
             try:
-                with open(file_path, "r", encoding="utf-8") as f: harvest_data = json.load(f)
+                with open(lib.HARVEST_CALENDAR_DATA_DIR, "r", encoding="utf-8") as f: harvest_data = json.load(f)
             except Exception as e: lib.log(f"[UI] Calendar read error: {e}")
         # Format: {"DD.MM.YYYY": entry}
         logs_dict = {}
@@ -181,6 +182,54 @@ class DataManager:
                     logs_dict[date_str] = entry
                 except KeyError: continue
         return logs_dict
+    def get_planned_harvests(self, no_time=False):
+        if not os.path.exists(lib.HARVEST_CALENDAR_DATA_DIR) or os.path.getsize(lib.HARVEST_CALENDAR_DATA_DIR) == 0: return []
+        try:
+            with open(lib.HARVEST_CALENDAR_DATA_DIR, "r", encoding="utf-8") as f: harvest_data = json.load(f)
+            if isinstance(harvest_data, dict): 
+                raw_planned = harvest_data.get("planned", [])
+                if no_time:
+                    # Split -HH:MM part
+                    dates_only = [date_str.split('-')[0] for date_str in raw_planned if '-' in date_str]
+                    return list(dict.fromkeys(dates_only))
+                return raw_planned              
+        except Exception as e: lib.log(f"[DATA] Calendar read error: {e}")
+        return []
+
+    def check_triggered_harvests(self, current_time):
+        if not os.path.exists(lib.HARVEST_CALENDAR_DATA_DIR) or os.path.getsize(lib.HARVEST_CALENDAR_DATA_DIR) == 0: return []
+
+        try:
+            with open(lib.HARVEST_CALENDAR_DATA_DIR, "r", encoding="utf-8") as f: db = json.load(f)
+        except Exception as e:
+            lib.log(f"[DATA] Error loading calendar for planning check: {e}")
+            return []
+
+        planned_list = db.get("planned", [])
+        if not planned_list: return []
+
+        still_pending = []
+        triggered = []
+
+        for date_str in planned_list:
+            try:
+                # "DD.MM.YYYY-HH:MM" -> timestamp
+                planned_dt = datetime.strptime(date_str, "%d.%m.%Y-%H:%M")
+                planned_timestamp = planned_dt.timestamp()
+                
+                if current_time >= planned_timestamp: triggered.append(date_str)
+                else: still_pending.append(date_str)
+            except ValueError:
+                still_pending.append(date_str)
+                lib.log(f"[DATA] Malformed planned date string: {date_str}")
+
+        if triggered:
+            db["planned"] = still_pending
+            try:
+                with open(lib.HARVEST_CALENDAR_DATA_DIR, "w", encoding="utf-8") as f: json.dump(db, f, ensure_ascii=False, indent=4)
+            except Exception as e: lib.log(f"[DATA] Error saving updated calendar after trigger: {e}")
+
+        return triggered
 
     def get_daily_notif(self):
         daily_path =  lib.RESOURCES_DIR / "daily.txt"
@@ -272,8 +321,8 @@ class DataManager:
         pass
 
     def add_future_harvest_data(self):
-        # Open harvest_calendar.json ["planned"]
-        # Save current datetime + 24h
+        # Open lib.HARVEST_CALENDAR_DATA_DIR ["planned"]
+        # Save current datetime + 24h if planned < limit
         pass
 
     def save_light_config(self, hours_on):

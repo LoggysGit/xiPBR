@@ -43,6 +43,7 @@ harvester    = AIManager.XGB(1, 1024, 12, "Harvester")
 
 # === APP INIT (START) === #
 dn_executed_today = False
+today_harvest = False
 
 stateWatcher.load_model()
 harvester.load_model()
@@ -60,6 +61,7 @@ def system_thread():
     last_harvest_verdict_update_time = time.time()
     
     while True:
+        # Command parser
         try:
             command_type, payload = sys_cmd_buffer.get(block=True, timeout=0.1)
             match(command_type):
@@ -70,6 +72,11 @@ def system_thread():
                 case "ADD_WATER":
                     port_bridge.send("ADDWATER")
                     lib.log(f"[SYS] Water request satisfied.")
+
+                case "HELP":
+                    lib.log(
+                        "\n--- Help menu ---\nHARVEST_REQUEST - Harvest command\nADD_WATER - Refill water\ncmd3 - idk\n"
+                    )
                 
                 case "": continue
                 case _: lib.log(f"[SYS] Unknown command was requested.")
@@ -112,12 +119,19 @@ def system_thread():
 
             last_harvest_verdict_update_time = current_time
 
+        # Complete planned harvests
+        triggered_harvests = data_manager.check_triggered_harvests(current_time)
+        for harvest_date_str in triggered_harvests:
+            port_bridge.send("HARVEST")
+            lib.log(f"[SYS] Planned harvest for {harvest_date_str} successfully triggered.")
+
         time.sleep(0.1)
 
 def assistant_thread():
     global dn_executed_today
 
     while True:
+        # Command parser
         try:
             command_type, payload = ai_cmd_buffer.get(block=True, timeout=1.0)
 
