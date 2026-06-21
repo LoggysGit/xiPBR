@@ -29,7 +29,7 @@ SPINE_PORT = app_config[ENV]["spine_port"]
 TELEMETRY_FILE_DIR = RESOURCES_DIR / "telemetry.json"
 STATE_FILE_DIR = RESOURCES_DIR / "machine_state.json"
 
-LOGS_FILE_DIR = RESOURCES_DIR / "logs.txt"
+LOGS_FILE_DIR = RESOURCES_DIR / "logs.log"
 HARVEST_CALENDAR_DATA_DIR = RESOURCES_DIR / "harvest_calendar.json"
 AI_CHAT_HISTORY_DIR = AI_DIR / "LLM" / "history.json"
 MACHINE_CONFIG_DIR = RESOURCES_DIR / "machine_config.json"
@@ -56,4 +56,4 @@ def log(data):
 
     if _gui_cmd_buff is not None: _gui_cmd_buff.put(("LOGS", log_str))
 
-    print(log_str)
+    print(data)

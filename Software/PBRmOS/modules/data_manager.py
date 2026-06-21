@@ -8,11 +8,13 @@ from datetime import datetime, timedelta
 import modules.lib as lib
 
 class DataManager:
-    def __init__(self, gui_cmds, sys_cmds, db, culture):
+    def __init__(self, gui_cmds, sys_cmds, db):
+        curr_conf = self.get_machine_configuration()
+
         self.gui_cmd_buff = gui_cmds
         self.sys_cmd_buff = sys_cmds
         self.database_json = db
-        self.selected_culture = culture
+        self.selected_culture = curr_conf["machine_config"]["culture"]
 
     # --- Telemetry functions --- #
     def get_avg_telemetry(self, data_key, period_days):

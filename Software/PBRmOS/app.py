@@ -31,17 +31,15 @@ lib.init_logger(gui_cmd_buffer)
 with open(lib.TELEMETRY_FILE_DIR, "r") as f: database_json = json.load(f)
 with open(lib.STATE_FILE_DIR, "r") as f: state_json = json.load(f)
 
-selected_culture = "Arthrospira" # transmit to "machine_config.json"
-
 # === OBJECTS === #
-stateWatcher = AIManager.XGB(1, 1024, 12, "StateWatcher")
-harvester    = AIManager.XGB(1, 1024, 12, "Harvester")
-
 assistant = AIManager.AIAssistant(ASSISTANT_PATH)
 
 port_bridge = PortManager.PortBridge(lib.SPINE_PORT)
 
-data_manager = DataManager.DataManager(gui_cmd_buffer, sys_cmd_buffer, database_json, selected_culture)
+data_manager = DataManager.DataManager(gui_cmd_buffer, sys_cmd_buffer, database_json)
+
+stateWatcher = AIManager.XGB(1, 1024, 12, "StateWatcher")
+harvester    = AIManager.XGB(1, 1024, 12, "Harvester")
 
 # === APP INIT (START) === #
 dn_executed_today = False

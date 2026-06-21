@@ -666,6 +666,7 @@ class App(ctk.CTk):
         # O. LOAD DATA
         curr_telemetry = self.data_manager.get_last_telemetry()
         curr_state = self.data_manager.get_last_state()
+        curr_config = self.data_manager.get_machine_configuration()
         culture_profile = self.data_manager.get_culture_profile()
 
         # A. HEADER ROW
@@ -752,7 +753,7 @@ class App(ctk.CTk):
         lbl_harv_vol_lbl = ctk.CTkLabel(harv_volume_frame, text="Harvested total:", font=self.font_text_bold)
         lbl_harv_vol_lbl.grid(row=0, column=0, padx=15, pady=(15, 2), sticky="s")
 
-        lbl_harv_vol = ctk.CTkLabel(harv_volume_frame, text=f"{-1} L", font=self.font_text_bold_really_big, text_color="#1F6AA5")
+        lbl_harv_vol = ctk.CTkLabel(harv_volume_frame, text=f"{curr_config["machine_config"]["harvested_total_ml"]} L", font=self.font_text_bold_really_big, text_color="#1F6AA5")
         lbl_harv_vol.grid(row=1, column=0, padx=15, pady=(2, 15), sticky="n")
 
         # Flask indicator
