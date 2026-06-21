@@ -1,12 +1,11 @@
 {
-    "machine_config":{
+    "machine_config": {
         "light_fade_dur": 0,
-        "light_day_period_h": 12,
-
+        "light_day_period_h": 13,
         "compressor_active_min": 10,
         "compressor_rest_min": 2,
-        
         "harvest_amount": 0,
-        "harvest_pump_power": 100
+        "harvest_pump_power": 100,
+        "harvested_total_ml": 0
     }
 }

@@ -20,7 +20,6 @@ import modules.gui as GUI
 ASSISTANT_MODEL = "Qwen2.5-1.5B-Q8.gguf"
 ASSISTANT_PATH = os.path.join(lib.AI_DIR, "LLM", "model", ASSISTANT_MODEL)
 
-
 # === VARIABLES === #
 
 sys_cmd_buffer = queue.Queue()
@@ -30,8 +29,9 @@ gui_cmd_buffer = queue.Queue()
 # === PRE-INIT === #
 lib.init_logger(gui_cmd_buffer)
 with open(lib.TELEMETRY_FILE_DIR, "r") as f: database_json = json.load(f)
+with open(lib.STATE_FILE_DIR, "r") as f: state_json = json.load(f)
 
-selected_culture = "Arthrospira"
+selected_culture = "Arthrospira" # transmit to "machine_config.json"
 
 # === OBJECTS === #
 stateWatcher = AIManager.XGB(1, 1024, 12, "StateWatcher")
@@ -44,6 +44,8 @@ port_bridge = PortManager.PortBridge(lib.SPINE_PORT)
 data_manager = DataManager.DataManager(gui_cmd_buffer, sys_cmd_buffer, database_json, selected_culture)
 
 # === APP INIT (START) === #
+dn_executed_today = False
+
 stateWatcher.load_model()
 harvester.load_model()
 
@@ -67,12 +69,12 @@ def system_thread():
                     port_bridge.send("HARVEST")
                     lib.log("[SYS] Harvest request satisfied.")
 
-                case "CMD":
-                    # Execute a command
-                    lib.log(f"[SYS] Command '{payload}' executed successfully.")
+                case "ADD_WATER":
+                    port_bridge.send("ADDWATER")
+                    lib.log(f"[SYS] Water request satisfied.")
                 
                 case "": continue
-                case _: continue
+                case _: lib.log(f"[SYS] Unknown command was requested.")
         except queue.Empty: pass
 
         current_time = time.time()
@@ -95,7 +97,7 @@ def system_thread():
             last_cleanup_time = current_time
 
         # StateWatcher XGB
-        if current_time - last_health_update_time >= 60.0:
+        if current_time - last_health_update_time >= 600.0:
             state_data = data_manager.get_statewatcher_input_list()
             statewatcher_res = stateWatcher.predict(state_data)
 
@@ -115,24 +117,40 @@ def system_thread():
         time.sleep(0.1)
 
 def assistant_thread():
+    global dn_executed_today
+
     while True:
         try:
             command_type, payload = ai_cmd_buffer.get(block=True, timeout=1.0)
 
             if command_type == "AI_REQUEST":
                 lib.log(f"[AI] Assistant triggered.")
-                assistant.ask(payload, database_json)
+                assistant.ask(payload, database_json, state_json)
 
             ai_cmd_buffer.task_done()
             lib.log(f"[AI] Assistant answered.")
-        except queue.Empty: continue
+        except queue.Empty: pass
 
-        # Update daily notification in 12:00 AM every day in file resources/daily.txt
+        # Update daily notification at 12:00 AM every day
+        now = datetime.now()
+        if now.hour == 0 and now.minute == 0:
+            if not dn_executed_today:
+                dn_prompt = (
+                    "Generate a brief, high-density daily system notification for the photobioreactor operator. "
+                    "Structure it exactly into 3 short parts: "
+                    "* REVIEW: A hyper-short analysis of the recent telemetry or state logs. "
+                    "* ADVICE: One practical technical tip/warning or optimization step for a culture growth. "
+                    "* JOKE: A dry, witty, or sarcastic engineer/biology joke related to hardware, systems, or cells. "
+                    "Constraint: Keep the entire output under 3-4 sentences total. No markdown titles, no fluff."
+                )
+                res = assistant.ask(dn_prompt, database_json, state_json, save=False)
+                data_manager.update_daily_notification(res)
+                dn_executed_today = True
+        else: dn_executed_today = False
 
         time.sleep(0.1)
 
-def serial_thread():
-    port_bridge._read_loop()
+def serial_thread(): port_bridge._read_loop()
 
 # === MAIN LOOP === #
 port_bridge.start()

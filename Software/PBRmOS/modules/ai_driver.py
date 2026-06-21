@@ -126,14 +126,13 @@ class AIAssistant:
             with open(history_path, 'w', encoding='utf-8') as f: json.dump(history_data, f, ensure_ascii=False, indent=4)
         except IOError as e: print(f"[AI] History error: {e}")
 
-    def get_context(self, data="", hist_window=6):
+    def get_context(self, data="", machine_state="", hist_window=6):
         # 1. Load Personality Matrix
         personality_file_path = os.path.join(self.data_folder, "personality.json")
         try:
             with open(personality_file_path, 'r', encoding='utf-8') as f: 
                 pers_data = json.load(f)
 
-            # Compact structure mapping to minimize formatting strings
             p_rules = pers_data.get('rules', {})
             forbidden = "\n".join([f"- {r}" for r in p_rules.get('never', [])])
             forced = "\n".join([f"- {r}" for r in p_rules.get('always', [])])
@@ -160,15 +159,12 @@ class AIAssistant:
             rules_str = "\n".join([f"- {rule}" for rule in inst_data.get("main_rules", [])])
             raw_db = inst_data.get('database', {})
 
-            # CRITICAL TOKEN FIX: Purge full raw history arrays from system instruction scope
             cleaned_db = {}
             if isinstance(raw_db, dict):
                 for k, v in raw_db.items():
                     if isinstance(v, list):
-                        # Keep structural schema context but slice off raw elements
                         cleaned_db[k] = f"Array validation profile: Active. Tail sequence: {v[-2:] if v else 'Empty'}"
                     elif isinstance(v, dict):
-                        # Compress sub-dictionaries to clear key-value token bloating
                         cleaned_db[k] = {sub_k: (sub_v if not isinstance(sub_v, list) else "Array Data") for sub_k, sub_v in v.items()}
                     else:
                         cleaned_db[k] = v
@@ -200,24 +196,46 @@ class AIAssistant:
                 elif author == "assistant": formatted_history += f"<start_of_turn>model\n{content}<end_of_turn>\n"
         except Exception: formatted_history = ""
 
-        # 4. Enforce Context Limits
+        # 4. Parse History Logs and Extract Latest Machine State Profile
         if len(data) > 900:
             data = data[-900:] + "\n[Telemetry log truncated for resource optimization]"
+
+        hardware_context = ""
+        if machine_state and isinstance(machine_state, dict):
+            try:
+                # Extract the latest entry [timestamp, value_dict/bool] safely for each domain
+                latest_conn   = machine_state.get("connection", [])[-1] if machine_state.get("connection") else ["UNKNOWN", False]
+                latest_state  = machine_state.get("state", [])[-1]      if machine_state.get("state")      else ["UNKNOWN", {}]
+                latest_volume = machine_state.get("volume", [])[-1]     if machine_state.get("volume")     else ["UNKNOWN", {}]
+                latest_flasks = machine_state.get("flasks", [])[-1]     if machine_state.get("flasks")     else ["UNKNOWN", {}]
+
+                # Compress into a lightweight structural snapshot
+                snapshot = {
+                    "last_sync": latest_conn[0],
+                    "hardware_active": latest_conn[1],
+                    "actuators_state": latest_state[1],
+                    "liquid_volume": latest_volume[1],
+                    "nutrient_flasks": latest_flasks[1]
+                }
+                hardware_context = f"CURRENT HARDWARE SNAPSHOT:\n{json.dumps(snapshot, indent=2)}\n\n"
+            except Exception as e:
+                hardware_context = f"CURRENT HARDWARE SNAPSHOT:\n[Parsing failed: {str(e)}]\n\n"
 
         system_directive = (
             f"<start_of_turn>system\n"
             f"SYSTEM INSTRUCTIONS:\n{instructions}\n\n"
             f"CORE PERSONALITY MATRIX:\n{personality}\n\n"
+            f"{hardware_context}"
             f"REAL-TIME LOG DATA INPUT:\n{data}\n"
             f"YOU MUST FOLLOW THIS INSTRUCTIONS.\n<end_of_turn>\n"
         )
         
         return system_directive, formatted_history
     
-    def ask(self, prompt, data=""):
+    def ask(self, prompt, data="", mstate="", save=True):
         lib.log("[AI] AI Assistant started to think...")
 
-        system_directive, formatted_history = self.get_context(data)
+        system_directive, formatted_history = self.get_context(data, mstate)
         
         formatted_prompt = (
             f"{system_directive}"
@@ -226,7 +244,7 @@ class AIAssistant:
             f"<start_of_turn>model\n"
         )
 
-        self.save("user", prompt)
+        if save: self.save("user", prompt)
 
         output = self.model(
             formatted_prompt,
@@ -236,10 +254,11 @@ class AIAssistant:
         )
         res = output['choices'][0]['text']
 
-        self.save("assistant", res)
+        if save: self.save("assistant", res)
 
         lib.log("[AI] AI Assistant returned an answer.")
         lib.AI_UI_CHANGED = True
+
         return res
 
 class Translator:

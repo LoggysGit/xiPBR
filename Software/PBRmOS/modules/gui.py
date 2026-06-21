@@ -12,6 +12,60 @@ import customtkinter as ctk
 
 import modules.lib as lib
 
+import customtkinter
+
+class ValidatedNumberEntry(customtkinter.CTkEntry):
+    def __init__(self, master, min_val=0, max_val=100, allow_float=False, default_val=None, **kwargs):
+        # Default placeholder
+        if default_val is not None and "placeholder_text" not in kwargs: kwargs["placeholder_text"] = str(default_val)
+            
+        super().__init__(master, **kwargs)
+        self.min_val = min_val
+        self.max_val = max_val
+        self.allow_float = allow_float
+        self.default_val = default_val
+        
+        vcmd = (self.register(self._validate_input), '%P')
+        self.configure(validate="key", validatecommand=vcmd)
+
+        self.bind("<FocusOut>", self._on_focus_out)
+        
+    def _validate_input(self, new_value):
+        # Empty
+        if new_value == "": return True
+        # Sign
+        if new_value == "-" and self.min_val < 0: return True
+        # Float
+        if self.allow_float:
+            if new_value.endswith(".") and new_value.count(".") == 1:
+                try:
+                    base = new_value[:-1]
+                    if base == "" or base == "-": return True
+                    return self.min_val <= float(base) <= self.max_val
+                except ValueError: return False
+            try: return self.min_val <= float(new_value) <= self.max_val
+            except ValueError: return False
+        # Int
+        else:
+            if not new_value.lstrip('-').isdigit(): return False
+            return self.min_val <= int(new_value) <= self.max_val
+        
+    def _on_focus_out(self, event):
+        raw_value = self.get()
+        if raw_value == "" or raw_value == "-":
+            if self.default_val is not None:
+                self.delete(0, "end")
+                self.insert(0, str(self.default_val))
+
+    def get_val(self):
+        raw_value = self.get()
+        
+        if raw_value == "" or raw_value == "-":
+            if self.default_val is not None: return self.default_val
+            return self.min_val
+            
+        return float(raw_value) if self.allow_float else int(raw_value)
+    
 class StatusBar(ctk.CTkFrame):
     def __init__(self, master, **kwargs):
         super().__init__(master, fg_color="transparent", corner_radius=8, **kwargs)
@@ -152,13 +206,15 @@ class VirtualKeyboard(ctk.CTkFrame):
             self.is_shift = not self.is_shift
             self.layout = [[self.get_shift_key(k) for k in row] for row in self.layout]
             self.init_keys()
+            print(f"Shift clicked! {self.is_shift}")
        
         elif key == "Space": self.insert_text(" ")
-        else: self.insert_text(key)
+        else: 
+            self.insert_text(key)
 
-        self.is_shift = False
-        self.layout = [[self.get_shift_key(k) for k in row] for row in self.layout]
-        self.init_keys()
+            self.is_shift = False
+            self.layout = [[self.get_shift_key(k) for k in row] for row in self.layout]
+            self.init_keys()
 
     def insert_text(self, text):
         if not self.current_target: return
@@ -482,6 +538,7 @@ class App(ctk.CTk):
         self.grid_rowconfigure(0, weight=1)
         self.grid_rowconfigure(1, weight=0)                 # Keyboard row
 
+        # Class variables
         self.pages = {}
         self.menu_buttons = {}
         self.current_page_name = None
@@ -490,6 +547,8 @@ class App(ctk.CTk):
         self.current_calendar_view_month = datetime.now().month
 
         self.culture_health = -1
+
+        self._updating_light = False
 
         # Main UI initialization
         self.init_sidebar()
@@ -606,6 +665,7 @@ class App(ctk.CTk):
 
         # O. LOAD DATA
         curr_telemetry = self.data_manager.get_last_telemetry()
+        curr_state = self.data_manager.get_last_state()
         culture_profile = self.data_manager.get_culture_profile()
 
         # A. HEADER ROW
@@ -696,14 +756,15 @@ class App(ctk.CTk):
         lbl_harv_vol.grid(row=1, column=0, padx=15, pady=(2, 15), sticky="n")
 
         # Flask indicator
-        flasks_container = ctk.CTkFrame(harvest_frame, fg_color="transparent", border_width=2, border_color="red", corner_radius=12)
+        flasks_container = ctk.CTkFrame(harvest_frame, fg_color="transparent",
+                                        border_width=2, border_color=self.data_manager.get_flask_state(curr_state["flasks"]["left"], curr_state["flasks"]["right"]), corner_radius=12)
         flasks_container.grid(row=0, column=1, padx=20, pady=15)
         
         # Flask symbols
-        self.flask_1 = ctk.CTkLabel(flasks_container, width=70, text=" ", height=90, fg_color=("#E0E0E0", "#2A2A2A"), corner_radius=8)
+        self.flask_1 = ctk.CTkLabel(flasks_container, width=70, text=" ", height=90, fg_color=self.data_manager.get_flask_color(curr_state["flasks"]["left"]), corner_radius=8)
         self.flask_1.grid(row=0, column=0, padx=12, pady=12)
 
-        self.flask_2 = ctk.CTkLabel(flasks_container, width=70, text=" ", height=90, fg_color=("#E0E0E0", "#2A2A2A"), corner_radius=8)
+        self.flask_2 = ctk.CTkLabel(flasks_container, width=70, text=" ", height=90, fg_color=self.data_manager.get_flask_color(curr_state["flasks"]["right"]), corner_radius=8)
         self.flask_2.grid(row=0, column=1, padx=12, pady=12)
 
         # Control button
@@ -711,7 +772,7 @@ class App(ctk.CTk):
         buttons_container.grid(row=0, column=2, padx=20, pady=15, sticky="ew")
         buttons_container.grid_columnconfigure(0, weight=1)
 
-        btn_add_water = ctk.CTkButton(buttons_container, text="Add water", font=self.font_text_bold, height=40, corner_radius=10, fg_color=("#D0D0D0", "#2D2D2D"), text_color=("black", "white"), command=lambda: lib.log("[UI] Add Water clicked"))
+        btn_add_water = ctk.CTkButton(buttons_container, text="Add water", font=self.font_text_bold, height=40, corner_radius=10, fg_color=("#D0D0D0", "#2D2D2D"), text_color=("black", "white"), command=self.on_add_water_click)
         btn_add_water.grid(row=0, column=0, pady=(0, 10), sticky="ew")
 
         btn_harvest_now = ctk.CTkButton(buttons_container, text="Harvest now", font=self.font_text_bold_big, height=40, corner_radius=10, fg_color="#1F6AA5", command=self.on_harvest_now_click)
@@ -738,6 +799,7 @@ class App(ctk.CTk):
         curr_telemetry = self.data_manager.get_last_telemetry()
         curr_state = self.data_manager.get_last_state()
         culture_profile = self.data_manager.get_culture_profile()
+        machine_cfg = self.data_manager.get_machine_configuration()
 
         # A. HEADER ROW [Header, Verdict]
         header_frame = ctk.CTkFrame(state_page, fg_color="transparent")
@@ -829,11 +891,15 @@ class App(ctk.CTk):
        
         lbl_vol_title = ctk.CTkLabel(vol_card, text="Volume", font=self.font_text_semibold_big)
         lbl_vol_title.grid(row=0, column=0, pady=(10, 5))
+
+        vol_tank_col = self.data_manager.get_vol_color(curr_state["volume"]["low"], curr_state["volume"]["high"])
        
-        self.vol_tank_shape = ctk.CTkFrame(vol_card, width=90, height=110, corner_radius=10, fg_color=("#E0E0E0", "#2A2A2A"), border_width=2, border_color="green")
+        self.vol_tank_shape = ctk.CTkFrame(vol_card, width=90, height=110, corner_radius=10, fg_color=("#E0E0E0", "#2A2A2A"),
+                                           border_width=2, border_color=vol_tank_col)
         self.vol_tank_shape.grid(row=1, column=0, pady=8)
        
-        self.lbl_vol_status = ctk.CTkLabel(vol_card, text=f"{"Null"}", font=self.font_text_med_big, text_color=f"{"grey"}")
+        self.lbl_vol_status = ctk.CTkLabel(vol_card, text=self.data_manager.get_vol_text(curr_state["volume"]["low"], curr_state["volume"]["high"]),
+                                           font=self.font_text_med_big, text_color=vol_tank_col)
         self.lbl_vol_status.grid(row=2, column=0, pady=(5, 15))
 
         # = Flasks & Hardware State =
@@ -864,7 +930,6 @@ class App(ctk.CTk):
         self.lbl_weight_y = ctk.CTkLabel(flasks_container, text=f"{curr_state["flasks"]["grams_right"]} g", font=self.font_text_med_small)
         self.lbl_weight_y.grid(row=1, column=1, pady=(0, 4))
 
-
         sys_status_frame = ctk.CTkFrame(hw_card, fg_color="transparent")
         sys_status_frame.grid(row=1, column=0, padx=20, pady=(4, 12), sticky="w")
        
@@ -875,7 +940,7 @@ class App(ctk.CTk):
         lbl_heater_prefix = ctk.CTkLabel(heater_line, text="Heater: ", font=self.font_text_med)
         lbl_heater_prefix.grid(row=0, column=0, sticky="w")
        
-        self.lbl_heater_state = ctk.CTkLabel(heater_line, text=f"{self.data_manager.strBooleanFormat(curr_state["state"]["H"], "ON", "OFF")}", font=self.font_text_bold, text_color="green")
+        self.lbl_heater_state = ctk.CTkLabel(heater_line, text=f"{self.data_manager.strBooleanFormat(curr_state["state"]["H"], "ON", "OFF")}", font=self.font_text_bold, text_color="#1F6AA5")
         self.lbl_heater_state.grid(row=0, column=1, sticky="w")
 
         # Carbonizer
@@ -910,7 +975,8 @@ class App(ctk.CTk):
         circle_bg = ("#E0E0E0", "#252525")
        
         graphic_circle_radius = 210
-        graphic_circle = ctk.CTkFrame(light_card, width=graphic_circle_radius, height=graphic_circle_radius, corner_radius=105, fg_color=circle_bg, border_width=2, border_color=("#CCCCCC", "#444444"))
+        graphic_circle = ctk.CTkFrame(light_card, width=graphic_circle_radius, height=graphic_circle_radius,
+                                      corner_radius=105, fg_color=circle_bg, border_width=2, border_color=("#CCCCCC", "#444444"))
         graphic_circle.grid(row=1, column=1, padx=(5, 20))
         graphic_circle.grid_propagate(False)
         graphic_circle.grid_columnconfigure(0, weight=1)
@@ -925,7 +991,7 @@ class App(ctk.CTk):
             highlightthickness=0
         )
         self.reactor_canvas.grid(row=0, column=0, padx=3, pady=3)
-        self.draw_reactor_schematic(0, 40, 100)
+        self.draw_reactor_schematic(curr_state["state"]["L0"], curr_state["state"]["L1"], curr_state["state"]["L2"])
 
         # D. BOTTOM PERIODS CONFIGURATION
         periods_frame = ctk.CTkFrame(state_page, fg_color=("#F5F5F5", "#1E1E1E"), corner_radius=16, border_width=1, border_color=("#DBDBDB", "#2B2B2B"))
@@ -955,35 +1021,67 @@ class App(ctk.CTk):
 
         lp_inputs_frame = ctk.CTkFrame(lp_content_left, fg_color="transparent")
         lp_inputs_frame.grid(row=0, column=0, sticky="w")
+
+        # Inputfield variables
+        self.light_on_var = customtkinter.StringVar(value=str(machine_cfg["machine_config"]["light_day_period_h"]))
+        self.light_off_var = customtkinter.StringVar(value=str((24 - machine_cfg["machine_config"]["light_day_period_h"])))
        
-        # Inputs
-        self.ent_light_on = ctk.CTkEntry(lp_inputs_frame, width=55, height=32, font=self.font_text_bold_big, justify="center")
-        self.ent_light_on.insert(0, f"{-1}")
+        # Light ON (Left)
+        self.ent_light_on = ValidatedNumberEntry(
+            lp_inputs_frame,
+            min_val=0, 
+            max_val=24,
+            allow_float=False,
+            default_val=12,
+            textvariable=self.light_on_var,
+            width=55,
+            height=32,
+            font=self.font_text_bold_big,
+            justify="center"
+        )
         self.ent_light_on.grid(row=0, column=0)
         self.ent_light_on.bind("<Button-1>", self.global_keyboard_handler)
        
+        # Divider (Middle)
         lbl_h_slash = ctk.CTkLabel(lp_inputs_frame, text=" h. / ", font=self.font_text_bold_big)
         lbl_h_slash.grid(row=0, column=1)
        
-        self.ent_light_off = ctk.CTkEntry(lp_inputs_frame, width=55, height=32, font=self.font_text_bold_big, justify="center")
-        self.ent_light_off.insert(0, f"{-1}")
+        # Light OFF (Right)
+        self.ent_light_off = ValidatedNumberEntry(
+            lp_inputs_frame,
+            min_val=0, 
+            max_val=24,
+            allow_float=False,
+            default_val=12,
+            textvariable=self.light_off_var,
+            width=55,
+            height=32,
+            font=self.font_text_bold_big,
+            justify="center"
+        )
         self.ent_light_off.grid(row=0, column=2)
         self.ent_light_off.bind("<Button-1>", self.global_keyboard_handler)
-       
+        
+        # End Label
         lbl_h_end = ctk.CTkLabel(lp_inputs_frame, text=" h.", font=self.font_text_bold_big)
         lbl_h_end.grid(row=0, column=3)
 
+        self.light_on_var.trace_add("write", self._sync_light_hour_on)
+        self.light_off_var.trace_add("write", self._sync_light_hour_off)
+
         # Save Light config
-        btn_save_light = ctk.CTkButton(lp_content_left, text="Save", font=self.font_button, width=120, height=36, corner_radius=8, fg_color=("#D0D0D0", "#2D2D2D"), text_color=("black", "white"), command=lambda: print("[UI] Light period saved"))
+        btn_save_light = ctk.CTkButton(lp_content_left, text="Save", font=self.font_button, width=120, height=36, corner_radius=8, fg_color=("#D0D0D0", "#2D2D2D"),
+                                       text_color=("black", "white"), command=lambda: self.save_light_period())
         btn_save_light.grid(row=1, column=0, sticky="w", pady=(15, 0))
 
-        dial_bg = "#E0E0E0" if ctk.get_appearance_mode() == "Light" else "#252525"
+        self.light_dial_bg = "#E0E0E0" if ctk.get_appearance_mode() == "Light" else "#252525"
 
-        self.light_dial_canvas = ctk.CTkCanvas(lp_center_wrapper, width=150, height=150, bg=dial_bg, highlightthickness=0)
+        self.light_dial_canvas = ctk.CTkCanvas(lp_center_wrapper, width=150, height=150, bg=self.light_dial_bg, highlightthickness=0)
         self.light_dial_canvas.grid(row=0, column=1)
 
         # Diagramm
-        self.draw_time_dial(self.light_dial_canvas, 14, 10, dial_bg, 150)
+        self.draw_time_dial(self.light_dial_canvas, machine_cfg["machine_config"]["light_day_period_h"], (24 - machine_cfg["machine_config"]["light_day_period_h"]),
+                            self.light_dial_bg, 150)
 
         # = Separator =
         separator = ctk.CTkFrame(periods_frame, width=2, fg_color=("#DBDBDB", "#2B2B2B"))
@@ -1012,23 +1110,46 @@ class App(ctk.CTk):
         # Inputs
         lbl_work = ctk.CTkLabel(carb_inputs_grid, text="Work: ", font=self.font_text_bold)
         lbl_work.grid(row=0, column=0, sticky="w", pady=6)
-        self.ent_carb_work = ctk.CTkEntry(carb_inputs_grid, width=60, height=32, font=self.font_text_bold, justify="center")
-        self.ent_carb_work.insert(0, f"{-1}")
+        self.ent_carb_work = ValidatedNumberEntry(
+            carb_inputs_grid,
+            min_val=1, 
+            max_val=60,
+            allow_float=False,
+            default_val=10,
+            width=60,
+            height=32,
+            font=self.font_text_bold,
+            justify="center"
+        )
+        self.ent_carb_work.insert(0, machine_cfg["machine_config"]["compressor_active_min"])
         self.ent_carb_work.grid(row=0, column=1, pady=6, padx=5)
         self.ent_carb_work.bind("<Button-1>", self.global_keyboard_handler)
+
         lbl_work_min = ctk.CTkLabel(carb_inputs_grid, text=" min", font=self.font_text_med)
         lbl_work_min.grid(row=0, column=2, sticky="w", pady=6)
 
         lbl_rest = ctk.CTkLabel(carb_inputs_grid, text="Rest: ", font=self.font_text_bold)
         lbl_rest.grid(row=1, column=0, sticky="w", pady=6)
-        self.ent_carb_rest = ctk.CTkEntry(carb_inputs_grid, width=60, height=32, font=self.font_text_bold, justify="center")
-        self.ent_carb_rest.insert(0, f"{-1}")
+        self.ent_carb_rest = ValidatedNumberEntry(
+            carb_inputs_grid, 
+            min_val=1, 
+            max_val=60,
+            allow_float=False,
+            default_val=2,
+            width=60, 
+            height=32, 
+            font=self.font_text_bold, 
+            justify="center"
+        )
+        self.ent_carb_rest.insert(0, machine_cfg["machine_config"]["compressor_rest_min"])
         self.ent_carb_rest.grid(row=1, column=1, pady=6, padx=5)
         self.ent_carb_rest.bind("<Button-1>", self.global_keyboard_handler)
+
         lbl_rest_min = ctk.CTkLabel(carb_inputs_grid, text=" min", font=self.font_text_med)
         lbl_rest_min.grid(row=1, column=2, sticky="w", pady=6)
 
-        btn_save_carb = ctk.CTkButton(carb_content_left, text="save", font=self.font_button, width=120, height=36, corner_radius=8, fg_color=("#D0D0D0", "#2D2D2D"), text_color=("black", "white"), command=lambda: print("[UI] Carbonizer period saved"))
+        btn_save_carb = ctk.CTkButton(carb_content_left, text="Save", font=self.font_button, width=120, height=36, corner_radius=8, fg_color=("#D0D0D0", "#2D2D2D"),
+                                      text_color=("black", "white"), command=lambda: self.save_carb_shedule())
         btn_save_carb.grid(row=1, column=0, sticky="w", pady=(15, 0))
 
         # Cycles
@@ -1040,7 +1161,8 @@ class App(ctk.CTk):
         lbl_cycles_title = ctk.CTkLabel(cycles_badge, text="Cycles / Day", font=self.font_text_reg_small, text_color="gray")
         lbl_cycles_title.grid(row=0, column=0, padx=10, pady=(15, 0), sticky="s")
        
-        self.lbl_cycles_val = ctk.CTkLabel(cycles_badge, text=f"{24 * (60 / (10 + 2))}", font=self.font_text_bold_big, text_color="#1F6AA5")
+        self.lbl_cycles_val = ctk.CTkLabel(cycles_badge, text=f"{24 * (60 / (machine_cfg["machine_config"]["compressor_active_min"] + machine_cfg["machine_config"]["compressor_rest_min"])):.2f}",
+                                           font=self.font_text_bold_big, text_color="#1F6AA5")
         self.lbl_cycles_val.grid(row=1, column=0, padx=10, pady=(0, 18), sticky="n")
 
     def trends_page(self, id):
@@ -1412,14 +1534,19 @@ class App(ctk.CTk):
         self.after(100, self.read_buffer)
 
     def execute_console_command(self):
-        # Extract user input strike
-        command = self.ent_command.get().strip()
-        if not command: return
+        # Extract user input strike (like "COMMAND X1 X2 X3")
+        command_line = self.ent_command.get().strip()
+        if not command_line: return
+
+        # Split into command and arguments string
+        parts = command_line.split(maxsplit=1)
+        command = parts[0].upper()
+        payload = parts[1].strip() if len(parts) > 1 else ""
 
         # Write into the file
-        lib.log(f"> {command}")
+        lib.log(f"> {command_line}")
         # Put command into execution list
-        self.sys_cmd_buff.put(("CMD", command))
+        self.sys_cmd_buff.put((command, payload))
 
         # Clear input field
         self.ent_command.delete(0, "end")
@@ -2017,9 +2144,62 @@ class App(ctk.CTk):
 
     # ------------------------------- EVENT FUNCTIONS -------------------------------
 
+    def _sync_light_hour_on(self, *args):
+        if self._updating_light: return
+
+        raw_val = self.light_on_var.get()
+        if raw_val == "" or raw_val == "-": return
+        try:
+            on_hours = int(raw_val)
+            if 0 <= on_hours <= 24: 
+                off_hours = 24 - on_hours
+                
+                self._updating_light = True
+                self.light_off_var.set(str(off_hours))
+                self._updating_light = False
+
+        except ValueError: self._updating_light = False
+
+    def _sync_light_hour_off(self, *args):
+        if self._updating_light: return
+        
+        raw_val = self.light_off_var.get()
+        if raw_val == "" or raw_val == "-": return
+        try:
+            off_hours = int(raw_val)
+            if 0 <= off_hours <= 24: 
+                on_hours = 24 - off_hours
+                
+                self._updating_light = True
+                self.light_on_var.set(str(on_hours))
+                self._updating_light = False
+
+        except ValueError: self._updating_light = False
+
+    def save_light_period(self):
+        hours_on = self.ent_light_on.get_val()
+        # Save
+        self.data_manager.save_light_config(hours_on)
+        # Display
+        self.draw_time_dial(self.light_dial_canvas, hours_on, (24 - hours_on), self.light_dial_bg, 150)
+        lib.log(f"[UI] Light period saved: {hours_on} hours ON")
+        
+    def save_carb_shedule(self):
+        minutes_active = self.ent_carb_work.get_val()
+        minutes_rest = self.ent_carb_rest.get_val()
+        # Save
+        self.data_manager.save_compressor_config(minutes_active, minutes_rest)
+        # Display
+        self.lbl_cycles_val.configure(text=f"{24 * (60 / (minutes_active + minutes_rest)):.2f}")
+        lib.log(f"[UI] Carbonizer schedule saved: ON for {minutes_active} min, REST for {minutes_rest} min")  
+
     def on_harvest_now_click(self):
         self.sys_cmd_buff.put(("HARVEST_REQUEST", 1))
         lib.log("[UI] 'Harvest Now' action triggered.")
+
+    def on_add_water_click(self):
+        self.sys_cmd_buff.put(("ADD_WATER", 1))
+        lib.log("[UI] 'Add Water' action triggered.")
 
     def on_past_calendar_day_click(self, date_str, harvest_info):
         if harvest_info:

@@ -32,6 +32,7 @@ STATE_FILE_DIR = RESOURCES_DIR / "machine_state.json"
 LOGS_FILE_DIR = RESOURCES_DIR / "logs.txt"
 HARVEST_CALENDAR_DATA_DIR = RESOURCES_DIR / "harvest_calendar.json"
 AI_CHAT_HISTORY_DIR = AI_DIR / "LLM" / "history.json"
+MACHINE_CONFIG_DIR = RESOURCES_DIR / "machine_config.json"
 
 ### Global variables & triggers ###
 LAST_COMMAND_COMPLETED = False
@@ -53,6 +54,6 @@ def log(data):
         with open(LOGS_FILE_DIR, "a", encoding="utf-8") as l: l.write(log_str)
     except Exception as e: print(f"[CRITICAL] Failed to write log file: {e}")
 
-    if _gui_cmd_buff is not None: _gui_cmd_buff.put(("LOGS", data))
+    if _gui_cmd_buff is not None: _gui_cmd_buff.put(("LOGS", log_str))
 
-    print(data)
+    print(log_str)

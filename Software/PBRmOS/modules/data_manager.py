@@ -1,5 +1,4 @@
 import os
-import sys
 
 import json
 
@@ -86,7 +85,33 @@ class DataManager:
         return "Critical"
     # --- --------------------- --- #
 
+    # --- Volume & Flasks UI markdown --- #
+    def get_flask_color(self, x): return "#E6E6E6" if x else "#2A2A2A"
+    def get_flask_state(self, l, r): return "green" if l == 1 and r == 1 else "red"
+
+    def get_vol_color(self, l, h):
+        if (l == 0 and h == 0) or (l == 1 and h == 1): return "yellow"
+        elif l == 1 and h == 0: return "green"
+        elif l == 0 and h == 1: return "red"
+        return "grey"
+    def get_vol_text(self, l, h):
+        if l == 0 and h == 0: return "Lack"
+        elif l == 1 and h == 0: return "Normal"
+        elif l == 1 and h == 1: return "Overflow"
+        elif l == 0 and h == 1: return "Error"
+        return "Null"
+    # --- ------------------ --- #
+
     # --- Data extractors --- #
+    def read_logs(self):
+        try:
+            with open(lib.LOGS_FILE_DIR, "r", encoding="utf-8") as f:
+                for line in f:
+                    clean_line = line.strip()
+                    if clean_line: self.gui_cmd_buff.put(("LOGS", clean_line))
+                 
+        except (FileNotFoundError, IOError): lib.log("[UI] No log file found.")
+
     def get_last_telemetry(self):
         file_path = lib.TELEMETRY_FILE_DIR
         default_data = {"temp_out": 0.0, "temp_in": 0.0, "ph": 7.0, "concentration": 0.0}
@@ -134,8 +159,7 @@ class DataManager:
         with open(culture_profile_path, 'r', encoding='utf-8') as file: culture_profile = json.load(file)
         return culture_profile
     def get_machine_configuration(self):
-        m_conf_path = lib.RESOURCES_DIR / "machine_config.json"
-        with open(m_conf_path, 'r', encoding='utf-8') as file: config = json.load(file)
+        with open(lib.MACHINE_CONFIG_DIR, 'r', encoding='utf-8') as file: config = json.load(file)
         return config
 
     def get_harvest_logs_dict(self):
@@ -157,8 +181,8 @@ class DataManager:
         return logs_dict
 
     def get_daily_notif(self):
-        # Just read file resources/daily.txt
-        return ""
+        daily_path =  lib.RESOURCES_DIR / "daily.txt"
+        with open(daily_path, "r", encoding="utf-8") as dly: return dly.read()
     # --- --------------- --- #
 
     # --- Fromattors --- #
@@ -197,7 +221,6 @@ class DataManager:
         # Collect all
         return [telemetry["ph"], telemetry["temp_in"], telemetry["concentration"], day_ph, day_concentration,
                 state["state"]["L0"], state["state"]["L1"], state["state"]["L2"], days_elapsed]
-    
     def get_harvester_input_list(self):
         # input: [maximum_liters, harvest_amount, curr_concentration, day_delta_concentration, week_delta_concentration, curr pH, day avg pH, week avg pH, previous_harvest_days_elapsed, 
         # previous_harvest_ml, previous_harvest_concentration, current_inner_temp] # (12 arguments)
@@ -241,19 +264,45 @@ class DataManager:
                 telemetry["ph"], day_ph, week_ph, days_elapsed, last_harvest_vol, last_harvest_conc, telemetry["temp_in"]]
     # --- ------------------ --- #
 
+    # --- Config editors --- #
+    def update_daily_notification(self, content):
+        # In file resources/daily.txt
+        pass
+
     def add_future_harvest_data(self):
         # Open harvest_calendar.json ["planned"]
         # Save current datetime + 24h
         pass
 
-    def read_logs(self):
+    def save_light_config(self, hours_on):
+        config_path = lib.MACHINE_CONFIG_DIR
+        
         try:
-            with open(lib.LOGS_FILE_DIR, "r", encoding="utf-8") as f:
-                for line in f:
-                    clean_line = line.strip()
-                    if clean_line: self.gui_cmd_buff.put(("LOGS", clean_line))
-                 
-        except (FileNotFoundError, IOError): lib.log("[UI] No log file found.")
+            if config_path.exists():
+                with open(config_path, 'r', encoding='utf-8') as f: data = json.load(f)
+            else: data = {"machine_config": {}}
+                
+            data["machine_config"]["light_day_period_h"] = hours_on
+            with open(config_path, 'w', encoding='utf-8') as f: json.dump(data, f, indent=4)
+                
+        except (json.JSONDecodeError, OSError) as e: lib.log(f"[ERROR] Failed to save light config: {e}")
+    def save_compressor_config(self, minutes_active, minutes_rest):
+        config_path = lib.MACHINE_CONFIG_DIR
+        
+        try:
+            if config_path.exists():
+                with open(config_path, 'r', encoding='utf-8') as f: data = json.load(f)
+            else: data = {"machine_config": {}}
+                
+            data["machine_config"]["compressor_active_min"] = minutes_active
+            data["machine_config"]["compressor_rest_min"] = minutes_rest
+            with open(config_path, 'w', encoding='utf-8') as f: json.dump(data, f, indent=4)
+                
+        except (json.JSONDecodeError, OSError) as e: lib.log(f"[ERROR] Failed to save compressor config: {e}")
+    def save_machine_config(self):
+        #
+        pass
+    # --- -------------- --- #
 
     # --- AI chat handlers --- #
     def read_ai_history(self):

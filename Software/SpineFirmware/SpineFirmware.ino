@@ -578,12 +578,12 @@ void sendEnvironment() {
   uint8_t heatState = digitalRead(HEATER_PIN);
   
   String stateMsg = String(F("CURRENTSTATE ")) + 
-                    String(conf.brightnessA) + String(F(" ")) + 
-                    String(conf.brightnessB) + String(F(" ")) + 
-                    String(conf.brightnessC) + String(F(" ")) + 
+                    String(100 * (conf.brightnessA / 255)) + String(F(" ")) + 
+                    String(100 * (conf.brightnessB / 255)) + String(F(" ")) + 
+                    String(100 * (conf.brightnessC / 255)) + String(F(" ")) + 
                     String(compState) + String(F(" ")) + 
                     String(heatState) + String(F(" ")) + 
-                    String(conf.harvestPumpPower);
+                    String(100 * (conf.harvestPumpPower / 255));
   sendPort(stateMsg);
 
   if (outerTempSensorInitialized && innerTempSensorInitialized) { 
