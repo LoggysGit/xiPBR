@@ -4,10 +4,7 @@ venv/
 **/`.venv`/
 **/venv/
 
-*.gguf
-**/*.gguf
-
-**/model/
+.vscode/
 
 **/__pycache__/
 **/__saved__/

@@ -1,7 +1,0 @@
-numpy
-xgboost
-scikit-learn
-llama-cpp-python
-pyserial
-customtkinter
-pyinstaller
