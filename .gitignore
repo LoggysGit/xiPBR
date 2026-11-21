@@ -1,10 +1,8 @@
-.venv/
-venv/
-
-**/`.venv`/
-**/venv/
-
+**/.venv
 .vscode/
 
-**/__pycache__/
-**/__saved__/
+**/__pycache__
+**/xipbr_host.egg-info
+
+**/__saved__
+**/build

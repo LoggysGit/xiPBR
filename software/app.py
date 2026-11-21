@@ -13,16 +13,37 @@ def system_thread(  system_queue: Queue,
                     app: interface.App  ):
     """ System thread """
 
+    while True:
+        item = system_queue.get()
+
+        try:
+            command, payload = item
+            match command:
+                
+
+                # Unknown command #
+                case _:
+                    print(f"Unknown command: {command}")
+
+        except ValueError:
+            print(f"Wrong command structure (CMD, PAYLOAD): {item}")
+
+        except Exception as e:
+            print(f"System thread error: {e}")
+
+        finally:
+            system_queue.task_done()
+
 if __name__ == "__main__":
     # App command queues
     sys_command_buffer = Queue()
     gui_command_buffer = Queue()
 
     # App objects
-    stm_bridge = bridge.Bridge()
-    dat_man = datamanager.DataManager()
-    core = cultivator.CultivatorCore()
-    app = interface.App()
+    stm_bridge = bridge.Bridge(sys_command_buffer, gui_command_buffer)
+    dat_man = datamanager.DataManager(sys_command_buffer, gui_command_buffer)
+    core = cultivator.CultivatorCore(sys_command_buffer, gui_command_buffer)
+    app = interface.App(sys_command_buffer, gui_command_buffer)
 
     # Start system daemon
     sys_thread = threading.Thread(
