@@ -3,13 +3,12 @@
 import threading
 from queue import Queue
 
-from modules import bridge, datamanager, cultivator, interface
+from modules import bridge, datamanager, interface
 
 def system_thread(  system_queue: Queue,
                     gui_queue: Queue,
                     stm_bridge: bridge.Bridge,
                     dat_man: datamanager.DataManager,
-                    core: cultivator.CultivatorCore,
                     app: interface.App  ):
     """ System thread """
 
@@ -42,14 +41,13 @@ if __name__ == "__main__":
     # App objects
     stm_bridge = bridge.Bridge(sys_command_buffer, gui_command_buffer)
     dat_man = datamanager.DataManager(sys_command_buffer, gui_command_buffer)
-    core = cultivator.CultivatorCore(sys_command_buffer, gui_command_buffer)
     app = interface.App(sys_command_buffer, gui_command_buffer)
 
     # Start system daemon
     sys_thread = threading.Thread(
         target=system_thread,
         args=(sys_command_buffer, gui_command_buffer,
-              stm_bridge, dat_man, core, app),
+              stm_bridge, dat_man, app),
         daemon=True)
     sys_thread.start()
 
