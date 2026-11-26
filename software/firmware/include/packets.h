@@ -6,6 +6,7 @@ struct TelemetryPacket {
     uint8_t     ph_10;              // pH value (* 10)
     uint16_t    turbidity_ntu_100;  // Raw turbidity (* 100)
     bool        water_level_ok;     // Water level
+    // System
     uint32_t    uptime_sec;         // Time since enabled
     uint8_t     state_code;         // Machine state code (reserved)
 };

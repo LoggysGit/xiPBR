@@ -13,3 +13,4 @@
 #define PH_MOTOR_PIN    0
 
 // CONFIGURATION //
+#define BAUDRATE        115200

@@ -5,15 +5,21 @@
 #include "bridge.h"
 #include "cultivator.h"
 
-SettingsPacket pbr_settings;
+TelemetryPacket actualTelemetry;
+SettingsPacket pbrSettings;
 
-DataBridge dataBridge(pbr_settings);
-Cultivator cultivator();
+DataBridge dataBridge(pbrSettings);
+Cultivator cultivator(actualTelemetry);
 
 void setup() {
+  Serial.begin(BAUDRATE);
+  Serial.println("[System] xiPBR launched. Initting...");
 
+  if (!dataBridge.init()) Serial.println("Data bridge cannot start");
+  if (!cultivator.init()) Serial.println("Cultivator core cannot start");
 }
 
 void loop() {
-
+  cultivator.tick();
+  dataBridge.tick();
 }
