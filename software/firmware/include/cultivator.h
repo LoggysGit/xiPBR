@@ -6,14 +6,20 @@
 #include <cstring>
 
 #include <Arduino.h>
+#include <OneWire.h>
+
+#include <DallasTemperature.h>
 
 #include "config.h"
 #include "packets.h"
 
+#include "bridge.h"
+
 class Cultivator {
 public:
     explicit Cultivator(TelemetryPacket& telemetry,
-                        SettingsPacket& setts);
+                        SettingsPacket& setts,
+                        DataBridge& dataBridge);
 
     bool init();
     void tick();
@@ -23,7 +29,6 @@ private:
     // Timer branches
     void runThirtyMinuteTasks(uint32_t now_ms);
     void runTwelveHourTasks(uint32_t now_ms);
-    void updatePhotoperiod(bool is_night);
 
     // Sensor readers
     uint16_t readRawTurbidity();
@@ -54,6 +59,10 @@ private:
 private:
     TelemetryPacket& telemetry_;
     SettingsPacket& setts_;
+    DataBridge& bridgeObjRef_;
+
+    OneWire oneWire_{TEMP_SENSOR_PIN};
+    DallasTemperature tempSensor_{&oneWire_};
 
     bool initialized_ = false;
 

@@ -1,8 +1,9 @@
 #include "cultivator.h"
 
-Cultivator::Cultivator(TelemetryPacket& telemetry, SettingsPacket& setts)
+Cultivator::Cultivator(TelemetryPacket& telemetry, SettingsPacket& setts, DataBridge& dataBridge)
     : telemetry_(telemetry),
       setts_(setts),
+      bridgeObjRef_(dataBridge),
 
       initialized_(false),
       current_daynight_mode_(1),
@@ -19,7 +20,7 @@ Cultivator::Cultivator(TelemetryPacket& telemetry, SettingsPacket& setts)
       current_heater_duty_(0) {}
 
 bool Cultivator::init() {
-    // Set pins
+    /* Set pins */
     pinMode(TEMP_SENSOR_PIN, INPUT);
     pinMode(PH_SENSOR_PIN, INPUT);
     pinMode(WL_SENSOR_PIN, INPUT);
@@ -34,7 +35,7 @@ bool Cultivator::init() {
     digitalWrite(PH_MOTOR_PIN, LOW);
     analogWrite(HEATER_MOS_PIN, 0);
 
-    // Init telemetry defaults
+    /* Init telemetry defaults */
     telemetry_.temp_in_100 = 0;
     telemetry_.ph_10 = 0;
     telemetry_.turbidity_ntu_100 = 0;
@@ -42,14 +43,15 @@ bool Cultivator::init() {
     telemetry_.uptime_sec = 0;
     telemetry_.state_code = 0;
 
-    // Init timers
+    /* Init timers */
     const uint32_t now_ms = millis();
     last_30m_ms_ = now_ms;
     last_12h_ms_ = now_ms;
     initialized_ = true;
 
-    // Init sensors and wires
-    // TODO
+    /* Init sensors and wires */
+    tempSensor_.begin();
+    tempSensor_.setResolution(12);
 
     return true;
 }
@@ -76,6 +78,7 @@ void Cultivator::tick() {
     }
 
     // Read time
+    // - (ds3231)
 }
 
 bool Cultivator::harvest() {
@@ -131,27 +134,12 @@ void Cultivator::runTwelveHourTasks(uint32_t now_ms) {
     const int32_t ph_scaled = static_cast<int32_t>(std::lround(ph * 10.0f));
     if (ph_scaled < 0) {
         telemetry_.ph_10 = 0;
-    } else if (ph_scaled > 255) {
-        telemetry_.ph_10 = 255;
-    } else {
-        telemetry_.ph_10 = static_cast<uint8_t>(ph_scaled);
     }
-}
-
-void Cultivator::updatePhotoperiod(bool is_night) {
-    const uint8_t target_mode = is_night ? 0 : 1;
-    if (target_mode == current_daynight_mode_) return;
-
-    current_daynight_mode_ = target_mode;
-
-    if (is_night) {
-        smoothLightTransition(false);
-        // TODO
-        setBubblingLevel(0);
-    } else {
-        // TODO
-        setBubblingLevel(0);
-        smoothLightTransition(true);
+    else if (ph_scaled > 255) {
+        telemetry_.ph_10 = 255;
+    }
+    else {
+        telemetry_.ph_10 = static_cast<uint8_t>(ph_scaled);
     }
 }
 
@@ -167,8 +155,26 @@ float Cultivator::readPH() {
 }
 
 float Cultivator::readTemperatureC() {
-    // TODO
-    return 0.0f;
+    uint16_t samples_x100[MEDIAN_MAX_SAMPLES] = {0};
+    size_t valid_count = 0;
+
+    for (size_t i = 0; i < MEDIAN_MAX_SAMPLES; ++i) {
+        tempSensor_.requestTemperatures();
+        const float raw_c = tempSensor_.getTempCByIndex(0);
+
+        // Remove errors and corrupted values
+        if (raw_c > -55.0f && raw_c < 125.0f) {
+            const int32_t scaled = static_cast<int32_t>(std::lround(raw_c * 100.0f));
+            if (scaled >= 0 && scaled <= 65535) {
+                samples_x100[valid_count++] = static_cast<uint16_t>(scaled);
+            }
+        }
+    }
+
+    if (valid_count == 0) return 0;
+
+    const uint16_t filtered_x100 = medianFilter(samples_x100, valid_count);
+    return static_cast<float>(filtered_x100) / 100.0f;
 }
 
 bool Cultivator::readWaterLevel() {
@@ -288,7 +294,7 @@ void Cultivator::updateLightFade(uint32_t now_ms) {
 /* --- TELEMETRY SENDING --- */
 void Cultivator::triggerTelemetry() {
     telemetry_.uptime_sec = millis() / 1000UL;
-    // TODO
+    bridgeObjRef_.sendTelemetryData(telemetry_);
 }
 
 /* --- INNER MATH & PROCESSING FUNCTIONS --- */
