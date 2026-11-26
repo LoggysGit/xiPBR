@@ -1,8 +1,10 @@
 #pragma once
 
-#include <Arduino.h>
 #include <cstddef>
 #include <cstdint>
+#include <cstring>
+
+#include <Arduino.h>
 
 #include "config.h"
 #include "packets.h"

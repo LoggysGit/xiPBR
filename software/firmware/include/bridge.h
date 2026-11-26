@@ -1,10 +1,12 @@
 #pragma once
 
-#include <Arduino.h>
-#include <ArduinoJson.h>
 #include <cstddef>
 #include <cstdint>
+#include <cstring>
 #include <functional>
+
+#include <Arduino.h>
+#include <ArduinoJson.h>
 
 #include "config.h"
 #include "packets.h"

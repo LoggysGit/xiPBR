@@ -12,10 +12,7 @@ DataBridge dataBridge(pbrSettings);
 Cultivator cultivator(actualTelemetry);
 
 void setup() {
-  Serial.begin(BAUDRATE);
-  Serial.println("[System] xiPBR launched. Initting...");
-
-  if (!dataBridge.init()) Serial.println("Data bridge cannot start");
+  dataBridge.init();
   if (!cultivator.init()) Serial.println("Cultivator core cannot start");
 }
 
