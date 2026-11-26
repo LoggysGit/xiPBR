@@ -13,17 +13,21 @@ struct TelemetryPacket {
 
 // STRUCT FOR *RECIEVING* AND *STORING* //
 struct SettingsPacket {
-    // Constant settings
+    // Environment settings
     uint16_t    target_temp_100;    // Target liquid temperature (* 100)
     uint8_t     target_ph_10;       // Target pH (* 10) [not used yet]
-    uint16_t    aeration_force;     // Aeration pump force (PWM)
-    uint16_t    lb_brightness;      // Bottom light (PWM)
-    uint16_t    ls_brightness;      // Side light (PWM)
-    uint16_t    lu_brightness;      // Upper light (PWM)
+    uint16_t    volume_ml;          // Volume of solution in milliliters
+    uint16_t    solution_heat_cap;  // Solution heat capacity IN J/G*C (for still water it is roughly 4.1)
+    uint16_t    harvest_amount_ml;  // Harvest amount in milliliters
+    // PWM Settings
+    uint8_t     aeration_force;     // Aeration pump force in %
+    uint8_t     heater_max_force;   // Heater max forse in %
+    uint8_t     lb_brightness;      // Bottom light in %
+    uint8_t     ls_brightness;      // Side light in %
+    uint8_t     lu_brightness;      // Upper light in %
     // Daycycle settings
     uint8_t     hours_active;       // Day schedule (hours active)
-    uint8_t     light_fade_sec;     // Light fade (in/out) duration (in seconds)
+    uint8_t     light_fade_sec;     // Light fade (in/out) duration in seconds
+    uint8_t     heater_fade_sec;    // Heater fade (on/off) duration in seconds
     uint16_t    aeration_force_n;   // Aeration pump force while inactive mode (night)
-    // Harvest settings
-    uint16_t    harvest_amount_ml;  // Harvest amount in milliliters
 };

@@ -9,7 +9,7 @@ TelemetryPacket actualTelemetry;
 SettingsPacket pbrSettings;
 
 DataBridge dataBridge(pbrSettings);
-Cultivator cultivator(actualTelemetry);
+Cultivator cultivator(actualTelemetry, pbrSettings);
 
 void setup() {
   dataBridge.init();

@@ -1,11 +1,22 @@
 #include "cultivator.h"
 
-Cultivator::Cultivator(TelemetryPacket& telemetry)
+Cultivator::Cultivator(TelemetryPacket& telemetry, SettingsPacket& setts)
     : telemetry_(telemetry),
+      setts_(setts),
+
       initialized_(false),
       current_daynight_mode_(1),
+
       last_30m_ms_(0),
-      last_12h_ms_(0) {}
+      last_12h_ms_(0),
+      light_fading_(false),
+      light_fade_target_on_(false),
+      light_fade_start_ms_(0),
+
+      heater_active_(false),
+      heater_start_ms_(0),
+      heater_duration_ms_(0),
+      current_heater_duty_(0) {}
 
 bool Cultivator::init() {
     // Set pins
@@ -21,6 +32,15 @@ bool Cultivator::init() {
 
     digitalWrite(HEATER_MOS_PIN, LOW);
     digitalWrite(PH_MOTOR_PIN, LOW);
+    analogWrite(HEATER_MOS_PIN, 0);
+
+    // Init telemetry defaults
+    telemetry_.temp_in_100 = 0;
+    telemetry_.ph_10 = 0;
+    telemetry_.turbidity_ntu_100 = 0;
+    telemetry_.water_level_ok = false;
+    telemetry_.uptime_sec = 0;
+    telemetry_.state_code = 0;
 
     // Init timers
     const uint32_t now_ms = millis();
@@ -29,6 +49,7 @@ bool Cultivator::init() {
     initialized_ = true;
 
     // Init sensors and wires
+    // TODO
 
     return true;
 }
@@ -37,6 +58,10 @@ void Cultivator::tick() {
     if (!initialized_) return;
 
     const uint32_t now_ms = millis();
+
+    // Update non-blocking PWM transitions
+    updateLightFade(now_ms);
+    updateHeaterCurve(now_ms);
 
     // Execute 12h cycle tick
     if (static_cast<uint32_t>(now_ms - last_12h_ms_) >= TWELVE_HOUR_INTERVAL_MS) {
@@ -61,22 +86,56 @@ bool Cultivator::harvest() {
 }
 
 void Cultivator::runThirtyMinuteTasks(uint32_t now_ms) {
+    // Process water level first
+    const bool water_ok = readWaterLevel();
+    telemetry_.water_level_ok = water_ok;
+
     // Control temperature
     const float temp_c = readTemperatureC();
-    // IF temp IS LOWER THAN REQUIRED VALUE, ENABLE A CYCLE WITH A HEATER AND 30-SEC TEMP RECHECK, UNTIL WE REACH THE MINIMUM +3C
+    const int32_t temp_scaled = static_cast<int32_t>(std::lround(temp_c * 100.0f));
+    telemetry_.temp_in_100 = (temp_scaled > 0) ? static_cast<uint16_t>(temp_scaled) : 0U;
 
-    // Process water level
-    const bool water_ok = readWaterLevel();
+    if (!water_ok) {
+        stopHeater();
+    }
+    else {
+        const float target_temp = static_cast<float>(setts_.target_temp_100) / 100.0f;
+        if (temp_c < target_temp) {
+            // t = c * m * delta_T / P (m ~= V for density ~ 1 g/ml)
+            const float delta_t = (target_temp - temp_c) + static_cast<float>(TEMP_INADVANCE);
+            if (delta_t > 0.0f && HEATER_POWER > 0.0f) {
+                const float joules = static_cast<float>(setts_.solution_heat_cap) *
+                                     static_cast<float>(setts_.volume_ml) * delta_t;
+                const uint32_t heater_sec = static_cast<uint32_t>(joules / HEATER_POWER);
+                startHeaterCurve(heater_sec, now_ms);
+            } else {
+                stopHeater();
+            }
+        } else {
+            stopHeater();
+        }
+    }
 
     triggerTelemetry();
 }
 
 void Cultivator::runTwelveHourTasks(uint32_t now_ms) {
+    (void)now_ms;
+
     // Read turbidity
     const uint16_t turbidity = readRawTurbidity();
+    telemetry_.turbidity_ntu_100 = turbidity;
 
     // Read pH
     const float ph = readPH();
+    const int32_t ph_scaled = static_cast<int32_t>(std::lround(ph * 10.0f));
+    if (ph_scaled < 0) {
+        telemetry_.ph_10 = 0;
+    } else if (ph_scaled > 255) {
+        telemetry_.ph_10 = 255;
+    } else {
+        telemetry_.ph_10 = static_cast<uint8_t>(ph_scaled);
+    }
 }
 
 void Cultivator::updatePhotoperiod(bool is_night) {
@@ -96,6 +155,7 @@ void Cultivator::updatePhotoperiod(bool is_night) {
     }
 }
 
+/* --- SENSOR READ FUNCTIONS --- */
 uint16_t Cultivator::readRawTurbidity() {
     // TODO
     return 0;
@@ -116,22 +176,122 @@ bool Cultivator::readWaterLevel() {
     return false;
 }
 
+/* --- HEATER CONTROL FUNCTIONS --- */
 void Cultivator::setHeaterState(bool enabled) {
-    digitalWrite(HEATER_MOS_PIN, enabled ? HIGH : LOW);
+    if (!enabled) {
+        stopHeater();
+        return;
+    }
+    const uint16_t peak_duty = static_cast<uint16_t>(
+        (static_cast<uint32_t>(PWM_MAX_DUTY) * setts_.heater_max_force) / 100U
+    );
+    current_heater_duty_ = peak_duty;
+    analogWrite(HEATER_MOS_PIN, current_heater_duty_);
+}
+void Cultivator::startHeaterCurve(uint32_t duration_sec, uint32_t now_ms) {
+    if (duration_sec == 0) {
+        stopHeater();
+        return;
+    }
+    heater_active_ = true;
+    heater_start_ms_ = now_ms;
+    heater_duration_ms_ = duration_sec * 1000UL;
+}
+void Cultivator::stopHeater() {
+    heater_active_ = false;
+    heater_duration_ms_ = 0;
+    current_heater_duty_ = 0;
+    analogWrite(HEATER_MOS_PIN, 0);
+}
+void Cultivator::updateHeaterCurve(uint32_t now_ms) {
+    if (!heater_active_) return;
+
+    const uint32_t elapsed = static_cast<uint32_t>(now_ms - heater_start_ms_);
+    if (heater_duration_ms_ == 0 || elapsed >= heater_duration_ms_) {
+        stopHeater();
+        return;
+    }
+
+    const uint16_t peak_duty = static_cast<uint16_t>(
+        (static_cast<uint32_t>(PWM_MAX_DUTY) * setts_.heater_max_force) / 100U
+    );
+
+    const uint32_t ramp_ms = static_cast<uint32_t>(setts_.heater_fade_sec) * 1000UL;
+    const uint32_t half_window_ms = heater_duration_ms_ / 2U;
+    const uint32_t effective_ramp_ms = (ramp_ms < half_window_ms) ? ramp_ms : half_window_ms;
+
+    uint16_t duty = peak_duty;
+    if (effective_ramp_ms > 0) {
+        const uint32_t down_start_ms = heater_duration_ms_ - effective_ramp_ms;
+        if (elapsed < effective_ramp_ms) {
+            const float up_ratio = static_cast<float>(elapsed) / static_cast<float>(effective_ramp_ms);
+            duty = static_cast<uint16_t>(static_cast<float>(peak_duty) * up_ratio);
+        } else if (elapsed > down_start_ms) {
+            const uint32_t remaining = heater_duration_ms_ - elapsed;
+            const float down_ratio = static_cast<float>(remaining) / static_cast<float>(effective_ramp_ms);
+            duty = static_cast<uint16_t>(static_cast<float>(peak_duty) * down_ratio);
+        }
+    }
+
+    current_heater_duty_ = duty;
+    analogWrite(HEATER_MOS_PIN, current_heater_duty_);
 }
 
+/* --- BUBBLING CONTROL FUNCTIONS --- */
 void Cultivator::setBubblingLevel(uint8_t level_percent) {
     // TODO
 }
 
+/* --- LIGHT CONTROL FUNCTIONS --- */
 void Cultivator::smoothLightTransition(bool turn_on) {
-    // TODO
+    light_fade_target_on_ = turn_on;
+    light_fade_start_ms_ = millis();
+    light_fading_ = true;
+}
+void Cultivator::updateLightFade(uint32_t now_ms) {
+    if (!light_fading_) return;
+
+    const uint32_t duration_ms = static_cast<uint32_t>(setts_.light_fade_sec) * 1000UL;
+
+    if (duration_ms == 0) {
+        const uint16_t lb = light_fade_target_on_ ? setts_.lb_brightness : 0U;
+        const uint16_t ls = light_fade_target_on_ ? setts_.ls_brightness : 0U;
+        const uint16_t lu = light_fade_target_on_ ? setts_.lu_brightness : 0U;
+
+        analogWrite(LB_PIN, lb);
+        analogWrite(LS_PIN, ls);
+        analogWrite(LU_PIN, lu);
+        light_fading_ = false;
+        return;
+    }
+
+    const uint32_t elapsed = static_cast<uint32_t>(now_ms - light_fade_start_ms_);
+    float ratio = 0.0f;
+
+    if (elapsed >= duration_ms) {
+        ratio = light_fade_target_on_ ? 1.0f : 0.0f;
+        light_fading_ = false;
+    } else {
+        const float raw_progress = static_cast<float>(elapsed) / static_cast<float>(duration_ms);
+        ratio = light_fade_target_on_ ? raw_progress : (1.0f - raw_progress);
+    }
+
+    const uint16_t lb = static_cast<uint16_t>(static_cast<float>(setts_.lb_brightness) * ratio);
+    const uint16_t ls = static_cast<uint16_t>(static_cast<float>(setts_.ls_brightness) * ratio);
+    const uint16_t lu = static_cast<uint16_t>(static_cast<float>(setts_.lu_brightness) * ratio);
+
+    analogWrite(LB_PIN, lb);
+    analogWrite(LS_PIN, ls);
+    analogWrite(LU_PIN, lu);
 }
 
+/* --- TELEMETRY SENDING --- */
 void Cultivator::triggerTelemetry() {
+    telemetry_.uptime_sec = millis() / 1000UL;
     // TODO
 }
 
+/* --- INNER MATH & PROCESSING FUNCTIONS --- */
 uint16_t Cultivator::medianFilter(const uint16_t* values, size_t count) {
     if (values == nullptr || count == 0) return 0;
 
