@@ -9,5 +9,5 @@ class Bridge:
                  system_queue: Queue, ui_queue: Queue):
         """ """
 
-    def listen() -> None:
+    def listen(self) -> None:
         """ Listener loop """

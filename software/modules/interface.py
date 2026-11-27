@@ -9,29 +9,26 @@ from typing import Any
 
 import customtkinter as ctk
 
-from config import *
+from .config import *
 
 # === DISPLAYED DATA === #
-# Every value shown on the home page lives here. Replace the defaults with real data, or push
-# updates at runtime:  ui_queue.put({"action": "update_home", "data": {"temp": 24.5, "cycle_pos": 0.42}})
-# Values are shown as-is (units are static captions below), so send already formatted numbers.
 DATA: dict[str, Any] = {
     "greeting": "Hello, User!",
-    "well_being": "-",
-    "days_until_harvest": "-",
+    "well_being": "000",
+    "days_until_harvest": "0",
     "culture_name": "Arthrospira platensis",
-    "target_temp": "--",
-    "target_ph": "-.-",
-    "temp": "--",
-    "ph": "-.-",
-    "water_level": "-",
-    "aeration_day": "XX",
-    "aeration_night": "XX",
-    "light_top": "XX",
-    "light_side": "XX",
-    "light_bottom": "XX",
-    "clock": "--:--  --.--.----",   # refreshed automatically once a minute
-    "wifi_level": 2,               # 0..3 bars
+    "target_temp": "38",
+    "target_ph": "10.0",
+    "temp": "24",
+    "ph": "0.0",
+    "water_level": "OK",
+    "aeration_day": "99",
+    "aeration_night": "50",
+    "light_top": "100",
+    "light_side": "50",
+    "light_bottom": "30",
+    "clock": "--:--  --.--.----",
+    "wifi_level": 3,               # 0..3 bars
     "day_fraction": 0.6,           # share of the light period in the 24 h cycle, 0..1
     "cycle_pos": 0.3,              # marker on the ring, 0..1 (0 = lights on). Real time: (h * 60 + m) / 1440
 }
@@ -61,7 +58,7 @@ class App(ctk.CTk):
         self.system_queue, self.ui_queue = system_queue, ui_queue
         self.gui_command_buffer: list[dict[str, Any]] = []
 
-        self.title("xiPBR Mk I")
+        self.title("xiPBR ControlApp")
         self.geometry(f"{WINDOW_W}x{WINDOW_H}")
         self.minsize(WINDOW_W, WINDOW_H)
         self.configure(fg_color=C_BG)
@@ -70,9 +67,9 @@ class App(ctk.CTk):
         self._sans = next((f for f in SANS_FONTS if f in installed), SANS_FONTS[-1])
         self._mono = next((f for f in MONO_FONTS if f in installed), MONO_FONTS[-1])
 
-        self.data: dict[str, Any] = dict(DATA)    # current values, single source of truth
-        self.refs: dict[str, Any] = {}            # widgets of the page on screen, by data key
-        self.log_lines: deque[str] = deque(CONSOLE_BOOT, maxlen=CONSOLE_HISTORY)
+        self.data: dict[str, Any] = dict(DATA)
+        self.refs: dict[str, Any] = {}
+        self.log_lines: deque[str] = deque(maxlen=CONSOLE_HISTORY)
         self._page = "home"
         self._pages = {
             "home": self.homePage,

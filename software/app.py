@@ -11,9 +11,9 @@ def system_thread(  system_queue: Queue,
                     dat_man: datamanager.DataManager,
                     app: interface.App  ):
     """ System thread """
-    stm_bridge.listen()
-
     while True:
+        stm_bridge.listen()
+
         item = system_queue.get()
 
         try:
@@ -22,6 +22,9 @@ def system_thread(  system_queue: Queue,
                 case "WRITE_LOG":
                     dat_man.write_log(payload)
                     gui_queue.put(("UPDATE_CONSOLE", None))
+
+                case "TELEMETRY":
+                    dat_man.save_telemetry(payload)
 
                 # Unknown command #
                 case _:
@@ -53,6 +56,8 @@ if __name__ == "__main__":
               stm_bridge, dat_man, app),
         daemon=True)
     sys_thread.start()
+
+    dat_man.write_log("[APP] System started.")
 
     # Start app loop
     app.mainloop()

@@ -1,5 +1,13 @@
 """ Configuration file: Settings and constants """
 
+from pathlib import Path
+
+# Path configuration
+DATA_DIR = Path("data")
+LOG_FILE = DATA_DIR / "logs.log"
+DB_FILE = DATA_DIR / "telemetry.db"
+
+# UI Configuration
 WINDOW_W, WINDOW_H = 1024, 472
 GAP = 10
 CYCLE_SIZE, RING_W = 132, 12
@@ -15,6 +23,16 @@ C_DAY, C_NIGHT, C_MOON = "#F2B84B", "#5E6EDB", "#C7CEF5"
 SANS_FONTS = ("Inter", "Segoe UI", "SF Pro Display", "Helvetica Neue", "Noto Sans", "DejaVu Sans", "Arial")
 MONO_FONTS = ("JetBrains Mono", "Cascadia Mono", "Consolas", "Menlo", "DejaVu Sans Mono", "Courier New")
 
-CONSOLE_BOOT = ("xiPBR Mk I console ready",)
 CONSOLE_PROMPT = ">_"
 CONSOLE_LINES, CONSOLE_CHARS, CONSOLE_HISTORY = 4, 52, 500
+
+# Other configuration
+SECONDS_DAY = 86400
+ALLOWED_TELEMETRY_COLUMNS = {
+    "temp_in_100",
+    "ph_10",
+    "turbidity_ntu_100",
+    "water_level_ok",
+    "uptime_sec",
+    "state_code",
+}
