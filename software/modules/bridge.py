@@ -18,7 +18,7 @@ class Bridge:
         system_queue: Queue,
         ui_queue: Queue,
         os_mode: str = OS,
-        port: str | None = None,
+        port: str | None = STM_PORT,
         baudrate: int = BAUDRATE,
     ) -> None:
         """ Initializes USB/UART bridge """
@@ -30,7 +30,8 @@ class Bridge:
         self._thread: threading.Thread | None = None
         self._serial: serial.Serial | None = None
 
-        self.port = STM_PORT
+        self.os_mode = os_mode
+        self.port = port
         self.set_os_mode(os_mode, port=port)
 
     def set_os_mode(self, mode: str, port: str | None = None) -> None:

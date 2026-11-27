@@ -36,8 +36,8 @@ class App(ctk.CTk):
         super().__init__()
 
         self.system_queue, self.ui_queue = system_queue, ui_queue
+        self.gui_command_buffer: Queue[Any] = Queue()
         self.data_manager = data_manager or DataManager(system_queue, ui_queue)
-        self.gui_command_buffer: list[dict[str, Any]] = []
 
         self.title("xiPBR ControlApp")
         self.geometry(f"{WINDOW_W}x{WINDOW_H}")
@@ -176,25 +176,33 @@ class App(ctk.CTk):
 
     def _poll_commands(self) -> None:
         """ Process GUI commands """
-        item = self.gui_command_buffer.get()
+        while True:
+            try:
+                item = self.gui_command_buffer.get_nowait()
+            except Empty:
+                break
 
-        try:
-            command, payload = item
-            match command:
+            try:
+                command, payload = item
+                match command:
 
-                # Unknown command #
-                case _:
-                    print(f"Unknown command: {command}")
+                    # Unknown command #
+                    case _:
+                        self.data_manager.write_log(f"[APP] (SYSTEM | WARN) Unknown command: {command}")
 
-        except ValueError:
-            print(f"Wrong command structure (CMD, PAYLOAD): {item}")
+            except ValueError:
+                self.data_manager.write_log(f"[APP] (SYSTEM | ERROR) Wrong command structure (CMD, PAYLOAD): {item}")
 
-        except Exception as e:
-            print(f"System thread error: {e}")
+            except Exception as e:
+                self.data_manager.write_log(f"[APP] (SYSTEM | ERROR) System thread error: {e}")
 
-        finally:
-            self.gui_command_buffer.task_done()
-        
+            finally:
+                self.gui_command_buffer.task_done()
+
+        clock = datetime.now().strftime(CLOCK_FORMAT)
+        if clock != self.data["clock"]:
+            self.update_data({"clock": clock})
+
         self.after(150, self._poll_commands)
 
     def update_data(self, new: dict[str, Any]) -> None:
@@ -364,7 +372,7 @@ class App(ctk.CTk):
             b_right, text="Change culture", width=170, height=34, corner_radius=17,
             font=self._font(13, "bold"), text_color=C_ACCENT, fg_color="transparent",
             hover_color=C_CARD_ALT, border_width=1, border_color=C_ACCENT,
-            command=lambda: self.system_queue.put({"type": "ui_event", "event": "change_culture"}),
+            command=lambda: self.system_queue.put(("ui_event", {"event": "change_culture"})),
         ).grid(row=0, column=0, sticky="e", pady=(0, GAP))
 
         matrix = card(b_right)
@@ -420,7 +428,7 @@ class App(ctk.CTk):
             if not payload:
                 return
             self.update_data(payload)
-            self.system_queue.put({"type": "ui_event", "event": "update_settings", "settings": payload})
+            self.system_queue.put(("ui_event", {"event": "update_settings", "settings": payload}))
             self.log(f"Settings updated: {payload}")
 
         ctk.CTkButton(

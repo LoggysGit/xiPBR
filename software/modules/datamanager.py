@@ -7,7 +7,6 @@ from typing import Any
 
 from .config import *
 
-
 class DataManager:
     """ Data manager class """
 
@@ -52,6 +51,7 @@ class DataManager:
         line = f"[{ts_str}] {log.rstrip()}\n"
         with LOG_FILE.open("a", encoding="utf-8") as f:
             f.write(line)
+        print(log)
 
     def save_telemetry(self, telemetry: Any) -> None:
         """ Saves incoming telemetry data into data/telemetry.db file """

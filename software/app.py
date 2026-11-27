@@ -31,13 +31,13 @@ def system_thread(  system_queue: Queue,
 
                 # Unknown command #
                 case _:
-                    print(f"Unknown command: {command}")
+                    dat_man.write_log(f"[APP] (SYSTEM | WARN) Unknown command: {command}")
 
         except ValueError:
-            print(f"Wrong command structure (CMD, PAYLOAD): {item}")
+            dat_man.write_log(f"[APP] (SYSTEM | ERROR) Wrong command structure (CMD, PAYLOAD): {item}")
 
         except Exception as e:
-            print(f"System thread error: {e}")
+            dat_man.write_log(f"[APP] (SYSTEM | ERROR) System thread error: {e}")
 
         finally:
             system_queue.task_done()
