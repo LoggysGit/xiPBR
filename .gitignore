@@ -6,3 +6,6 @@
 
 **/__saved__
 **/build
+
+*.log
+*.db

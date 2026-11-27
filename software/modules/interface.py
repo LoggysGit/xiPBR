@@ -9,22 +9,7 @@ from typing import Any
 
 import customtkinter as ctk
 
-# === WINDOW & THEME === #
-# Redmi Note 8 landscape is 2340x1080 = 13:6; 1024x472 keeps that ratio.
-WINDOW_W, WINDOW_H = 1024, 472
-GAP = 10
-CYCLE_SIZE, RING_W = 132, 12
-R_HERO, R_CARD, R_TILE = 22, 16, 12
-CLOCK_FORMAT = "%H:%M  %d.%m.%Y"
-
-C_BG, C_SIDEBAR = "#0D1412", "#0A100E"
-C_CARD, C_CARD_ALT, C_BORDER = "#15201C", "#1B2A25", "#26372F"
-C_ACCENT, C_ACCENT_DIM = "#2EE6B0", "#1D9C78"
-C_TEXT, C_MUTED = "#E7F1ED", "#8AA198"
-C_DAY, C_NIGHT, C_MOON = "#F2B84B", "#5E6EDB", "#C7CEF5"
-
-SANS_FONTS = ("Inter", "Segoe UI", "SF Pro Display", "Helvetica Neue", "Noto Sans", "DejaVu Sans", "Arial")
-MONO_FONTS = ("JetBrains Mono", "Cascadia Mono", "Consolas", "Menlo", "DejaVu Sans Mono", "Courier New")
+from config import *
 
 # === DISPLAYED DATA === #
 # Every value shown on the home page lives here. Replace the defaults with real data, or push
@@ -51,16 +36,11 @@ DATA: dict[str, Any] = {
     "cycle_pos": 0.3,              # marker on the ring, 0..1 (0 = lights on). Real time: (h * 60 + m) / 1440
 }
 
-# Console: history is kept in memory, the home page previews the last CONSOLE_LINES lines.
-CONSOLE_BOOT = ("xiPBR Mk I console ready",)
-CONSOLE_PROMPT = ">_"
-CONSOLE_LINES, CONSOLE_CHARS, CONSOLE_HISTORY = 4, 52, 500
-
 # Static captions: (caption, data key, unit)
 NAV = (("home", "◎"), ("telemetry", "≡"), ("console", ">_"), ("settings", "⚙"))
 TILES = (("TARGET TEMP", "target_temp", "°C"), ("TARGET pH", "target_ph", ""))
 READINGS = (("Current temperature", "temp", "°C"), ("Current pH", "ph", ""), ("Water level", "water_level", ""))
-STATS = (   # two columns of the status matrix; rows are shared, so the columns line up
+STATS = (
     (("Aeration (day)", "aeration_day", "%"), ("Aeration (night)", "aeration_night", "%")),
     (("Top Light", "light_top", "%"), ("Side Light", "light_side", "%"), ("Bottom Light", "light_bottom", "%")),
 )
@@ -69,7 +49,6 @@ STATS = (   # two columns of the status matrix; rows are shared, so the columns 
 def card(parent: Any, radius: int = R_CARD, fg: str = C_CARD) -> ctk.CTkFrame:
     """ Rounded panel with a thin border """
     return ctk.CTkFrame(parent, corner_radius=radius, fg_color=fg, border_width=1, border_color=C_BORDER)
-
 
 class App(ctk.CTk):
     """ UI App """
@@ -97,7 +76,7 @@ class App(ctk.CTk):
         self._page = "home"
         self._pages = {
             "home": self.homePage,
-            "telemetry": lambda p: self._stub(p, "Telemetry"),
+            "telemetry": self.telemetryPage,
             "console": self.consolePage,
             "settings": lambda p: self._stub(p, "Settings"),
         }
@@ -382,6 +361,121 @@ class App(ctk.CTk):
 
         self._draw_canvases()
 
+    def telemetryPage(self, parent: ctk.CTkFrame) -> None:
+        """ Home dashboard page """
+        parent.grid_columnconfigure(0, weight=1)
+        parent.grid_rowconfigure(0, weight=9, uniform="home")
+        parent.grid_rowconfigure(1, weight=10, uniform="home")
+
+        # --- hero card ---
+        hero = card(parent, R_HERO)
+        hero.grid(row=0, column=0, sticky="nsew", pady=(0, GAP))
+        hero.grid_columnconfigure(0, weight=11, uniform="hero")
+        hero.grid_columnconfigure(1, weight=9, uniform="hero")
+        hero.grid_rowconfigure(0, weight=1)
+
+        left = ctk.CTkFrame(hero, fg_color="transparent")
+        left.grid(row=0, column=0, sticky="w", padx=(24, 8))
+        self._lbl(left, key="greeting", size=17, style="bold").pack(anchor="w")
+        self._lbl(left, "Culture well-being", size=12, color=C_MUTED).pack(anchor="w", pady=(10, 0))
+        self._lbl(left, key="well_being", size=38, style="bold", color=C_ACCENT).pack(anchor="w")
+        days = ctk.CTkFrame(left, fg_color="transparent")
+        days.pack(anchor="w")
+        self._lbl(days, "Days until harvest", size=14, color=C_MUTED).pack(side="left")
+        self._lbl(days, key="days_until_harvest", size=14, style="bold").pack(side="left", padx=(6, 2))
+        self._lbl(days, "d.", size=14, color=C_MUTED).pack(side="left")
+        self._lbl(left, key="culture_name", size=12, style="italic", color=C_ACCENT,
+                  fg_color=C_CARD_ALT, corner_radius=12, pady=3).pack(anchor="w", pady=(12, 0))
+
+        right = ctk.CTkFrame(hero, fg_color="transparent")
+        right.grid(row=0, column=1, sticky="nsew", padx=(8, 20), pady=14)
+        right.grid_columnconfigure(0, weight=1)
+        right.grid_rowconfigure(1, weight=1)
+        status = ctk.CTkFrame(right, fg_color="transparent")
+        status.grid(row=0, column=0, sticky="e")
+        self.refs["wifi_canvas"] = ctk.CTkCanvas(status, width=26, height=20, highlightthickness=0, bg=C_CARD)
+        self.refs["wifi_canvas"].pack(side="left", padx=(0, 8))
+        self._lbl(status, key="clock", size=13, mono=True).pack(side="left")
+
+        body = ctk.CTkFrame(right, fg_color="transparent")
+        body.grid(row=1, column=0, sticky="nsew", pady=(8, 0))
+        body.grid_columnconfigure(0, weight=1)
+        body.grid_rowconfigure(0, weight=1)
+        tiles = ctk.CTkFrame(body, fg_color="transparent")
+        tiles.grid(row=0, column=0, sticky="nsew", padx=(0, 14))
+        tiles.grid_columnconfigure(0, weight=1)
+        tiles.grid_rowconfigure((0, 1), weight=1, uniform="tiles")
+        for i, (caption, key, unit) in enumerate(TILES):
+            tile = card(tiles, R_TILE, C_CARD_ALT)
+            tile.grid(row=i, column=0, sticky="nsew", pady=(0, 6) if i == 0 else 0)
+            tile.grid_columnconfigure(0, weight=1)
+            tile.grid_rowconfigure((0, 1), weight=1)
+            self._lbl(tile, caption, size=10, color=C_MUTED).grid(row=0, column=0, sticky="sw", padx=14)
+            value = ctk.CTkFrame(tile, fg_color="transparent")
+            value.grid(row=1, column=0, sticky="nw", padx=14)
+            self._lbl(value, key=key, size=22, style="bold").pack(side="left")
+            if unit:
+                self._lbl(value, unit, size=12, color=C_MUTED).pack(side="left", anchor="s", padx=(3, 0), pady=(0, 3))
+        self.refs["cycle_canvas"] = ctk.CTkCanvas(body, width=CYCLE_SIZE, height=CYCLE_SIZE,
+                                                  highlightthickness=0, bg=C_CARD)
+        self.refs["cycle_canvas"].grid(row=0, column=1, sticky="e")
+
+        # --- bottom: readings + console (left), culture button + status matrix (right) ---
+        bottom = ctk.CTkFrame(parent, fg_color="transparent")
+        bottom.grid(row=1, column=0, sticky="nsew")
+        bottom.grid_columnconfigure(0, weight=9, uniform="bottom")
+        bottom.grid_columnconfigure(1, weight=11, uniform="bottom")
+        bottom.grid_rowconfigure(0, weight=1)
+
+        b_left = ctk.CTkFrame(bottom, fg_color="transparent")
+        b_left.grid(row=0, column=0, sticky="nsew", padx=(0, GAP // 2))
+        b_left.grid_columnconfigure(0, weight=1)
+        b_left.grid_rowconfigure((0, 1), weight=1, uniform="left")
+
+        readings = card(b_left)
+        readings.grid(row=0, column=0, sticky="nsew", pady=(0, GAP // 2))
+        readings.grid_columnconfigure(0, weight=1)
+        for i, (caption, key, unit) in enumerate(READINGS):
+            readings.grid_rowconfigure(2 * i, weight=1)
+            self._metric(readings, 2 * i, 0, caption, key, unit)
+            if i < len(READINGS) - 1:
+                ctk.CTkFrame(readings, height=1, fg_color=C_BORDER).grid(
+                    row=2 * i + 1, column=0, sticky="ew", padx=18)
+
+        console = card(b_left, fg=C_SIDEBAR)
+        console.grid(row=1, column=0, sticky="nsew", pady=(GAP // 2, 0))
+        console.grid_columnconfigure(0, weight=1)
+        console.grid_rowconfigure(0, weight=1)
+        preview = self._lbl(console, self._tail(), size=11, mono=True, color=C_MUTED, anchor="sw", justify="left")
+        preview.grid(row=0, column=0, sticky="nsew", padx=14, pady=(8, 0))
+        self.refs["console_preview"] = preview
+        prompt = self._lbl(console, CONSOLE_PROMPT, size=13, style="bold", mono=True, color=C_ACCENT)
+        prompt.grid(row=1, column=0, sticky="w", padx=14, pady=(0, 8))
+        for widget in (console, preview, prompt):
+            widget.bind("<Button-1>", lambda _e: self.router("console"))
+
+        b_right = ctk.CTkFrame(bottom, fg_color="transparent")
+        b_right.grid(row=0, column=1, sticky="nsew", padx=(GAP // 2, 0))
+        b_right.grid_columnconfigure(0, weight=1)
+        b_right.grid_rowconfigure(1, weight=1)
+        ctk.CTkButton(
+            b_right, text="Change culture", width=170, height=34, corner_radius=17,
+            font=self._font(13, "bold"), text_color=C_ACCENT, fg_color="transparent",
+            hover_color=C_CARD_ALT, border_width=1, border_color=C_ACCENT,
+            command=lambda: self.system_queue.put({"type": "ui_event", "event": "change_culture"}),
+        ).grid(row=0, column=0, sticky="e", pady=(0, GAP))
+
+        matrix = card(b_right)
+        matrix.grid(row=1, column=0, sticky="nsew")
+        matrix.grid_columnconfigure((0, 2), weight=1, uniform="stats")
+        matrix.grid_rowconfigure((0, 1, 2), weight=1, uniform="stats_rows")
+        ctk.CTkFrame(matrix, width=1, fg_color=C_BORDER).grid(row=0, column=1, rowspan=3, sticky="ns", pady=14)
+        for col, items in zip((0, 2), STATS):
+            for row, (caption, key, unit) in enumerate(items):
+                self._metric(matrix, row, col, caption, key, unit)
+
+        self._draw_canvases()
+
     def consolePage(self, parent: ctk.CTkFrame) -> None:
         """ Console page: scrollback history + command input """
         parent.grid_columnconfigure(0, weight=1)
@@ -408,12 +502,3 @@ class App(ctk.CTk):
 
         entry.bind("<Return>", send)
         entry.focus()
-
-    def _stub(self, parent: ctk.CTkFrame, title: str) -> None:
-        """ Placeholder page """
-        parent.grid_columnconfigure(0, weight=1)
-        parent.grid_rowconfigure(0, weight=1)
-        box = card(parent, R_HERO)
-        box.grid(row=0, column=0, sticky="nsew")
-        self._lbl(box, title, size=20, style="bold").pack(anchor="w", padx=24, pady=(20, 4))
-        self._lbl(box, "Not implemented yet.", size=13, color=C_MUTED).pack(anchor="w", padx=24)

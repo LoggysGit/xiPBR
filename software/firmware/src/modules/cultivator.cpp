@@ -104,19 +104,18 @@ void Cultivator::runThirtyMinuteTasks(uint32_t now_ms) {
     else {
         const float target_temp = static_cast<float>(setts_.target_temp_100) / 100.0f;
         if (temp_c < target_temp) {
-            // t = c * m * delta_T / P (m ~= V for density ~ 1 g/ml)
+            // t = (c * m * delta_T) / (P * kp) [m ~= V for density ~ 1 g/ml]
             const float delta_t = (target_temp - temp_c) + static_cast<float>(TEMP_INADVANCE);
             if (delta_t > 0.0f && HEATER_POWER > 0.0f) {
                 const float joules = static_cast<float>(setts_.solution_heat_cap) *
                                      static_cast<float>(setts_.volume_ml) * delta_t;
-                const uint32_t heater_sec = static_cast<uint32_t>(joules / HEATER_POWER);
+                const float kp = static_cast<float>(setts_.heater_max_force) / 100.0f;
+                const uint32_t heater_sec = static_cast<uint32_t>(joules / (HEATER_POWER * kp) );
                 startHeaterCurve(heater_sec, now_ms);
-            } else {
-                stopHeater();
             }
-        } else {
-            stopHeater();
+            else stopHeater();
         }
+        else stopHeater();
     }
 
     triggerTelemetry();

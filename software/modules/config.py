@@ -1,0 +1,20 @@
+""" Configuration file: Settings and constants """
+
+WINDOW_W, WINDOW_H = 1024, 472
+GAP = 10
+CYCLE_SIZE, RING_W = 132, 12
+R_HERO, R_CARD, R_TILE = 22, 16, 12
+CLOCK_FORMAT = "%H:%M  %d.%m.%Y"
+
+C_BG, C_SIDEBAR = "#0D1412", "#0A100E"
+C_CARD, C_CARD_ALT, C_BORDER = "#15201C", "#1B2A25", "#26372F"
+C_ACCENT, C_ACCENT_DIM = "#2EE6B0", "#1D9C78"
+C_TEXT, C_MUTED = "#E7F1ED", "#8AA198"
+C_DAY, C_NIGHT, C_MOON = "#F2B84B", "#5E6EDB", "#C7CEF5"
+
+SANS_FONTS = ("Inter", "Segoe UI", "SF Pro Display", "Helvetica Neue", "Noto Sans", "DejaVu Sans", "Arial")
+MONO_FONTS = ("JetBrains Mono", "Cascadia Mono", "Consolas", "Menlo", "DejaVu Sans Mono", "Courier New")
+
+CONSOLE_BOOT = ("xiPBR Mk I console ready",)
+CONSOLE_PROMPT = ">_"
+CONSOLE_LINES, CONSOLE_CHARS, CONSOLE_HISTORY = 4, 52, 500

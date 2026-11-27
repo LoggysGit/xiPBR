@@ -10,4 +10,7 @@ class DataManager():
         """ """
 
     def write_log(log: str) -> None:
-        """ Writes log into logs.log file """
+        """ Writes log into data/logs.log file """
+
+    def save_telemetry(telemetry) -> None:
+        """ Saves incoming telemetry data into data/telemetry.db file """
