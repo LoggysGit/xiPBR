@@ -8,3 +8,6 @@ class Bridge:
     def __init__(self,
                  system_queue: Queue, ui_queue: Queue):
         """ """
+
+    def listen() -> None:
+        """ Listener loop """

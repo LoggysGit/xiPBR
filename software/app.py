@@ -11,6 +11,7 @@ def system_thread(  system_queue: Queue,
                     dat_man: datamanager.DataManager,
                     app: interface.App  ):
     """ System thread """
+    stm_bridge.listen()
 
     while True:
         item = system_queue.get()
@@ -18,7 +19,9 @@ def system_thread(  system_queue: Queue,
         try:
             command, payload = item
             match command:
-                
+                case "WRITE_LOG":
+                    dat_man.write_log(payload)
+                    gui_queue.put(("UPDATE_CONSOLE", None))
 
                 # Unknown command #
                 case _:
