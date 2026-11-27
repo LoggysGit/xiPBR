@@ -1,12 +1,12 @@
 """ Data manager module """
 
-
 from queue import Queue
 import sqlite3
 import time
 from typing import Any
 
 from .config import *
+
 
 class DataManager:
     """ Data manager class """
@@ -27,9 +27,9 @@ class DataManager:
                 """
                 CREATE TABLE IF NOT EXISTS telemetry (
                     timestamp INTEGER PRIMARY KEY,
-                    temp_in_100 INTEGER NOT NULL,
-                    ph_10 INTEGER NOT NULL,
-                    turbidity_ntu_100 INTEGER NOT NULL,
+                    temp REAL NOT NULL,
+                    ph REAL NOT NULL,
+                    turbidity_percent REAL NOT NULL,
                     water_level_ok INTEGER NOT NULL,
                     uptime_sec INTEGER NOT NULL,
                     state_code INTEGER NOT NULL
@@ -58,9 +58,9 @@ class DataManager:
         self._ensure_storage()
         ts = int(time.time())
 
-        temp_in_100 = int(self._get_field(telemetry, "temp_in_100", 0))
-        ph_10 = int(self._get_field(telemetry, "ph_10", 0))
-        turbidity_ntu_100 = int(self._get_field(telemetry, "turbidity_ntu_100", 0))
+        temp = round(int(self._get_field(telemetry, "temp_in_100", 0)) / 100.0, 2)
+        ph = round(int(self._get_field(telemetry, "ph_10", 0)) / 10.0, 1)
+        turbidity_percent = round(int(self._get_field(telemetry, "turbidity_ntu_100", 0)) / 100.0, 2)
         water_level_ok = 1 if bool(self._get_field(telemetry, "water_level_ok", False)) else 0
         uptime_sec = int(self._get_field(telemetry, "uptime_sec", 0))
         state_code = int(self._get_field(telemetry, "state_code", 0))
@@ -72,9 +72,9 @@ class DataManager:
                     """
                     INSERT OR REPLACE INTO telemetry (
                         timestamp,
-                        temp_in_100,
-                        ph_10,
-                        turbidity_ntu_100,
+                        temp,
+                        ph,
+                        turbidity_percent,
                         water_level_ok,
                         uptime_sec,
                         state_code
@@ -82,9 +82,9 @@ class DataManager:
                     """,
                     (
                         ts,
-                        temp_in_100,
-                        ph_10,
-                        turbidity_ntu_100,
+                        temp,
+                        ph,
+                        turbidity_percent,
                         water_level_ok,
                         uptime_sec,
                         state_code,
@@ -99,8 +99,8 @@ class DataManager:
         """
         if metric_type not in ALLOWED_TELEMETRY_COLUMNS:
             self.system_queue.put(
-                (f"[APP] (DATA MANAGER | ERROR) Unknown telemetry type: {metric_type}"),
-                None)
+                f"[APP] (DATA MANAGER | ERROR) Unknown telemetry type: {metric_type}"
+            )
             return None
 
         self._ensure_storage()
@@ -138,8 +138,8 @@ class DataManager:
 
                 case _:
                     self.system_queue.put(
-                        (f"[APP] (DATA MANAGER | ERROR) Unknown telemetry time range: {time_range}"),
-                        None)
+                        f"[APP] (DATA MANAGER | ERROR) Unknown telemetry time range: {time_range}"
+                    )
                     return None
 
             row = cur.execute(

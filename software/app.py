@@ -23,8 +23,11 @@ def system_thread(  system_queue: Queue,
                     dat_man.write_log(payload)
                     gui_queue.put(("UPDATE_CONSOLE", None))
 
-                case "TELEMETRY":
+                case "RAW_TELEMETRY":
                     dat_man.save_telemetry(payload)
+
+                case "UPDATE_SETTINGS":
+                    stm_bridge.send_settings(payload)
 
                 # Unknown command #
                 case _:

@@ -10,30 +10,9 @@ from typing import Any
 import customtkinter as ctk
 
 from .config import *
+from .datamanager import DataManager
 
-# === DISPLAYED DATA === #
-DATA: dict[str, Any] = {
-    "greeting": "Hello, User!",
-    "well_being": "000",
-    "days_until_harvest": "0",
-    "culture_name": "Arthrospira platensis",
-    "target_temp": "38",
-    "target_ph": "10.0",
-    "temp": "24",
-    "ph": "0.0",
-    "water_level": "OK",
-    "aeration_day": "99",
-    "aeration_night": "50",
-    "light_top": "100",
-    "light_side": "50",
-    "light_bottom": "30",
-    "clock": "--:--  --.--.----",
-    "wifi_level": 3,               # 0..3 bars
-    "day_fraction": 0.6,           # share of the light period in the 24 h cycle, 0..1
-    "cycle_pos": 0.3,              # marker on the ring, 0..1 (0 = lights on). Real time: (h * 60 + m) / 1440
-}
-
-# Static captions: (caption, data key, unit)
+# Static captions
 NAV = (("home", "◎"), ("telemetry", "≡"), ("console", ">_"), ("settings", "⚙"))
 TILES = (("TARGET TEMP", "target_temp", "°C"), ("TARGET pH", "target_ph", ""))
 READINGS = (("Current temperature", "temp", "°C"), ("Current pH", "ph", ""), ("Water level", "water_level", ""))
@@ -41,7 +20,8 @@ STATS = (
     (("Aeration (day)", "aeration_day", "%"), ("Aeration (night)", "aeration_night", "%")),
     (("Top Light", "light_top", "%"), ("Side Light", "light_side", "%"), ("Bottom Light", "light_bottom", "%")),
 )
-
+TELEMETRY_METRICS = ("temp", "ph", "turbidity_percent", "water_level_ok", "uptime_sec", "state_code")
+TELEMETRY_RANGES = ("now", "week_ago", "month_ago", "last_week", "last_month")
 
 def card(parent: Any, radius: int = R_CARD, fg: str = C_CARD) -> ctk.CTkFrame:
     """ Rounded panel with a thin border """
@@ -50,12 +30,13 @@ def card(parent: Any, radius: int = R_CARD, fg: str = C_CARD) -> ctk.CTkFrame:
 class App(ctk.CTk):
     """ UI App """
 
-    def __init__(self, system_queue: Queue, ui_queue: Queue):
+    def __init__(self, system_queue: Queue, ui_queue: Queue, data_manager: DataManager | None = None):
         """ Class init """
         ctk.set_appearance_mode("dark")
         super().__init__()
 
         self.system_queue, self.ui_queue = system_queue, ui_queue
+        self.data_manager = data_manager or DataManager(system_queue, ui_queue)
         self.gui_command_buffer: list[dict[str, Any]] = []
 
         self.title("xiPBR ControlApp")
@@ -67,7 +48,7 @@ class App(ctk.CTk):
         self._sans = next((f for f in SANS_FONTS if f in installed), SANS_FONTS[-1])
         self._mono = next((f for f in MONO_FONTS if f in installed), MONO_FONTS[-1])
 
-        self.data: dict[str, Any] = dict(DATA)
+        self.data: dict[str, Any] = self._initial_state()
         self.refs: dict[str, Any] = {}
         self.log_lines: deque[str] = deque(maxlen=CONSOLE_HISTORY)
         self._page = "home"
@@ -75,7 +56,7 @@ class App(ctk.CTk):
             "home": self.homePage,
             "telemetry": self.telemetryPage,
             "console": self.consolePage,
-            "settings": lambda p: self._stub(p, "Settings"),
+            "settings": self.settingsPage,
         }
 
         # Sidebar + content area
@@ -85,7 +66,7 @@ class App(ctk.CTk):
         sidebar.grid(row=0, column=0, sticky="nsew")
         sidebar.grid_propagate(False)
         sidebar.grid_columnconfigure(0, weight=1)
-        sidebar.grid_rowconfigure(3, weight=1)    # spacer: settings sits at the bottom
+        sidebar.grid_rowconfigure(3, weight=1)
         self._nav: dict[str, ctk.CTkButton] = {}
         for i, (page, icon) in enumerate(NAV):
             btn = ctk.CTkButton(
@@ -102,19 +83,56 @@ class App(ctk.CTk):
         self.content.grid_columnconfigure(0, weight=1)
         self.content.grid_rowconfigure(0, weight=1)
 
+        self._sync_from_storage()
         self.router("home")
         self._poll_commands()
 
     # === HELPERS === #
+    def _initial_state(self) -> dict[str, Any]:
+        """ Initial UI state """
+        return {
+            "greeting": "",
+            "well_being": "--",
+            "days_until_harvest": "--",
+            "culture_name": "",
+            "target_temp": "--",
+            "target_ph": "--",
+            "temp": "--",
+            "ph": "--",
+            "water_level": "N/A",
+            "aeration_day": "--",
+            "aeration_night": "--",
+            "light_top": "--",
+            "light_side": "--",
+            "light_bottom": "--",
+            "clock": "--:--  --.--.----",
+            "wifi_level": 0,
+            "day_fraction": 0.5,
+            "cycle_pos": 0.0,
+        }
+
+    def _sync_from_storage(self) -> None:
+        """ Load data into self.data """
+        temp_val = self.data_manager.get_telemetry("temp", "now")
+        if temp_val is not None:
+            self.data["temp"] = f"{float(temp_val):.1f}"
+
+        ph_val = self.data_manager.get_telemetry("ph", "now")
+        if ph_val is not None:
+            self.data["ph"] = f"{float(ph_val):.1f}"
+
+        wl_val = self.data_manager.get_telemetry("water_level_ok", "now")
+        if wl_val is not None:
+            self.data["water_level"] = "OK" if bool(wl_val) else "LOW"
+
     def _font(self, size: int, style: str = "normal", mono: bool = False) -> tuple[str, int, str]:
         return (self._mono if mono else self._sans, size, style)
 
     def _lbl(self, parent: Any, text: str = "", key: str | None = None, size: int = 14,
              style: str = "normal", color: str = C_TEXT, mono: bool = False, **kw: Any) -> ctk.CTkLabel:
-        """ Label factory. height=0 stops CTk from forcing its 28 px minimum height (that is what
-        clipped the old tiles and the culture pill). `key` binds the label to a DATA value. """
+        """ Label factory """
         if key:
-            text = str(self.data[key])
+            text = str(self.data.get(key, ""))
         label = ctk.CTkLabel(parent, text=text, height=0, font=self._font(size, style, mono),
                              text_color=color, **kw)
         if key:
@@ -123,8 +141,7 @@ class App(ctk.CTk):
 
     def _metric(self, parent: Any, row: int, col: int, caption: str, key: str, unit: str,
                 size: int = 15) -> None:
-        """ One 'caption ........ value unit' line on a shared grid row; the unit column has a fixed
-        width, so values line up on the right edge even when some rows have no unit """
+        """ One 'caption ........ value unit' """
         line = ctk.CTkFrame(parent, fg_color="transparent")
         line.grid(row=row, column=col, sticky="ew", padx=18)
         line.grid_columnconfigure(0, weight=1)
@@ -134,11 +151,11 @@ class App(ctk.CTk):
             row=0, column=2, sticky="sw", padx=(3, 0))
 
     def _tail(self) -> str:
-        """ Last CONSOLE_LINES log lines, cut to the width of the home preview """
+        """ Last CONSOLE_LINES log lines """
         lines = list(self.log_lines)[-CONSOLE_LINES:]
         return "\n".join(s if len(s) <= CONSOLE_CHARS else s[:CONSOLE_CHARS - 1] + "…" for s in lines)
 
-    # === ROUTER, QUEUE, DATA === #
+    # === ROUTER & DATA === #
     def router(self, page_name: str | None = None) -> None:
         """ Pages router """
         page = page_name or self._page
@@ -158,44 +175,48 @@ class App(ctk.CTk):
         self._pages[page](frame)
 
     def _poll_commands(self) -> None:
-        """ Drain the command buffer and ui_queue, then keep the clock fresh """
-        cmds = self.gui_command_buffer[:]
-        self.gui_command_buffer.clear()
-        while True:
-            try:
-                cmds.append(self.ui_queue.get_nowait())
-            except Empty:
-                break
-        for cmd in cmds:
-            if not isinstance(cmd, dict):
-                continue
-            action = cmd.get("action")
-            if action == "navigate" and isinstance(cmd.get("page"), str):
-                self.router(cmd["page"])
-            elif action == "update_home" and isinstance(cmd.get("data"), dict):
-                self.update_data(cmd["data"])
-            elif action == "log":
-                self.log(str(cmd.get("text", "")))
-        clock = datetime.now().strftime(CLOCK_FORMAT)
-        if clock != self.data["clock"]:
-            self.update_data({"clock": clock})
+        """ Process GUI commands """
+        item = self.gui_command_buffer.get()
+
+        try:
+            command, payload = item
+            match command:
+
+                # Unknown command #
+                case _:
+                    print(f"Unknown command: {command}")
+
+        except ValueError:
+            print(f"Wrong command structure (CMD, PAYLOAD): {item}")
+
+        except Exception as e:
+            print(f"System thread error: {e}")
+
+        finally:
+            self.gui_command_buffer.task_done()
+        
         self.after(150, self._poll_commands)
 
     def update_data(self, new: dict[str, Any]) -> None:
-        """ Merge new values into self.data and refresh whatever is on screen """
+        """ Merges new values into self.data and refreshes UI """
         self.data.update(new)
+
         for key, value in new.items():
             if key in self.refs:
                 self.refs[key].configure(text=str(value))
+
         if new.keys() & {"wifi_level", "day_fraction", "cycle_pos"}:
             self._draw_canvases()
 
     def log(self, text: str) -> None:
-        """ Append a line to the console history; home preview and console page update live """
+        """ Append a line to log file and console history """
+        self.data_manager.write_log(text)
         line = f"[{datetime.now():%H:%M:%S}] {text}"
         self.log_lines.append(line)
+
         if (preview := self.refs.get("console_preview")) is not None:
             preview.configure(text=self._tail())
+    
         if (box := self.refs.get("console_box")) is not None:
             box.configure(state="normal")
             box.insert("end", line + "\n")
@@ -203,7 +224,7 @@ class App(ctk.CTk):
             box.configure(state="disabled")
 
     def _draw_canvases(self) -> None:
-        """ Redraw the Wi-Fi icon and the day/night ring from self.data """
+        """ Redraw the Wi-Fi icon and the day/night ring """
         wifi, ring = self.refs.get("wifi_canvas"), self.refs.get("cycle_canvas")
         if wifi is not None:
             wifi.delete("all")
@@ -220,7 +241,6 @@ class App(ctk.CTk):
             pos = float(self.data["cycle_pos"]) % 1.0
 
             def at(turn: float, radius: float) -> tuple[float, float]:
-                """ Point on the ring; turn is 0..1 clockwise from 12 o'clock """
                 a = math.tau * turn
                 return c + radius * math.sin(a), c - radius * math.cos(a)
 
@@ -302,7 +322,7 @@ class App(ctk.CTk):
                                                   highlightthickness=0, bg=C_CARD)
         self.refs["cycle_canvas"].grid(row=0, column=1, sticky="e")
 
-        # --- bottom: readings + console (left), culture button + status matrix (right) ---
+        # --- bottom ---
         bottom = ctk.CTkFrame(parent, fg_color="transparent")
         bottom.grid(row=1, column=0, sticky="nsew")
         bottom.grid_columnconfigure(0, weight=9, uniform="bottom")
@@ -359,122 +379,59 @@ class App(ctk.CTk):
         self._draw_canvases()
 
     def telemetryPage(self, parent: ctk.CTkFrame) -> None:
-        """ Home dashboard page """
+        """ Elaborated telemetry page """
+        # Work with the sketch
+
+    def settingsPage(self, parent: ctk.CTkFrame) -> None:
+        """ Settings page dispatching changes to system_queue """
         parent.grid_columnconfigure(0, weight=1)
-        parent.grid_rowconfigure(0, weight=9, uniform="home")
-        parent.grid_rowconfigure(1, weight=10, uniform="home")
+        panel = card(parent)
+        panel.grid(row=0, column=0, sticky="nsew")
+        panel.grid_columnconfigure(1, weight=1)
 
-        # --- hero card ---
-        hero = card(parent, R_HERO)
-        hero.grid(row=0, column=0, sticky="nsew", pady=(0, GAP))
-        hero.grid_columnconfigure(0, weight=11, uniform="hero")
-        hero.grid_columnconfigure(1, weight=9, uniform="hero")
-        hero.grid_rowconfigure(0, weight=1)
+        self._lbl(panel, "System Settings", size=18, style="bold").grid(
+            row=0, column=0, columnspan=2, sticky="w", padx=20, pady=(18, 12)
+        )
 
-        left = ctk.CTkFrame(hero, fg_color="transparent")
-        left.grid(row=0, column=0, sticky="w", padx=(24, 8))
-        self._lbl(left, key="greeting", size=17, style="bold").pack(anchor="w")
-        self._lbl(left, "Culture well-being", size=12, color=C_MUTED).pack(anchor="w", pady=(10, 0))
-        self._lbl(left, key="well_being", size=38, style="bold", color=C_ACCENT).pack(anchor="w")
-        days = ctk.CTkFrame(left, fg_color="transparent")
-        days.pack(anchor="w")
-        self._lbl(days, "Days until harvest", size=14, color=C_MUTED).pack(side="left")
-        self._lbl(days, key="days_until_harvest", size=14, style="bold").pack(side="left", padx=(6, 2))
-        self._lbl(days, "d.", size=14, color=C_MUTED).pack(side="left")
-        self._lbl(left, key="culture_name", size=12, style="italic", color=C_ACCENT,
-                  fg_color=C_CARD_ALT, corner_radius=12, pady=3).pack(anchor="w", pady=(12, 0))
+        fields = (
+            ("Target temperature (°C)", "target_temp"),
+            ("Target pH", "target_ph"),
+            ("Aeration day (%)", "aeration_day"),
+            ("Aeration night (%)", "aeration_night"),
+        )
+        entries: dict[str, ctk.CTkEntry] = {}
 
-        right = ctk.CTkFrame(hero, fg_color="transparent")
-        right.grid(row=0, column=1, sticky="nsew", padx=(8, 20), pady=14)
-        right.grid_columnconfigure(0, weight=1)
-        right.grid_rowconfigure(1, weight=1)
-        status = ctk.CTkFrame(right, fg_color="transparent")
-        status.grid(row=0, column=0, sticky="e")
-        self.refs["wifi_canvas"] = ctk.CTkCanvas(status, width=26, height=20, highlightthickness=0, bg=C_CARD)
-        self.refs["wifi_canvas"].pack(side="left", padx=(0, 8))
-        self._lbl(status, key="clock", size=13, mono=True).pack(side="left")
+        for idx, (label_text, key) in enumerate(fields, start=1):
+            self._lbl(panel, label_text, size=14, color=C_MUTED).grid(
+                row=idx, column=0, sticky="w", padx=20, pady=8
+            )
+            ent = ctk.CTkEntry(
+                panel, height=34, corner_radius=R_TILE, font=self._font(13, mono=True),
+                fg_color=C_CARD_ALT, border_color=C_BORDER, text_color=C_TEXT,
+            )
+            cur_val = self.data.get(key, "")
+            if cur_val not in ("", "--"):
+                ent.insert(0, str(cur_val))
+            ent.grid(row=idx, column=1, sticky="ew", padx=20, pady=8)
+            entries[key] = ent
 
-        body = ctk.CTkFrame(right, fg_color="transparent")
-        body.grid(row=1, column=0, sticky="nsew", pady=(8, 0))
-        body.grid_columnconfigure(0, weight=1)
-        body.grid_rowconfigure(0, weight=1)
-        tiles = ctk.CTkFrame(body, fg_color="transparent")
-        tiles.grid(row=0, column=0, sticky="nsew", padx=(0, 14))
-        tiles.grid_columnconfigure(0, weight=1)
-        tiles.grid_rowconfigure((0, 1), weight=1, uniform="tiles")
-        for i, (caption, key, unit) in enumerate(TILES):
-            tile = card(tiles, R_TILE, C_CARD_ALT)
-            tile.grid(row=i, column=0, sticky="nsew", pady=(0, 6) if i == 0 else 0)
-            tile.grid_columnconfigure(0, weight=1)
-            tile.grid_rowconfigure((0, 1), weight=1)
-            self._lbl(tile, caption, size=10, color=C_MUTED).grid(row=0, column=0, sticky="sw", padx=14)
-            value = ctk.CTkFrame(tile, fg_color="transparent")
-            value.grid(row=1, column=0, sticky="nw", padx=14)
-            self._lbl(value, key=key, size=22, style="bold").pack(side="left")
-            if unit:
-                self._lbl(value, unit, size=12, color=C_MUTED).pack(side="left", anchor="s", padx=(3, 0), pady=(0, 3))
-        self.refs["cycle_canvas"] = ctk.CTkCanvas(body, width=CYCLE_SIZE, height=CYCLE_SIZE,
-                                                  highlightthickness=0, bg=C_CARD)
-        self.refs["cycle_canvas"].grid(row=0, column=1, sticky="e")
+        def apply_settings() -> None:
+            payload = {k: v.get().strip() for k, v in entries.items() if v.get().strip() != ""}
+            if not payload:
+                return
+            self.update_data(payload)
+            self.system_queue.put({"type": "ui_event", "event": "update_settings", "settings": payload})
+            self.log(f"Settings updated: {payload}")
 
-        # --- bottom: readings + console (left), culture button + status matrix (right) ---
-        bottom = ctk.CTkFrame(parent, fg_color="transparent")
-        bottom.grid(row=1, column=0, sticky="nsew")
-        bottom.grid_columnconfigure(0, weight=9, uniform="bottom")
-        bottom.grid_columnconfigure(1, weight=11, uniform="bottom")
-        bottom.grid_rowconfigure(0, weight=1)
-
-        b_left = ctk.CTkFrame(bottom, fg_color="transparent")
-        b_left.grid(row=0, column=0, sticky="nsew", padx=(0, GAP // 2))
-        b_left.grid_columnconfigure(0, weight=1)
-        b_left.grid_rowconfigure((0, 1), weight=1, uniform="left")
-
-        readings = card(b_left)
-        readings.grid(row=0, column=0, sticky="nsew", pady=(0, GAP // 2))
-        readings.grid_columnconfigure(0, weight=1)
-        for i, (caption, key, unit) in enumerate(READINGS):
-            readings.grid_rowconfigure(2 * i, weight=1)
-            self._metric(readings, 2 * i, 0, caption, key, unit)
-            if i < len(READINGS) - 1:
-                ctk.CTkFrame(readings, height=1, fg_color=C_BORDER).grid(
-                    row=2 * i + 1, column=0, sticky="ew", padx=18)
-
-        console = card(b_left, fg=C_SIDEBAR)
-        console.grid(row=1, column=0, sticky="nsew", pady=(GAP // 2, 0))
-        console.grid_columnconfigure(0, weight=1)
-        console.grid_rowconfigure(0, weight=1)
-        preview = self._lbl(console, self._tail(), size=11, mono=True, color=C_MUTED, anchor="sw", justify="left")
-        preview.grid(row=0, column=0, sticky="nsew", padx=14, pady=(8, 0))
-        self.refs["console_preview"] = preview
-        prompt = self._lbl(console, CONSOLE_PROMPT, size=13, style="bold", mono=True, color=C_ACCENT)
-        prompt.grid(row=1, column=0, sticky="w", padx=14, pady=(0, 8))
-        for widget in (console, preview, prompt):
-            widget.bind("<Button-1>", lambda _e: self.router("console"))
-
-        b_right = ctk.CTkFrame(bottom, fg_color="transparent")
-        b_right.grid(row=0, column=1, sticky="nsew", padx=(GAP // 2, 0))
-        b_right.grid_columnconfigure(0, weight=1)
-        b_right.grid_rowconfigure(1, weight=1)
         ctk.CTkButton(
-            b_right, text="Change culture", width=170, height=34, corner_radius=17,
+            panel, text="Apply", width=140, height=36, corner_radius=14,
             font=self._font(13, "bold"), text_color=C_ACCENT, fg_color="transparent",
             hover_color=C_CARD_ALT, border_width=1, border_color=C_ACCENT,
-            command=lambda: self.system_queue.put({"type": "ui_event", "event": "change_culture"}),
-        ).grid(row=0, column=0, sticky="e", pady=(0, GAP))
-
-        matrix = card(b_right)
-        matrix.grid(row=1, column=0, sticky="nsew")
-        matrix.grid_columnconfigure((0, 2), weight=1, uniform="stats")
-        matrix.grid_rowconfigure((0, 1, 2), weight=1, uniform="stats_rows")
-        ctk.CTkFrame(matrix, width=1, fg_color=C_BORDER).grid(row=0, column=1, rowspan=3, sticky="ns", pady=14)
-        for col, items in zip((0, 2), STATS):
-            for row, (caption, key, unit) in enumerate(items):
-                self._metric(matrix, row, col, caption, key, unit)
-
-        self._draw_canvases()
+            command=apply_settings,
+        ).grid(row=len(fields) + 1, column=1, sticky="e", padx=20, pady=(14, 20))
 
     def consolePage(self, parent: ctk.CTkFrame) -> None:
-        """ Console page: scrollback history + command input """
+        """ Console page """
         parent.grid_columnconfigure(0, weight=1)
         parent.grid_rowconfigure(0, weight=1)
         box = ctk.CTkTextbox(parent, font=self._font(13, mono=True), fg_color=C_SIDEBAR, text_color=C_MUTED,
@@ -484,18 +441,3 @@ class App(ctk.CTk):
         box.see("end")
         box.configure(state="disabled")
         self.refs["console_box"] = box
-
-        entry = ctk.CTkEntry(parent, height=38, corner_radius=R_CARD, font=self._font(13, mono=True),
-                             fg_color=C_CARD_ALT, border_color=C_BORDER, text_color=C_ACCENT,
-                             placeholder_text=f"{CONSOLE_PROMPT}  type a command")
-        entry.grid(row=1, column=0, sticky="ew", pady=(GAP, 0))
-
-        def send(_event: Any = None) -> None:
-            cmd = entry.get().strip()
-            if cmd:
-                self.log(f"> {cmd}")
-                self.system_queue.put({"type": "ui_event", "event": "console_command", "text": cmd})
-                entry.delete(0, "end")
-
-        entry.bind("<Return>", send)
-        entry.focus()
